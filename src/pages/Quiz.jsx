@@ -73,7 +73,7 @@ const Quiz = () => {
       </ul>
 
       <button type="button" onClick={nextQuestion}>
-        Suivant
+        Suivant //
       </button>
     </div>
   );
