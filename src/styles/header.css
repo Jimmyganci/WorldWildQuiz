@@ -2,10 +2,11 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
   padding: 2em;
 }
+
 .header a {
   text-align: center;
   padding-top: 2em;
@@ -27,6 +28,7 @@
   transform: translateX(-50%);
   display: block;
 }
+
 .active:not(#nohover)::before {
   content: '';
   width: 50%;
@@ -37,6 +39,7 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
 .header a:not(#nohover):hover::after {
   width: 50%;
   background: #4ecdc4;
