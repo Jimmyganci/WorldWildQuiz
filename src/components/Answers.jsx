@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/answers.css';
 
 const Answers = (props) => {
-  const { country } = props;
-  const [isSelect, setIsSelect] = useState(false);
+  const { country, nextQuestion, challengeSwitch } = props;
 
-  const handleClick = () => {
-    setIsSelect(!isSelect);
+  const project = () => {
+    switch (challengeSwitch) {
+      case 'Capital':
+        return country.capital;
+      case 'Drapeaux':
+        return <img src={country.flag} alt={country.name} id="flagAnswer" />;
+      case 'Devise':
+        return `${country.currencies[0].code} / ${country.currencies[0].name} / ${country.currencies[0].symbol}`;
+
+      default:
+        return <h1>No project match</h1>;
+    }
   };
-  console.log(isSelect);
+
   return (
     <li className="button">
-      <button
-        className={isSelect ? 'selectAnswer' : ''}
-        onClick={handleClick}
-        type="button"
-      >
-        {country.capital}
+      <button onClick={nextQuestion} type="button">
+        {project()}
       </button>
     </li>
   );
@@ -24,6 +30,8 @@ const Answers = (props) => {
 
 Answers.propTypes = {
   country: PropTypes.element.isRequired,
+  nextQuestion: PropTypes.element.isRequired,
+  challengeSwitch: PropTypes.element.isRequired,
 };
 
 export default Answers;
