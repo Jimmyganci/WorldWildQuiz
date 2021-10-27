@@ -1,8 +1,14 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "fontTitle";
 }
 
 html {
   background: rgb(26, 83, 92);
+}
+
+@font-face {
+  font-family: "fontTitle";
+  src: url("./fonts/pathway-gothic-one-v9-latin-regular.woff2");
 }
