@@ -31,7 +31,7 @@
 
 .active:not(#nohover)::before {
   content: '';
-  width: 50%;
+  width: 30%;
   height: 3px;
   background: #4ecdc4;
   position: absolute;
