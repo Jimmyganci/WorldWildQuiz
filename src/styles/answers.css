@@ -16,8 +16,11 @@
 
 .button button:hover {
   background: rgb(255, 107, 107);
+  transform: scale(1.1);
 }
 
-.selectAnswer {
-  background: rgb(78, 205, 196) !important;
+#flagAnswer {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
 }
