@@ -11,8 +11,6 @@ const Answers = (props) => {
         return country.capital;
       case 'Drapeaux':
         return <img src={country.flag} alt={country.name} id="flagAnswer" />;
-      case 'Devise':
-        return `${country.currencies[0].code} / ${country.currencies[0].name} / ${country.currencies[0].symbol}`;
 
       default:
         return <h1>No project match</h1>;

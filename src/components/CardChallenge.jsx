@@ -18,7 +18,9 @@ const Card = (props) => {
       aria-hidden="true"
     >
       <h2>{challenge.nameRegion}</h2>
-      <img src={challenge.image} alt={challenge.nameRegion} />
+      <div className="imgQuiz">
+        <img src={challenge.image} alt={challenge.nameRegion} />
+      </div>
     </div>
   );
 };

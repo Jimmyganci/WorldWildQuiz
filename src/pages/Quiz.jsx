@@ -108,7 +108,6 @@ const Quiz = () => {
               challengeSwitch={challengeSwitch}
             />
           ))}
-
         </ul>
         <ul className="answers">
           {answerRandom.map((country) => (
@@ -121,7 +120,6 @@ const Quiz = () => {
           ))}
         </ul>
       </div>
-
     </div>
   );
 };
