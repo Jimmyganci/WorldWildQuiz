@@ -6,12 +6,14 @@
   grid-row-gap: 0;
   padding: 2em;
 }
+
 .header li {
-	list-style: none;
-	list-style: none;
-    display: flex;
-    justify-content: center;
+  list-style: none;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }
+
 .header a {
   text-align: center;
   padding-top: 2em;
