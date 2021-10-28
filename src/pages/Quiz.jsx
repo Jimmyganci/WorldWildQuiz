@@ -7,6 +7,7 @@ import Answers from '../components/Answers';
 import Questions from '../components/Questions';
 import regions from '../components/regions';
 import '../styles/quizgame.css';
+import ResultQuiz from '../components/ResultQuiz';
 
 const Quiz = () => {
   const [data, setData] = useState([]);
@@ -18,7 +19,14 @@ const Quiz = () => {
   const [regionSwitch, setRegionSwitch] = useState('');
   const [challengeSwitch, setChallengeSwitch] = useState('');
   const [isHidden, setIsHidden] = useState('region');
-  console.log(isHidden);
+  const [result, setResult] = useState([]);
+  const [resultQuestion, setResultQuestion] = useState([]);
+  const [total, setTotal] = useState(1);
+  const [capitalQuestion, setCapitalQuestion] = useState('');
+  console.log(total);
+  console.log(result);
+  console.log(resultQuestion);
+  console.log(capitalQuestion);
 
   useEffect(() => {
     if (playOnce) {
@@ -44,8 +52,6 @@ const Quiz = () => {
     sortedCountry();
   }, [data, playOnce, regionSwitch]);
 
-  console.log(sortedData);
-
   const arrayLength = sortedData.length;
 
   const shuffleArray = (array) => {
@@ -65,9 +71,16 @@ const Quiz = () => {
 
   const nextQuestion = () => {
     setCountQuestion(countQuestion + 1);
+    setCapitalQuestion(resultQuestion);
     if (countQuestion < arrayLength - 4) {
+      if (result === capitalQuestion) {
+        setTotal(total + 1);
+      }
       setSliceVal1(sliceVal1 + 1);
       setSliceVal2(sliceVal2 + 1);
+    } else {
+      setTotal(total + 1);
+      setIsHidden('result');
     }
   };
 
@@ -96,7 +109,6 @@ const Quiz = () => {
           />
         ))}
       </ul>
-      <ul />
       <div className="quizMain" id={isHidden === 'quiz' ? '' : 'hidden'}>
         <ul className="quizGame">
           {sortedData.slice(sliceVal1, sliceVal2).map((country) => (
@@ -106,6 +118,7 @@ const Quiz = () => {
               nbQuestion={sliceVal1}
               arrayLength={arrayLength}
               challengeSwitch={challengeSwitch}
+              setResultQuestion={setResultQuestion}
             />
           ))}
         </ul>
@@ -116,9 +129,13 @@ const Quiz = () => {
               key={country.name}
               nextQuestion={nextQuestion}
               challengeSwitch={challengeSwitch}
+              setResult={setResult}
             />
           ))}
         </ul>
+      </div>
+      <div className="resultQuiz" id={isHidden === 'result' ? '' : 'hidden'}>
+        <ResultQuiz total={total} />
       </div>
     </div>
   );

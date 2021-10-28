@@ -4,7 +4,14 @@
   grid-template-rows: 1fr;
   grid-column-gap: 0;
   grid-row-gap: 0;
-  padding: 2em;
+  padding: 1em;
+}
+
+.header li {
+  list-style: none;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }
 
 .header a {
@@ -16,6 +23,10 @@
   text-decoration: none;
 }
 
+.header a #text {
+  display: none;
+}
+
 .header a::after {
   transition: 0.3s ease-in-out;
   content: '';
@@ -23,25 +34,26 @@
   height: 3px;
   background: transparent;
   position: absolute;
-  top: 3.5em;
+  top: 3.3em;
   left: 50%;
   transform: translateX(-50%);
-  display: block;
+  border-radius: 3px;
 }
 
 .active:not(#nohover)::before {
   content: '';
-  width: 30%;
+  width: 85%;
   height: 3px;
   background: #4ecdc4;
   position: absolute;
-  top: 3.5em;
+  top: 3.3em;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 2px;
 }
 
 .header a:not(#nohover):hover::after {
-  width: 50%;
+  width: 85%;
   background: #4ecdc4;
 }
 
