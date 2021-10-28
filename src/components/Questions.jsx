@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import '../styles/questions.css';
 
 const Questions = (props) => {
-  const { country, nbQuestion, arrayLength, challengeSwitch } = props;
+  const {
+    country,
+    nbQuestion,
+    arrayLength,
+    challengeSwitch,
+    setResultQuestion,
+  } = props;
+  setResultQuestion(country.capital);
 
   return (
     <li className="questions">
@@ -30,6 +37,7 @@ Questions.propTypes = {
   nbQuestion: PropTypes.element.isRequired,
   arrayLength: PropTypes.element.isRequired,
   challengeSwitch: PropTypes.element.isRequired,
+  setResultQuestion: PropTypes.element.isRequired,
 };
 
 export default Questions;

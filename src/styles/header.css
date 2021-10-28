@@ -4,7 +4,7 @@
   grid-template-rows: 1fr;
   grid-column-gap: 0;
   grid-row-gap: 0;
-  padding: 2em;
+  padding: 1em;
 }
 
 .header li {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles/answers.css';
 
 const Answers = (props) => {
-  const { country, nextQuestion, challengeSwitch } = props;
+  const { country, nextQuestion, challengeSwitch, setResult } = props;
 
   const project = () => {
     switch (challengeSwitch) {
@@ -19,7 +19,14 @@ const Answers = (props) => {
 
   return (
     <li className="button">
-      <button onClick={nextQuestion} type="button">
+      <button
+        onClick={(e) => {
+          nextQuestion();
+          setResult(e.target.value);
+        }}
+        type="button"
+        value={country.capital}
+      >
         {project()}
       </button>
     </li>
@@ -30,6 +37,7 @@ Answers.propTypes = {
   country: PropTypes.element.isRequired,
   nextQuestion: PropTypes.element.isRequired,
   challengeSwitch: PropTypes.element.isRequired,
+  setResult: PropTypes.element.isRequired,
 };
 
 export default Answers;
