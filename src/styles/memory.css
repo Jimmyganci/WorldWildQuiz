@@ -1,0 +1,46 @@
+.flagsCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
+    grid-auto-flow: dense;
+    max-width: 98%;
+    max-height: 98%;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 20px;
+    object-fit: cover;
+    margin: auto;
+}
+
+.flagCard img {
+    width: 100%;
+    height: 100%;
+   }
+
+
+.flagCard {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 107, 107, 0.788);
+    border: 1px solid black;
+}
+
+.flagCard:hover {
+    transform: scale(1.10);
+}
+
+
+
+
+/* Media queries - mobile */
+@media screen and (max-width : 600px) {
+    .flagsCardsContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* création grille 4 col donc 6 lignes puisque 24 objets */
+        grid-auto-flow: dense;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-items: center;
+        grid-gap: 8px;
+    }
+}
