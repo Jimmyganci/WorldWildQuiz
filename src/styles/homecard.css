@@ -1,0 +1,56 @@
+.homecard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*  justify-content: space-around; */
+  background: rgb(255, 107, 107);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 100%;
+}
+
+.homecard:hover {
+  transform: scale(1.03);
+}
+
+.homecard h2 {
+  position: relative;
+  top: 1em;
+  letter-spacing: 3px;
+  font-size: 2em;
+}
+
+.homecard img {
+  max-width: 70%;
+  object-fit: contain;
+}
+
+.cardquizrapid {
+  display: flex;
+  align-items: center;
+  background: rgb(255, 107, 107);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 100%;
+}
+
+.cardquizrapid:hover {
+  transform: scale(1.03);
+}
+
+.cardquizrapid h2 {
+  position: relative;
+  top: -20px;
+  letter-spacing: 3px;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-right: 0.5em;
+}
+
+.cardquizrapid h3 {
+  padding-left: 0.8em;
+  font-style: italic;
+  font-size: 1.7em;
+}
