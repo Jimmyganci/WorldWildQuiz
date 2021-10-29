@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/memory.css';
+import './memory.css';
 // import MemoryCard from '../components/MemoryCard';
 
 /* eslint-disable */

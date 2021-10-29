@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/questions.css';
+import './questions.css';
 
-const Questions = (props) => {
-  const {
-    country,
-    nbQuestion,
-    arrayLength,
-    challengeSwitch,
-    setResultQuestion,
-  } = props;
+const Questions = ({
+  country,
+  nbQuestion,
+  arrayLength,
+  challengeSwitch,
+  setResultQuestion,
+}) => {
   setResultQuestion(country);
 
   return (

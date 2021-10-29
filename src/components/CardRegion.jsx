@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/card.css';
+import './card.css';
 
-const Card = (props) => {
-  const { regions, setRegionSwitch, setIsHidden } = props;
-
+const Card = ({ regions, setRegionSwitch, setIsHidden }) => {
   const handleValid = () => {
     setIsHidden('challenge');
     setRegionSwitch(regions.nameRegion !== 'Monde' ? regions.nameRegion : '');

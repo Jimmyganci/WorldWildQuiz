@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import challenge from '../components/challenge';
-import CardRegion from '../components/CardRegion';
-import CardChallenge from '../components/CardChallenge';
-import Answers from '../components/Answers';
-import Questions from '../components/Questions';
-import regions from '../components/regions';
-import '../styles/quizgame.css';
-import ResultQuiz from '../components/ResultQuiz';
+import challenge from '../challenge';
+import CardRegion from '../CardRegion';
+import CardChallenge from '../CardChallenge';
+import Answers from '../Answers';
+import Questions from '../Questions';
+import regions from '../regions';
+import './quizgame.css';
+import ResultQuiz from '../ResultQuiz';
 
 const Quiz = () => {
   const [data, setData] = useState([]);
-  const [playOnce, setPlayOnce] = useState(true);
+  const [playOnce, setPlayOnce] = useState(true); // gere l'appel API pour eviter l'appel en boucle
   const [sortedData, setSortedData] = useState([]);
   const [sliceVal1, setSliceVal1] = useState(0);
   const [sliceVal2, setSliceVal2] = useState(1);
