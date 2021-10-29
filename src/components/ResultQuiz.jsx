@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './resultquiz.css';
 
-const ResultQuiz = (props) => {
-  const { total, showResponse, challengeSwitch } = props;
-  const [filterCorrection, setFilterCorrection] = useState();
+const ResultQuiz = ({ total, showResponse, challengeSwitch }) => {
+  const [filterCorrection, setFilterCorrection] = useState('');
   const [showCorrection, setShowCorrection] = useState(false);
   let insensibleCasse = '';
 

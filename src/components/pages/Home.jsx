@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeCard from '../HomeCard';
-import gameType from '../gameType';
+import gameType from '../../gameType';
 import CardQuizRapid from '../CardQuizRapid';
 import './home.css';
 
