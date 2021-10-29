@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import challenge from '../challenge';
+import challenge from '../../challenge';
 import CardRegion from '../CardRegion';
 import CardChallenge from '../CardChallenge';
 import Answers from '../Answers';
 import Questions from '../Questions';
-import regions from '../regions';
+import regions from '../../regions';
 import './quizgame.css';
 import ResultQuiz from '../ResultQuiz';
 
