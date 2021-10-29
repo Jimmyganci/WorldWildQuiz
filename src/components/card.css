@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  background: rgb(255, 107, 107);
+  border-radius: 30px;
+  height: 200px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card h2 {
+  letter-spacing: 3px;
+}
+
+.card img {
+  width: 160px;
+  height: 200px;
+  object-fit: contain;
+}
