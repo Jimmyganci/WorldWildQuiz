@@ -1,3 +1,88 @@
+.resultQuizContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultQuiz {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .resultQuiz h5 {
   font-size: 2em;
+  margin: 2em;
+}
+
+.gridResultQuiz {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense;
+  width: 70%;
+  gap: 10px;
+  margin: 0 0 50px 0;
+  padding: 1em;
+}
+
+.gridResultQuiz p {
+  text-align: center;
+}
+
+.gridResultQuiz p:nth-child(1) {
+  grid-area: 1/1/2/3;
+  font-size: 1.5em;
+}
+
+.gridResultQuiz p:nth-child(2) {
+  grid-area: 2/1/3/3;
+  background: rgb(255, 107, 107);
+  padding: 40px 0;
+  border-radius: 40px;
+}
+
+.gridResultQuiz p:nth-child(3) {
+  grid-area: 3/1;
+  color: red;
+}
+
+.gridResultQuiz p:nth-child(4) {
+  grid-area: 4/1;
+}
+
+.gridResultQuiz p:nth-child(5) {
+  grid-area: 3/2;
+  color:  rgb(91, 189, 91);
+}
+
+.gridResultQuiz p:nth-child(6) {
+  grid-area: 4/2;
+  
+}
+
+.gridResultQuiz p:nth-child(4),
+.gridResultQuiz p:nth-child(6) {
+  padding: 1em;
+  border-radius: 50px;
+  background: rgb(255, 107, 107);
+}
+
+.isHidden {
+  display: none !important;
+}
+
+#btnCorrection {
+  margin: 0 0 1em 0;
+}
+
+.labelCorrection {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

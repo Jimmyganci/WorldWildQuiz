@@ -19,14 +19,12 @@ const Quiz = () => {
   const [regionSwitch, setRegionSwitch] = useState('');
   const [challengeSwitch, setChallengeSwitch] = useState('');
   const [isHidden, setIsHidden] = useState('region');
-  const [result, setResult] = useState([]);
-  const [resultQuestion, setResultQuestion] = useState([]);
   const [total, setTotal] = useState(1);
-  const [capitalQuestion, setCapitalQuestion] = useState('');
-  console.log(total);
-  console.log(result);
-  console.log(resultQuestion);
-  console.log(capitalQuestion);
+  const [resultAnswer, setResultAnswer] = useState([]); // affiche la réponse selectionné
+  const [resultQuestion, setResultQuestion] = useState([]); // affiche l'objet de la question affiché
+  const [capitalQuestion, setCapitalQuestion] = useState(''); // affiche l'objet selectionné de la question
+  const [showResponse, setShowResponse] = useState([]);
+  const arrayLength = sortedData.length;
 
   useEffect(() => {
     if (playOnce) {
@@ -52,8 +50,6 @@ const Quiz = () => {
     sortedCountry();
   }, [data, playOnce, regionSwitch]);
 
-  const arrayLength = sortedData.length;
-
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
@@ -66,15 +62,26 @@ const Quiz = () => {
   };
 
   const answerRandom = sortedData.slice(sliceVal1, sliceVal2 + 3);
-
   shuffleArray(answerRandom);
 
   const nextQuestion = () => {
     setCountQuestion(countQuestion + 1);
     setCapitalQuestion(resultQuestion);
     if (countQuestion < arrayLength - 4) {
-      if (result === capitalQuestion) {
+      if (
+        resultAnswer === capitalQuestion.capital ||
+        resultAnswer === capitalQuestion.flag
+      ) {
         setTotal(total + 1);
+      } else {
+        let result = [];
+        result = {
+          name: capitalQuestion.name,
+          capital: capitalQuestion.capital,
+          answer: resultAnswer,
+          flag: capitalQuestion.flag,
+        };
+        setShowResponse([...showResponse, result]);
       }
       setSliceVal1(sliceVal1 + 1);
       setSliceVal2(sliceVal2 + 1);
@@ -129,13 +136,21 @@ const Quiz = () => {
               key={country.name}
               nextQuestion={nextQuestion}
               challengeSwitch={challengeSwitch}
-              setResult={setResult}
+              setResultAnswer={setResultAnswer}
             />
           ))}
         </ul>
       </div>
-      <div className="resultQuiz" id={isHidden === 'result' ? '' : 'hidden'}>
-        <ResultQuiz total={total} />
+      <div
+        className="resultQuizContainer"
+        id={isHidden === 'result' ? '' : 'hidden'}
+      >
+        <ResultQuiz
+          total={total}
+          key={capitalQuestion.name}
+          showResponse={showResponse}
+          challengeSwitch={challengeSwitch}
+        />
       </div>
     </div>
   );
