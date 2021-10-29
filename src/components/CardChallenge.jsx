@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/card.css';
+import './card.css';
 
-const Card = (props) => {
-  const { challenge, setChallengeSwitch, setIsHidden } = props;
-
+const Card = ({ challenge, setChallengeSwitch, setIsHidden }) => {
   const handleValid = () => {
     setIsHidden('quiz');
     setChallengeSwitch(challenge.nameRegion);

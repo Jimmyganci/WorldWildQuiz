@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import '../styles/culture.css';
+import './culture.css';
 
 const Culture = () => {
   const [allCountries, setAllCountries] = useState([]);

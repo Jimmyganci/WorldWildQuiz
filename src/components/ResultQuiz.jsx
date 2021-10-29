@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/resultquiz.css';
+import './resultquiz.css';
 
 const ResultQuiz = (props) => {
   const { total, showResponse, challengeSwitch } = props;
