@@ -14,7 +14,7 @@ const ResultQuiz = (props) => {
   }
 
   const showResultFinal = showResponse.filter((el) => el.name !== undefined);
-
+  //   console.log(showResultFinal[0].translation.fr);
   return (
     <div className="resultQuiz">
       <h5>Votre score est de : {total > 1 ? total : ''} </h5>
@@ -45,7 +45,8 @@ const ResultQuiz = (props) => {
         .filter((elem) =>
           filterCorrection
             ? elem.name.includes(insensibleCasse) ||
-              elem.answer.includes(insensibleCasse)
+              elem.answer.includes(insensibleCasse) ||
+              elem.translation.fr.includes(insensibleCasse)
             : elem
         )
         .map((el) => (
