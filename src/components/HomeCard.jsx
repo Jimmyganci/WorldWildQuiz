@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './homecard.css';
 
-import './gameType';
+import '../gameType';
 
-const HomeCard = (props) => {
-  const { gameType } = props;
-
+const HomeCard = ({ gameType }) => {
   return (
     <div className="homecard">
       <h2>{gameType.name}</h2>
