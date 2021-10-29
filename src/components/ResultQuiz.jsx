@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../styles/resultquiz.css';
+import './resultquiz.css';
 
 const ResultQuiz = (props) => {
   const { total, showResponse, challengeSwitch } = props;
@@ -45,7 +45,8 @@ const ResultQuiz = (props) => {
         .filter((elem) =>
           filterCorrection
             ? elem.name.includes(insensibleCasse) ||
-              elem.answer.includes(insensibleCasse)
+              elem.answer.includes(insensibleCasse) ||
+              elem.translation.fr.includes(insensibleCasse)
             : elem
         )
         .map((el) => (

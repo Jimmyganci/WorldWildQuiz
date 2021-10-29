@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/answers.css';
+import './answers.css';
 
-const Answers = (props) => {
-  const { country, nextQuestion, challengeSwitch, setResultAnswer } = props;
-
+const Answers = ({
+  country,
+  nextQuestion,
+  challengeSwitch,
+  setResultAnswer,
+}) => {
   const project = () => {
     switch (challengeSwitch) {
       case 'Capital':
