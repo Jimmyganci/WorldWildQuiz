@@ -31,7 +31,11 @@ const Culture = () => {
           value={searchCountry}
           onChange={(e) => setSearchCountry(e.target.value)}
         />
-        <button type="button" onClick={() => setValueQuery(searchCountry)}>
+        <button
+          type="button"
+          id="buttonCulture"
+          onClick={() => setValueQuery(searchCountry)}
+        >
           CHERCHER
         </button>
       </form>
