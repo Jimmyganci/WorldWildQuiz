@@ -29,6 +29,7 @@
 .cardquizrapid {
   display: flex;
   align-items: center;
+  justify-content: center;
   background: rgb(255, 107, 107);
   border-radius: 30px;
   cursor: pointer;
@@ -42,15 +43,16 @@
 
 .cardquizrapid h2 {
   position: relative;
-  top: -20px;
+  top: -30px;
   letter-spacing: 3px;
   font-size: 2em;
-  padding-left: 1em;
   padding-right: 0.5em;
 }
 
 .cardquizrapid h3 {
-  padding-left: 0.8em;
+  position: relative;
+  bottom: -20px;
+  padding-left: 1em;
   font-style: italic;
   font-size: 1.7em;
 }
