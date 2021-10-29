@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './memory.css';
+// import MemoryCard from '../components/MemoryCard';
 
 /* eslint-disable */
 
@@ -8,8 +10,12 @@ const Memory = () => {
     const [playOnce, setPlayOnce] = useState(true);
     const [flagArray, setFlagArray] = useState([]);
     const limitFlag = []
+    const [isActive, setIsActive] = useState(false);
+
+    
 
     useEffect(() => {
+
         if (playOnce) {
           axios
             .get(
@@ -36,12 +42,20 @@ const Memory = () => {
         flagArray.map((el) => limitFlag.push(el));
     }
     console.log(limitFlag)
+
+    const handleToggle = () => {
+      setIsActive(true);
+    }
+
+    console.log(isActive);
  
     
     return (
         <div className="flagsCardsContainer">
             {limitFlag.map((country, key) => (
-                <div className = "card">
+              
+                <div className={isActive ? "activeFlagCard" : "flagCard"} onClick={() => handleToggle}>
+                  {/* <MemoryCard key={key} url={country.flag} name={country.name}/> */}
                     <img key={key} src={country.flag} alt={country.name} />
                 </div>
                 ))}

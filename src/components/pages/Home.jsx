@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import HomeCard from '../components/HomeCard';
-import gameType from '../components/gameType';
-import CardQuizRapid from '../components/CardQuizRapid';
-import '../styles/home.css';
+import HomeCard from '../HomeCard';
+import gameType from '../gameType';
+import CardQuizRapid from '../CardQuizRapid';
+import './home.css';
 
 const Home = () => {
   return (

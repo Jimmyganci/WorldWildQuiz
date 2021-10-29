@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/questions.css';
+import './questions.css';
 
-const Questions = (props) => {
-  const {
-    country,
-    nbQuestion,
-    arrayLength,
-    challengeSwitch,
-    setResultQuestion,
-  } = props;
-  setResultQuestion(country.capital);
+const Questions = ({
+  country,
+  nbQuestion,
+  arrayLength,
+  challengeSwitch,
+  setResultQuestion,
+}) => {
+  setResultQuestion(country);
 
   return (
     <li className="questions">
@@ -18,7 +17,10 @@ const Questions = (props) => {
         <h3>
           Questions {nbQuestion + 1}/{arrayLength - 3}
         </h3>
-        <p>What is the capital of {country.name} ?</p>
+        <p>
+          What is the {challengeSwitch === 'Drapeaux' ? 'flag' : 'capital'} of{' '}
+          {country.name} ?
+        </p>
       </div>
 
       <div className="img">
