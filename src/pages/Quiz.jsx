@@ -30,7 +30,7 @@ const Quiz = () => {
     if (playOnce) {
       axios
         .get(
-          `https://restcountries.com/v2/all?fields=name,capital,currencies,flag,population,region`
+          `https://restcountries.com/v2/all?fields=name,capital,translations,flag,population,region`
         )
         .then((res) => {
           setData(res.data);
@@ -77,6 +77,7 @@ const Quiz = () => {
         let result = [];
         result = {
           name: capitalQuestion.name,
+          translation: capitalQuestion.translations,
           capital: capitalQuestion.capital,
           answer: resultAnswer,
           flag: capitalQuestion.flag,

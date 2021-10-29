@@ -56,12 +56,11 @@
 
 .gridResultQuiz p:nth-child(5) {
   grid-area: 3/2;
-  color:  rgb(91, 189, 91);
+  color: rgb(91, 189, 91);
 }
 
 .gridResultQuiz p:nth-child(6) {
   grid-area: 4/2;
-  
 }
 
 .gridResultQuiz p:nth-child(4),
