@@ -12,8 +12,6 @@ const Memory = () => {
     const limitFlag = [];
     const [isActive, setIsActive] = useState(false);
 
-    
-
     useEffect(() => {
 
         if (playOnce) {
@@ -41,14 +39,10 @@ const Memory = () => {
         
         flagArray.map((el) => limitFlag.push(el));
     }
-    console.log(limitFlag)
 
     const handleToggle = () => {
       setIsActive(true);
     }
-
-    console.log(isActive);
- 
     
     return (
         <div className="flagsCardsContainer">
