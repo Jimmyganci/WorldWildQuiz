@@ -9,7 +9,7 @@ const Memory = () => {
     const [data, setData] = useState([]);
     const [playOnce, setPlayOnce] = useState(true);
     const [flagArray, setFlagArray] = useState([]);
-    const limitFlag = []
+    const limitFlag = [];
     const [isActive, setIsActive] = useState(false);
 
     
