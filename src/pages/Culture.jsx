@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import '../styles/culture.css';
 
-const SearchCulture = () => {
+const Culture = () => {
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
   const [valueQuery, setValueQuery] = useState('');
@@ -57,4 +57,4 @@ const SearchCulture = () => {
   );
 };
 
-export default SearchCulture;
+export default Culture;

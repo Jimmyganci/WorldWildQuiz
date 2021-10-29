@@ -12,10 +12,15 @@
 }
 
 .card:hover {
-  transform: scale(1.07);
+  transform: scale(1.03);
+}
+
+.card h2 {
+  letter-spacing: 3px;
 }
 
 .card img {
-  width: 120px;
-  height: auto;
+  width: 160px;
+  height: 200px;
+  object-fit: contain;
 }

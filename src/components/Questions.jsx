@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import '../styles/questions.css';
 
 const Questions = (props) => {
-  const { country, nbQuestion, arrayLength, challengeSwitch } = props;
+  const {
+    country,
+    nbQuestion,
+    arrayLength,
+    challengeSwitch,
+    setResultQuestion,
+  } = props;
+  setResultQuestion(country);
 
   return (
     <li className="questions">
@@ -11,7 +18,10 @@ const Questions = (props) => {
         <h3>
           Questions {nbQuestion + 1}/{arrayLength - 3}
         </h3>
-        <p>What is the capital of {country.name} ?</p>
+        <p>
+          What is the {challengeSwitch === 'Drapeaux' ? 'flag' : 'capital'} of{' '}
+          {country.name} ?
+        </p>
       </div>
 
       <div className="img">
@@ -30,6 +40,7 @@ Questions.propTypes = {
   nbQuestion: PropTypes.element.isRequired,
   arrayLength: PropTypes.element.isRequired,
   challengeSwitch: PropTypes.element.isRequired,
+  setResultQuestion: PropTypes.element.isRequired,
 };
 
 export default Questions;
