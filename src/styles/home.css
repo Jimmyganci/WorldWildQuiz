@@ -19,21 +19,21 @@
   max-height: 500px;
 }
 
-#homequizcard {
+.homeQuizCard {
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 3;
 }
 
-#homememorycard {
+.homeMemoryCard {
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 3;
 }
 
-#homequizrapidcard {
+.homeQuizRapidCard {
   width: 100%;
   height: 100%;
   grid-column-start: 1;
@@ -42,9 +42,18 @@
   grid-row-end: 4;
 }
 
-#homeH1 {
+.homeH1 {
   display: flex;
   justify-items: center;
   justify-content: center;
   font-size: 3em;
+}
+
+.linkDiv {
+  text-decoration: none;
+  color: inherit;
+}
+.linkDiv:focus:hover:visited:link:active {
+  text-decoration: none;
+  color: inherit;
 }
