@@ -53,6 +53,7 @@
   text-decoration: none;
   color: inherit;
 }
+
 .linkDiv:focus:hover:visited:link:active {
   text-decoration: none;
   color: inherit;

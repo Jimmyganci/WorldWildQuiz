@@ -19,8 +19,27 @@
   transform: scale(1.1);
 }
 
+.buttonFlag {
+  transition: 0.3s ease-in-out;
+  margin: 0 0 0.5em 0;
+}
+
+.buttonFlag:hover {
+  transform: scale(1.1);
+}
+
+.buttonFlag img {
+  border-radius: 20px;
+}
+
+.buttonFlag button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 #flagAnswer {
-  width: 100%;
+  width: 200px;
   height: 100px;
-  object-fit: contain;
+  object-fit: cover;
 }
