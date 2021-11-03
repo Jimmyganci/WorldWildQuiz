@@ -45,7 +45,7 @@ const Culture = () => {
           <div>
             <ul className="cultureCard">
               <h3>Informations :</h3>
-              Pays: {country.name} <br />
+              Pays: {country.translations.fr} <br />
               Capitale: {country.capital} <br />
               Continent: {country.region} <br />
               Population: {country.population} <br />
