@@ -22,9 +22,9 @@ const Card = ({ regions, setRegionSwitch, setIsHidden }) => {
 };
 
 Card.propTypes = {
-  regions: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  setRegionSwitch: PropTypes.func.isRequired,
-  setIsHidden: PropTypes.func.isRequired,
+  regions: PropTypes.element.isRequired,
+  setRegionSwitch: PropTypes.element.isRequired,
+  setIsHidden: PropTypes.element.isRequired,
 };
 
 export default Card;

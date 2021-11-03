@@ -16,7 +16,7 @@
 
 .resultQuiz h5 {
   font-size: 2em;
-  margin: 2em 0 0;
+  margin: 2em;
 }
 
 .gridResultQuiz {
@@ -84,50 +84,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.registerModal {
-  position: fixed;
-  bottom: 2%;
-  background: rgb(255, 107, 107);
-  border-radius: 50px;
-  width: 80%;
-  transition-delay: 0.7s;
-  transition: 0.7s ease-in-out;
-}
-
-.isHiddenDown {
-  transform: translateY(100vh);
-}
-
-.showRegister {
-  transform: translateY(0);
-}
-
-.registerBtn {
-  background: transparent;
-  border: none;
-  margin-bottom: 1em;
-  cursor: pointer;
-  text-decoration: underline;
-  transition: 0.3s ease-in-out;
-}
-
-.registerBtn:hover {
-  letter-spacing: 1px;
-}
-
-.noThanks {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-
-.noThanks:hover {
-  letter-spacing: 1px;
-}
-
-.userFormRegister h2 {
-  margin-bottom: 0.3em;
 }
