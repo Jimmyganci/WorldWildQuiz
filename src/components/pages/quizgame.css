@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 }
 
 .quizGame {
@@ -48,15 +49,4 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-}
-
-.restartContainer {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin: 2em 0;
-}
-
-.restartContainer button {
-  margin: 0 1em;
 }

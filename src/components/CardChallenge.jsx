@@ -24,9 +24,9 @@ const Card = ({ challenge, setChallengeSwitch, setIsHidden }) => {
 };
 
 Card.propTypes = {
-  challenge: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  setChallengeSwitch: PropTypes.func.isRequired,
-  setIsHidden: PropTypes.func.isRequired,
+  challenge: PropTypes.element.isRequired,
+  setChallengeSwitch: PropTypes.element.isRequired,
+  setIsHidden: PropTypes.element.isRequired,
 };
 
 export default Card;
