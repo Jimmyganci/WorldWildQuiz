@@ -1,5 +1,6 @@
 {
   "name": "worldwildquiz",
+  "proxy": "http://localhost:8000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +8,10 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.23.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql": "^2.18.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -19,7 +24,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx --fix src/ && stylelint **.css --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "server": "nodemon -r dotenv/config ./src/connexion.js",
+    "client": "react-scripts start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +59,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.3",
+    "nodemon": "^2.0.14",
     "prettier": "2.4.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"

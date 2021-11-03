@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './resultquiz.css';
+import axios from 'axios';
 
-const ResultQuiz = ({ total, showResponse, challengeSwitch }) => {
+const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
   const [filterCorrection, setFilterCorrection] = useState('');
   const [showCorrection, setShowCorrection] = useState(false);
+  const [user, setUser] = useState('');
+  const [isHiddenRegister, setIsHiddenRegister] = useState(false);
   let insensibleCasse = '';
 
   if (filterCorrection) {
@@ -14,9 +17,36 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch }) => {
 
   const showResultFinal = showResponse.filter((el) => el.name !== undefined);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // On submit of the form, send a POST request with the data to the server.
+    axios
+      .post('/api/users', {
+        pseudo: user,
+        score: total,
+        game: challengeSwitch,
+        region: regionSwitch,
+      })
+      .then((response) => {
+        return response;
+      });
+    setIsHiddenRegister(true);
+  };
+
+  const handleCloseRegister = () => {
+    setIsHiddenRegister(!isHiddenRegister);
+  };
+
   return (
     <div className="resultQuiz">
       <h5>Votre score est de : {total > 1 ? total : ''} </h5>
+      <button
+        className="registerBtn"
+        type="button"
+        onClick={handleCloseRegister}
+      >
+        {isHiddenRegister ? 'Register my Score' : 'Not register my score'}
+      </button>
       <button
         id="btnCorrection"
         className="btn"
@@ -50,6 +80,7 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch }) => {
         )
         .map((el) => (
           <div
+            key={el.name}
             className={
               showCorrection ? 'gridResultQuiz' : 'gridResultQuiz isHidden'
             }
@@ -78,14 +109,44 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch }) => {
             </p>
           </div>
         ))}
+      <div
+        className={
+          isHiddenRegister
+            ? 'isHiddenDown registerModal '
+            : ' showRegister registerModal'
+        }
+      >
+        <form className="userFormRegister" onSubmit={handleSubmit}>
+          <h2>Register your score</h2>
+          <label htmlFor="users">
+            <input
+              placeholder="Enter your Username..."
+              className="inpt"
+              type="text"
+              onChange={(e) => setUser(e.target.value)}
+            />
+          </label>
+          <button className="btn" type="submit">
+            Register
+          </button>
+        </form>
+        <button
+          className="noThanks"
+          type="button"
+          onClick={handleCloseRegister}
+        >
+          No thanks
+        </button>
+      </div>
     </div>
   );
 };
 
 ResultQuiz.propTypes = {
-  total: PropTypes.element.isRequired,
-  showResponse: PropTypes.element.isRequired,
-  challengeSwitch: PropTypes.element.isRequired,
+  total: PropTypes.number.isRequired,
+  showResponse: PropTypes.arrayOf(PropTypes.object).isRequired,
+  challengeSwitch: PropTypes.string.isRequired,
+  regionSwitch: PropTypes.string.isRequired,
 };
 
 export default ResultQuiz;
