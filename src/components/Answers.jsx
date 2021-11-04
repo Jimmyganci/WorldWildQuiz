@@ -22,7 +22,7 @@ const Answers = ({
   };
 
   return (
-    <li className={challengeSwitch === 'Capital' ? 'button' : 'buttonFlag'}>
+    <li className="button">
       <button
         onClick={(e) => {
           nextQuestion();
@@ -40,10 +40,10 @@ const Answers = ({
 };
 
 Answers.propTypes = {
-  country: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  nextQuestion: PropTypes.func.isRequired,
-  challengeSwitch: PropTypes.string.isRequired,
-  setResultAnswer: PropTypes.func.isRequired,
+  country: PropTypes.element.isRequired,
+  nextQuestion: PropTypes.element.isRequired,
+  challengeSwitch: PropTypes.element.isRequired,
+  setResultAnswer: PropTypes.element.isRequired,
 };
 
 export default Answers;

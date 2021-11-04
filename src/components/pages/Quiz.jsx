@@ -7,7 +7,7 @@ import CardChallenge from '../CardChallenge';
 import Answers from '../Answers';
 import Questions from '../Questions';
 import regions from '../../regions';
-import './quiz.css';
+import './quizgame.css';
 import ResultQuiz from '../ResultQuiz';
 
 const Quiz = () => {
@@ -177,7 +177,6 @@ const Quiz = () => {
           key={capitalQuestion.name}
           showResponse={showResponse}
           challengeSwitch={challengeSwitch}
-          regionSwitch={regionSwitch}
         />
       </div>
       {/* Button pour changer de continent, de challenge ou pour recommencer le jeu */}
