@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import './resultquiz.css';
 
 
+
 const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
   const [filterCorrection, setFilterCorrection] = useState(''); // récupère la valeur de l'input
   const [showCorrection, setShowCorrection] = useState(false); // permet d'afficher ou non la correction
   const [user, setUser] = useState(''); // permet d'enregistrer un user
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
+
 
 
   let insensibleCasse = '';
@@ -18,6 +20,7 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
   }
 
   const showResultFinal = showResponse.filter((el) => el.name !== undefined); // j'élimine les corrections qui pourrait être undefined
+
 
 
   const handleSubmit = (e) => {
