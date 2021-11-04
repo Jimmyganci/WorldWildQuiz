@@ -1,7 +1,8 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import './classement.css';
 
 const Classements = () => {
-
   const [playOnce, setPlayOnce] = useState(true);
   const [dataBase, setDataBase] = useState([]); // variable d'état du resultat de l'appel a la BDD
 
@@ -14,9 +15,8 @@ const Classements = () => {
     }
   }, [dataBase]);
 
-
   return (
-    <div>
+    <div className="classement">
       <h1>Classements</h1>
       <ul className="headClassement">
         <li>Pseudo</li>
