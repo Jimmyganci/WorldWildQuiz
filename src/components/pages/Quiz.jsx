@@ -90,7 +90,7 @@ const Quiz = () => {
         resultAnswer === capitalQuestion.capital ||
         resultAnswer === capitalQuestion.flag
       ) {
-        setTotal(total + 1); // j'incrémente total
+        setTotal(total + 1);
       } else {
         let result = []; // créer un nouveau tableau que j'ajoute dans mon state showResponse pour afficher la correction
         result = {
