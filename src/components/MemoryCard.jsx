@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import './memoryCard.css';
 
-/* eslint-disable */
+const MemoryCard = ({ country }) => {
+  const [isActive, setIsActive] = useState(false);
+  const [flagValue, setFlagValue] = useState([]);
+  const handleToggle = () => {
+    let result = [];
+    result = { flag: country.flag };
+    setIsActive(true);
+    setFlagValue([...flagValue, result]);
+  };
+  console.log(flagValue);
 
-const MemoryCard = ({ country, handleToggle }) => {
   return (
-    <img
-      height="200"
-      width="200"
-      src={country.flag}
-      alt={country.name}
+    <div
+      className={
+        isActive
+          ? 'activeFlagCard containerImagesMemory'
+          : 'containerImagesMemory'
+      }
       onClick={handleToggle}
-    />
+      onKeyDown={handleToggle}
+      aria-hidden="true"
+    >
+      <img className="flagCard" src={country.flag} alt={country.name} />
+    </div>
   );
 };
 
 MemoryCard.propTypes = {
-  country: PropTypes.element.isRequired,
-  handleToggle: PropTypes.element.isRequired,
+  country: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  // handleToggle: PropTypes.func.isRequired,
 };
 
 export default MemoryCard;
-/* eslint-enable */

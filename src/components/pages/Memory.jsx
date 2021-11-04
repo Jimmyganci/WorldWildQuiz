@@ -8,7 +8,18 @@ const Memory = () => {
   const [playOnce, setPlayOnce] = useState(true);
   const [flagArray, setFlagArray] = useState([]);
   const limitFlag = [];
-  const [isActive, setIsActive] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
+
+  const shuffleArray = (array) => {
+    const array2 = array;
+    for (let i = array2.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array2[i];
+      array2[i] = array2[j];
+      array2[j] = temp;
+    }
+    return array2;
+  };
 
   useEffect(() => {
     if (playOnce) {
@@ -21,11 +32,14 @@ const Memory = () => {
     }
     const sortedCountry = () => {
       const countryObj = Object.keys(data).map((i) => data[i]);
+
+      shuffleArray(countryObj);
       const sortedArray = countryObj
         .sort((a, b) => {
           return b.population - a.population;
         })
         .slice(0, 12);
+      console.log(countryObj);
       setFlagArray(sortedArray);
     };
     sortedCountry();
@@ -34,21 +48,13 @@ const Memory = () => {
   for (let i = 0; i < 2; i += 1) {
     flagArray.map((el) => limitFlag.push(el));
   }
-
-  const handleToggle = () => {
-    setIsActive(true);
-    console.log(isActive);
-  };
+  shuffleArray(limitFlag);
 
   return (
     <div className="flagsCardsContainer">
       {limitFlag.map((country) => (
-        <div className={isActive ? 'activeFlagCard' : 'flagCard'}>
-          <MemoryCard
-            key={country.name}
-            country={country}
-            handleToggle={handleToggle}
-          />
+        <div className="memoryComposant">
+          <MemoryCard key={country.name} country={country} />
         </div>
       ))}
     </div>
