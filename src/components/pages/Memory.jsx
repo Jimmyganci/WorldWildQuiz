@@ -51,12 +51,15 @@ const Memory = () => {
   shuffleArray(limitFlag);
 
   return (
-    <div className="flagsCardsContainer">
-      {limitFlag.map((country) => (
-        <div className="memoryComposant">
-          <MemoryCard key={country.name} country={country} />
-        </div>
-      ))}
+    <div className="memoryGameContainer">
+      <h1>Score : </h1>
+      <div className="flagsCardsContainer">
+        {limitFlag.map((country) => (
+          <div className="memoryComposant">
+            <MemoryCard key={country.name} country={country} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

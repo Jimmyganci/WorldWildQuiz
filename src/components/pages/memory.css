@@ -1,8 +1,6 @@
 .flagsCardsContainer {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
-
-  /* grid-auto-flow: dense; */
   width: 98%;
   height: 98%;
   align-items: center;
@@ -11,29 +9,8 @@
   margin: auto;
 }
 
-<<<<<<< head ======= .flagCard img {
-  width: 100%;
-  height: 100%;
-
-  /* visibility: hidden; */
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.flagCard {
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 107, 107, 0.788);
-  border-radius: 10px;
-  transition: 0.3s ease-in-out;
-}
-
-.flagCard:hover {
-  transform: scale(1.1);
-}
-
->>>>>>> parent of 09e06e9 (added backend classement and added restart game region,
-challenge and this game) @media screen and (max-width: 600px) {
+/* Media queries - mobile */
+@media screen and (max-width: 600px) {
   .flagsCardsContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* création grille 4 col donc 6 lignes puisque 24 objets */
