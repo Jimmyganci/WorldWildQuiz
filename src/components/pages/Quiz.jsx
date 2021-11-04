@@ -25,13 +25,10 @@ const Quiz = () => {
   const [resultQuestion, setResultQuestion] = useState([]); // affiche l'objet de la question affiché
   const [capitalQuestion, setCapitalQuestion] = useState(''); // affiche l'objet selectionné de la question
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
-  const [difficult, setDifficult] = useState(); // récupère un tableau de réponses érronées
+  const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
-  //   const wordArrayDifficult = [];
-  console.log(difficult);
-  console.log(regionSwitch);
 
-  // Applique un random sur les réponses
+  // Applique un random sur les tableaux en parametre
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
@@ -141,7 +138,7 @@ const Quiz = () => {
           isHidden === 'challenge' && regionSwitch === 'Monde' ? '' : 'hidden'
         }
       >
-        <Difficult setDifficult={setDifficult} />
+        <Difficult setDifficult={setDifficult} difficult={difficult} />
       </div>
       <div className="quizMain" id={isHidden === 'quiz' ? '' : 'hidden'}>
         <ul className="quizGame">

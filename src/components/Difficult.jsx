@@ -4,7 +4,10 @@ import './difficult.css';
 
 const Difficult = ({ setDifficult }) => {
   return (
-    <div className="checkDifficult">
+    <div
+      className="checkDifficult"
+      onChange={(e) => setDifficult(e.target.value)}
+    >
       <h2>Difficultés</h2>
       <form>
         <div className="checkBox">
@@ -15,7 +18,6 @@ const Difficult = ({ setDifficult }) => {
               className="radioDifficult"
               id="easy"
               value="easy"
-              onChange={(e) => setDifficult(e.target.value)}
             />
             Facile
           </label>
@@ -26,7 +28,7 @@ const Difficult = ({ setDifficult }) => {
               className="radioDifficult"
               id="medium"
               value="medium"
-              onChange={(e) => setDifficult(e.target.value)}
+              defaultChecked
             />
             Moyen
           </label>
@@ -37,7 +39,6 @@ const Difficult = ({ setDifficult }) => {
               className="radioDifficult"
               id="hard"
               value="hard"
-              onChange={(e) => setDifficult(e.target.value)}
             />
             Difficile
           </label>
@@ -49,6 +50,7 @@ const Difficult = ({ setDifficult }) => {
 
 Difficult.propTypes = {
   setDifficult: PropTypes.func.isRequired,
+  //   difficult: PropTypes.string.isRequired,
 };
 
 export default Difficult;
