@@ -1,6 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import './classement.css';
+import React from 'react';
 
 const Classements = () => {
   const [playOnce, setPlayOnce] = useState(true);
@@ -16,7 +14,7 @@ const Classements = () => {
   }, [dataBase]);
 
   return (
-    <div className="classement">
+    <div>
       <h1>Classements</h1>
       <ul className="headClassement">
         <li>Pseudo</li>
