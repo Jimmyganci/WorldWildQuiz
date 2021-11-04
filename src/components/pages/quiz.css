@@ -60,3 +60,10 @@
 .restartContainer button {
   margin: 0 1em;
 }
+
+.containerDifficult {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
