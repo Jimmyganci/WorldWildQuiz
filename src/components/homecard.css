@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  /*  justify-content: space-around; */
+  justify-content: space-around;
   background: rgb(255, 107, 107);
   border-radius: 30px;
   cursor: pointer;
@@ -27,7 +26,7 @@
   object-fit: contain;
 }
 
-.cardquizrapid {
+.cardQuizRapid {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,11 +37,11 @@
   height: 100%;
 }
 
-.cardquizrapid:hover {
+.cardQuizRapid:hover {
   transform: scale(1.03);
 }
 
-.cardquizrapid h2 {
+.cardQuizRapid h2 {
   position: relative;
   top: -30px;
   letter-spacing: 3px;
@@ -50,10 +49,65 @@
   padding-right: 0.5em;
 }
 
-.cardquizrapid h3 {
+.cardQuizRapid h3 {
   position: relative;
   bottom: -20px;
   padding-left: 1em;
   font-style: italic;
   font-size: 1.7em;
+}
+
+.cardCultureHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 107, 107);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  height: 100%;
+}
+.cardCultureHome img {
+  width: 200px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.cardCultureHome:hover {
+  transform: scale(1.03);
+}
+
+.cardCultureHome h2 {
+  position: relative;
+  letter-spacing: 3px;
+  font-size: 2em;
+}
+
+.cardCultureHome h3 {
+  position: relative;
+
+  font-style: italic;
+  font-size: 1.7em;
+}
+
+@media screen and (max-width: 700px) {
+  .cardQuizRapid h2 {
+    letter-spacing: 3px;
+    position: initial;
+    padding-right: 0.5em;
+  }
+
+  .cardQuizRapid h3 {
+    position: initial;
+    padding-left: 0.5em;
+    font-style: italic;
+  }
+  .cardQuizRapid img {
+    width: 3em;
+    padding: 0.5em;
+  }
+  .cardCultureHome img {
+    width: 100px;
+    padding: 0.5em;
+  }
 }
