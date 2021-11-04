@@ -11,11 +11,10 @@
   margin: auto;
 }
 
-<<<<<<< HEAD
-=======
-.flagCard img {
+<<<<<<< head ======= .flagCard img {
   width: 100%;
   height: 100%;
+
   /* visibility: hidden; */
   border-radius: 10px;
   object-fit: cover;
@@ -33,12 +32,8 @@
   transform: scale(1.1);
 }
 
-
-
-
->>>>>>> parent of 09e06e9 (added backend classement and added restart game region, challenge and this game)
-/* Media queries - mobile */
-@media screen and (max-width: 600px) {
+>>>>>>> parent of 09e06e9 (added backend classement and added restart game region,
+challenge and this game) @media screen and (max-width: 600px) {
   .flagsCardsContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* création grille 4 col donc 6 lignes puisque 24 objets */

@@ -40,10 +40,10 @@ const Answers = ({
 };
 
 Answers.propTypes = {
-  country: PropTypes.element.isRequired,
-  nextQuestion: PropTypes.element.isRequired,
-  challengeSwitch: PropTypes.element.isRequired,
-  setResultAnswer: PropTypes.element.isRequired,
+  country: PropTypes.PropTypes.oneOfType([PropTypes.object]).isRequired,
+  nextQuestion: PropTypes.func.isRequired,
+  challengeSwitch: PropTypes.string.isRequired,
+  setResultAnswer: PropTypes.func.isRequired,
 };
 
 export default Answers;
