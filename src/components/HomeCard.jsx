@@ -14,7 +14,7 @@ const HomeCard = ({ gameType }) => {
 };
 
 HomeCard.propTypes = {
-  gameType: PropTypes.element.isRequired,
+  gameType: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default HomeCard;

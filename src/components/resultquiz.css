@@ -86,26 +86,27 @@
   align-items: center;
 }
 
-.registerModal{
+.registerModal {
   background: rgb(255, 107, 107);
-  padding: .6em;
+  padding: 0.6em;
   width: 60%;
   border-radius: 50px;
   position: fixed;
-  bottom:2%;
-  transition-delay: .5s;
-  transition: .5s ease-in-out;
+  bottom: 2%;
+  transition-delay: 0.5s;
+  transition: 0.5s ease-in-out;
 }
 
 .noThanks {
   background: transparent;
   border: none;
-  margin: .5em;
+  margin: 0.5em;
 }
 
 .userFormRegister h2 {
-	font-size: 1.2em;
+  font-size: 1.2em;
 }
+
 .isHiddenDown {
-	transform: translateY(100vh);
+  transform: translateY(100vh);
 }

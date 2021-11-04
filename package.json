@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.23.0",
     "express": "^4.17.1",
+    "mysql": "^2.18.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,7 +22,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx --fix src/ && stylelint **.css --fix",
     "prepare": "husky install",
-	"server": "nodemon connexion.js"
+    "server": "nodemon -r dotenv/config ./src/connexion.js",
+    "client": "react-scripts start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "eslintConfig": {
     "extends": [

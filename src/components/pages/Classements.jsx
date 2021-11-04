@@ -26,14 +26,14 @@ const Classements = () => {
       </ul>
       <div className="container__bodyClassement">
         {/* j'affiche mes infos contenu dans la BDD */}
-        {/* {dataBase.map((el) => (
+        {dataBase.map((el) => (
           <ul key={el.id} className="bodyClassement">
             <li>{el.pseudo}</li>
             <li>{el.game}</li>
             <li>{el.region}</li>
             <li>{el.score}</li>
           </ul>
-        ))} */}
+        ))}
       </div>
     </div>
   );

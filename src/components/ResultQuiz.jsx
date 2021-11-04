@@ -142,7 +142,11 @@ ResultQuiz.propTypes = {
   total: PropTypes.number.isRequired,
   showResponse: PropTypes.arrayOf(PropTypes.object).isRequired,
   challengeSwitch: PropTypes.string.isRequired,
-  regionSwitch: PropTypes.string.isRequired,
+  regionSwitch: PropTypes.string,
+};
+
+ResultQuiz.defaultProps = {
+  regionSwitch: 'Monde',
 };
 
 export default ResultQuiz;
