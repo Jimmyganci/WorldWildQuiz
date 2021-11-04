@@ -28,3 +28,4 @@ package-lock.json
 .eslintcache
 
 connexion.js
+.env
