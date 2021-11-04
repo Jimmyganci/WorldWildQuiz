@@ -25,7 +25,7 @@ const Questions = ({
 
       <div className="img">
         {challengeSwitch !== 'Drapeaux' ? (
-          <img src={country.flag} alt={country.name} /> // j'ajoute une balise img si le challenge est porté sur les drapeaux
+          <img src={country.flag} alt={country.name} />
         ) : (
           ' '
         )}

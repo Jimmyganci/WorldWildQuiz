@@ -9,7 +9,6 @@ const Answers = ({
   setResultAnswer,
 }) => {
   const project = () => {
-    // j'affiche les réponses en fonction du challenge choisi
     switch (challengeSwitch) {
       case 'Capital':
         return country.capital;
