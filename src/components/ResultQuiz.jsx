@@ -20,16 +20,12 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Je submit le formulaire et envoi les data à l'api et donc à la bdd
-    axios
-      .post('/api/users', {
-        pseudo: user,
-        score: total,
-        game: challengeSwitch,
-        region: regionSwitch,
-      })
-      .then((response) => {
-        return response;
-      });
+    axios.post('/api/users', {
+      pseudo: user,
+      score: total,
+      game: challengeSwitch,
+      region: regionSwitch,
+    });
     setIsHiddenRegister(true);
   };
 
