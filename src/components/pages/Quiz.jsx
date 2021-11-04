@@ -40,6 +40,28 @@ const Quiz = () => {
     return array2;
   };
 
+  const sortedCountry = () => {
+    const countryObj = Object.keys(data).map((i) => data[i]);
+    const sortedArray = countryObj
+      .filter((country) =>
+        country.region.includes(regionSwitch !== 'Monde' ? regionSwitch : '')
+      ) // je filtre mon tableau par ordre de population décroissant
+      .sort((a, b) => {
+        // permet d'appliquer une difficultée au jeu
+        return b.population - a.population;
+      });
+
+    if (difficult === 'easy' && regionSwitch === 'Monde') {
+      setSortedData(sortedArray.slice(0, 33));
+    } else if (difficult === 'medium' && regionSwitch === 'Monde') {
+      setSortedData(sortedArray.slice(100, 133));
+    } else if (difficult === 'hard' && regionSwitch === 'Monde') {
+      setSortedData(sortedArray.slice(210, 243));
+    } else {
+      setSortedData(sortedArray);
+    }
+  };
+
   useEffect(() => {
     if (playOnce) {
       axios
@@ -51,27 +73,7 @@ const Quiz = () => {
           setPlayOnce(false);
         });
     }
-    const sortedCountry = () => {
-      const countryObj = Object.keys(data).map((i) => data[i]);
-      const sortedArray = countryObj
-        .filter((country) =>
-          country.region.includes(regionSwitch !== 'Monde' ? regionSwitch : '')
-        ) // je filtre mon tableau par ordre de population décroissant
-        .sort((a, b) => {
-          // permet d'appliquer une difficultée au jeu
-          return b.population - a.population;
-        });
 
-      if (difficult === 'easy' && regionSwitch === 'Monde') {
-        setSortedData(sortedArray.slice(0, 33));
-      } else if (difficult === 'medium' && regionSwitch === 'Monde') {
-        setSortedData(sortedArray.slice(100, 133));
-      } else if (difficult === 'hard' && regionSwitch === 'Monde') {
-        setSortedData(sortedArray.slice(210, 243));
-      } else {
-        setSortedData(sortedArray);
-      }
-    };
     sortedCountry();
   }, [data, playOnce, regionSwitch, difficult]);
 

@@ -9,7 +9,7 @@ import './home.css';
 const Home = () => {
   return (
     <div className="home">
-      <h1 className="homeH1">Bienvenue au World Wide Game</h1>
+      <h1 className="homeH1">Bienvenue au World Wild Game</h1>
 
       <div className="choiceGame">
         <div className="homeQuizCard">
