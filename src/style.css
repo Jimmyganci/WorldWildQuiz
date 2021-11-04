@@ -9,28 +9,16 @@ html {
   background: rgb(26, 83, 92);
 }
 
-li {
-  list-style: none;
-}
-
 @font-face {
   font-family: "fontTitle";
   src: url("./fonts/pathway-gothic-one-v9-latin-regular.woff2");
 }
 
 .btn {
-  background: rgb(255, 230, 109);
+  background: rgb(255, 107, 107);
   border: none;
   padding: 1em;
   border-radius: 50px;
-  cursor: pointer;
-  border: 1px solid rgb(255, 107, 107);
-  transition: 0.3s ease-out;
-  width: 150px;
-}
-
-.btn:hover {
-  background: transparent;
 }
 
 .inpt {

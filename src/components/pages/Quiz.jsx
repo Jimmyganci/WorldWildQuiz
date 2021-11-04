@@ -6,7 +6,7 @@ import CardChallenge from '../CardChallenge';
 import Answers from '../Answers';
 import Questions from '../Questions';
 import regions from '../../regions';
-import './quiz.css';
+import './quizgame.css';
 import ResultQuiz from '../ResultQuiz';
 
 const Quiz = () => {
@@ -151,61 +151,7 @@ const Quiz = () => {
           key={capitalQuestion.name}
           showResponse={showResponse}
           challengeSwitch={challengeSwitch}
-          regionSwitch={regionSwitch}
         />
-      </div>
-      <div className="restartContainer">
-        <button
-          className="btn"
-          id={
-            isHidden === 'challenge' ||
-            isHidden === 'quiz' ||
-            isHidden === 'result'
-              ? ''
-              : 'hidden'
-          }
-          type="button"
-          onClick={() => {
-            setShowResponse([]);
-            setTotal(0);
-            setIsHidden('region');
-            setSliceVal1(0);
-            setSliceVal2(1);
-            setCountQuestion(0);
-          }}
-        >
-          Change Region
-        </button>
-        <button
-          className="btn"
-          id={isHidden === 'result' || isHidden === 'quiz' ? '' : 'hidden'}
-          type="button"
-          onClick={() => {
-            setShowResponse([]);
-            setTotal(0);
-            setIsHidden('challenge');
-            setSliceVal1(0);
-            setSliceVal2(1);
-            setCountQuestion(0);
-          }}
-        >
-          Change Challenge
-        </button>
-        <button
-          className="btn"
-          id={isHidden === 'result' || isHidden === 'quiz' ? '' : 'hidden'}
-          type="button"
-          onClick={() => {
-            setShowResponse([]);
-            setTotal(0);
-            setIsHidden('quiz');
-            setSliceVal1(0);
-            setSliceVal2(1);
-            setCountQuestion(0);
-          }}
-        >
-          Restart this Game
-        </button>
       </div>
     </div>
   );
