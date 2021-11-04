@@ -38,7 +38,6 @@ const MemoryCard = ({ country }) => {
 
 MemoryCard.propTypes = {
   country: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  // handleToggle: PropTypes.func.isRequired,
 };
 
 export default MemoryCard;

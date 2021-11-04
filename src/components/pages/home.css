@@ -11,26 +11,26 @@
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   padding: 1em;
   max-width: 800px;
-  max-height: 500px;
+  max-height: auto;
 }
 
 .homeQuizCard {
   grid-column-start: 1;
   grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
 }
 
 .homeMemoryCard {
   grid-column-start: 3;
   grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
 }
 
 .homeQuizRapidCard {
@@ -38,8 +38,17 @@
   height: 100%;
   grid-column-start: 1;
   grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.homeCultureCard {
+  width: 100%;
+  height: 100%;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 .homeH1 {
@@ -57,4 +66,14 @@
 .linkDiv:focus:hover:visited:link:active {
   text-decoration: none;
   color: inherit;
+}
+
+@media screen and (max-width: 700px) {
+  .home h2 {
+    font-size: 1em;
+  }
+
+  .home h3 {
+    font-size: 1em;
+  }
 }

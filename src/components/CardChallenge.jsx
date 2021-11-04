@@ -5,7 +5,7 @@ import './card.css';
 const Card = ({ challenge, setChallengeSwitch, setIsHidden }) => {
   const handleValid = () => {
     setIsHidden('quiz');
-    setChallengeSwitch(challenge.nameRegion);
+    setChallengeSwitch(challenge.nameRegion); // je selectionne mon challenge et affiche le quiz
   };
 
   return (
@@ -24,9 +24,9 @@ const Card = ({ challenge, setChallengeSwitch, setIsHidden }) => {
 };
 
 Card.propTypes = {
-  challenge: PropTypes.element.isRequired,
-  setChallengeSwitch: PropTypes.element.isRequired,
-  setIsHidden: PropTypes.element.isRequired,
+  challenge: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  setChallengeSwitch: PropTypes.func.isRequired,
+  setIsHidden: PropTypes.func.isRequired,
 };
 
 export default Card;

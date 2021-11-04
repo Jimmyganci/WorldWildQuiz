@@ -1,20 +1,12 @@
 .flagsCardsContainer {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
-
-  /* grid-auto-flow: dense; */
   width: 98%;
   height: 98%;
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
   margin: auto;
-}
-
-.memoryGameContainer h1 {
-  color: white;
-  padding-bottom: 20px;
-  font-size: 8vh;
 }
 
 /* Media queries - mobile */

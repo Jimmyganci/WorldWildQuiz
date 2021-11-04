@@ -26,3 +26,6 @@ package-lock.json
 .vscode
 .env
 .eslintcache
+
+connexion.js
+.env

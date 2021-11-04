@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import HomeCard from '../HomeCard';
 import gameType from '../../gameType';
 import CardQuizRapid from '../CardQuizRapid';
+import CardCultureHome from '../CardCultureHome';
 import './home.css';
 
 const Home = () => {
   return (
     <div className="home">
-      <h1 clasName="homeH1">Bienvenue au World Wide Game</h1>
+      <h1 className="homeH1">Bienvenue au World Wild Game</h1>
+
       <div className="choiceGame">
         <div className="homeQuizCard">
           <Link className="linkDiv" to="/quiz">
@@ -22,6 +24,11 @@ const Home = () => {
         </div>
         <div className="homeQuizRapidCard">
           <CardQuizRapid />
+        </div>
+        <div className="homeCultureCard">
+          <Link className="linkDiv" to="/culture">
+            <CardCultureHome />
+          </Link>
         </div>
       </div>
     </div>

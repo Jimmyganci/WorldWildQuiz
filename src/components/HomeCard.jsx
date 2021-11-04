@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './homecard.css';
-
 import '../gameType';
 
 const HomeCard = ({ gameType }) => {
@@ -14,7 +13,7 @@ const HomeCard = ({ gameType }) => {
 };
 
 HomeCard.propTypes = {
-  gameType: PropTypes.element.isRequired,
+  gameType: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default HomeCard;
