@@ -4,13 +4,13 @@ import './difficult.css';
 
 const Difficult = ({ setDifficult }) => {
   return (
-    <div
-      className="checkDifficult"
-      onChange={(e) => setDifficult(e.target.value)}
-    >
+    <div className="checkDifficult">
       <h2>Difficultés</h2>
       <form>
-        <div className="checkBox">
+        <div
+          className="checkBox"
+          onChange={(e) => setDifficult(e.target.value)}
+        >
           <label htmlFor="easy">
             <input
               type="radio"
