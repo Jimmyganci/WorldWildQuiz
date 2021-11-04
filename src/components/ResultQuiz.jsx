@@ -4,22 +4,22 @@ import './resultquiz.css';
 import axios from 'axios';
 
 const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
-  const [filterCorrection, setFilterCorrection] = useState('');
-  const [showCorrection, setShowCorrection] = useState(false);
-  const [user, setUser] = useState('');
-  const [isHiddenRegister, setIsHiddenRegister] = useState(false);
+  const [filterCorrection, setFilterCorrection] = useState(''); // récupère la valeur de l'input
+  const [showCorrection, setShowCorrection] = useState(false); // permet d'afficher ou non la correction
+  const [user, setUser] = useState(''); // permet d'enregistrer un user
+  const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   let insensibleCasse = '';
 
   if (filterCorrection) {
     insensibleCasse =
-      filterCorrection[0].toUpperCase() + filterCorrection.slice(1);
+      filterCorrection[0].toUpperCase() + filterCorrection.slice(1); // je rend le formulaire insensible à la casse
   }
 
-  const showResultFinal = showResponse.filter((el) => el.name !== undefined);
+  const showResultFinal = showResponse.filter((el) => el.name !== undefined); // j'élimine les corrections qui pourrait être undefined
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // On submit of the form, send a POST request with the data to the server.
+    // Je submit le formulaire et envoi les data à l'api et donc à la bdd
     axios
       .post('/api/users', {
         pseudo: user,
@@ -39,7 +39,7 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
 
   return (
     <div className="resultQuiz">
-      <h5>Votre score est de : {total > 1 ? total : ''} </h5>
+      <h5>Votre score est de : {total} </h5>
       <button
         className="registerBtn"
         type="button"

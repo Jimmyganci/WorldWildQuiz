@@ -5,7 +5,7 @@ import './card.css';
 const Card = ({ challenge, setChallengeSwitch, setIsHidden }) => {
   const handleValid = () => {
     setIsHidden('quiz');
-    setChallengeSwitch(challenge.nameRegion);
+    setChallengeSwitch(challenge.nameRegion); // je selectionne mon challenge et affiche le quiz
   };
 
   return (
