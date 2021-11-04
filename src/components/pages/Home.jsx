@@ -21,7 +21,9 @@ const Home = () => {
           </Link>
         </div>
         <div className="homeQuizRapidCard">
-          <CardQuizRapid />
+          <Link className="linkDiv" to="/quizrapid">
+            <CardQuizRapid />
+          </Link>
         </div>
         <div className="homeCultureCard">
           <Link className="linkDiv" to="/culture">
