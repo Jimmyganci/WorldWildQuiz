@@ -5,7 +5,7 @@ import './card.css';
 const Card = ({ regions, setRegionSwitch, setIsHidden }) => {
   const handleValid = () => {
     setIsHidden('challenge');
-    setRegionSwitch(regions.nameRegion !== 'Monde' ? regions.nameRegion : '');
+    setRegionSwitch(regions.nameRegion); // je selectionne mon continent et affiche les challenges
   };
 
   return (
