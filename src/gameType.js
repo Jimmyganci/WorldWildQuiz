@@ -1,10 +1,10 @@
 const gameType = [
   {
-    name: 'Le Quiz',
+    name: 'The Quiz',
     image: '/assets/homequizimage.png',
   },
   {
-    name: 'Le memory',
+    name: 'The memory',
     image: 'assets/homememoryimage.png',
   },
 ];

@@ -15,10 +15,12 @@ html {
 }
 
 .btn {
-  background: rgb(255, 107, 107);
+  background: rgb(255, 230, 109);
   border: none;
   padding: 1em;
   border-radius: 50px;
+  cursor: pointer;
+  width: 150px;
 }
 
 .inpt {

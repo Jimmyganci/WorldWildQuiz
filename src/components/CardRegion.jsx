@@ -5,7 +5,7 @@ import './card.css';
 const Card = ({ regions, setRegionSwitch, setIsHidden }) => {
   const handleValid = () => {
     setIsHidden('challenge');
-    setRegionSwitch(regions.nameRegion !== 'Monde' ? regions.nameRegion : '');
+    setRegionSwitch(regions.nameRegion); // je selectionne mon continent et affiche les challenges
   };
 
   return (
@@ -22,9 +22,9 @@ const Card = ({ regions, setRegionSwitch, setIsHidden }) => {
 };
 
 Card.propTypes = {
-  regions: PropTypes.element.isRequired,
-  setRegionSwitch: PropTypes.element.isRequired,
-  setIsHidden: PropTypes.element.isRequired,
+  regions: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  setRegionSwitch: PropTypes.func.isRequired,
+  setIsHidden: PropTypes.func.isRequired,
 };
 
 export default Card;
