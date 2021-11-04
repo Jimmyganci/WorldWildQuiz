@@ -67,6 +67,7 @@
   transition: 0.3s ease-in-out;
   height: 100%;
 }
+
 .cardCultureHome img {
   width: 200px;
   padding-left: 1em;
@@ -85,7 +86,6 @@
 
 .cardCultureHome h3 {
   position: relative;
-
   font-style: italic;
   font-size: 1.7em;
 }
@@ -102,10 +102,12 @@
     padding-left: 0.5em;
     font-style: italic;
   }
+
   .cardQuizRapid img {
     width: 3em;
     padding: 0.5em;
   }
+
   .cardCultureHome img {
     width: 100px;
     padding: 0.5em;
