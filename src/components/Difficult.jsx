@@ -50,6 +50,7 @@ const Difficult = ({ setDifficult }) => {
 
 Difficult.propTypes = {
   setDifficult: PropTypes.func.isRequired,
+  //   difficult: PropTypes.string.isRequired,
 };
 
 export default Difficult;

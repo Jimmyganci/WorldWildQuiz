@@ -28,7 +28,7 @@ const Quiz = () => {
   const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
 
-  // Applique un random sur les réponses
+  // Applique un random sur les tableaux en parametre
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
