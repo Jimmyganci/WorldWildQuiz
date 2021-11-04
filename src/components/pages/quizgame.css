@@ -50,22 +50,3 @@
   align-items: center;
   width: 100%;
 }
-
-.restartContainer {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin: 2em 0;
-}
-
-.restartContainer button {
-  margin: 0 1em;
-}
-
-.containerDifficult {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
-}
-
