@@ -174,9 +174,9 @@ const Quiz = () => {
           key={capitalQuestion.name}
           showResponse={showResponse}
           challengeSwitch={challengeSwitch}
-          regionSwitch={regionSwitch}
         />
       </div>
+
       {/* Button pour changer de continent, de challenge ou pour recommencer le jeu */}
       <div className="restartContainer">
         <button
