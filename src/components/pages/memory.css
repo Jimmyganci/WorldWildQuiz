@@ -11,6 +11,12 @@
   margin: auto;
 }
 
+.memoryGameContainer h1 {
+  color: white;
+  padding-bottom: 20px;
+  font-size: 8vh;
+}
+
 /* Media queries - mobile */
 @media screen and (max-width: 600px) {
   .flagsCardsContainer {

@@ -6,10 +6,17 @@ const MemoryCard = ({ country }) => {
   const [isActive, setIsActive] = useState(false);
   const [flagValue, setFlagValue] = useState([]);
   const handleToggle = () => {
-    let result = [];
-    result = { flag: country.flag };
+    const result = { flag: country.flag };
+    // result = { flag: country.flag };
     setIsActive(true);
-    setFlagValue([...flagValue, result]);
+    // setFlagValue([...flagValue, result]);
+    setFlagValue(flagValue.concat(result));
+    // setFlagValue(result);
+    if (flagValue === result) {
+      console.log('yes');
+    } else {
+      console.log('noooo');
+    }
   };
   console.log(flagValue);
 
