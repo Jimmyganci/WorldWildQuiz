@@ -24,22 +24,22 @@ const Questions = ({
       </div>
 
       <div className="img">
-        {challengeSwitch !== 'Drapeaux' ? (
-          <img src={country.flag} alt={country.name} />
-        ) : (
-          ' '
-        )}
+        {
+          challengeSwitch !== 'Drapeaux' && (
+            <img src={country.flag} alt={country.name} />
+          ) // j'ajoute une balise img si le challenge est porté sur les drapeaux
+        }
       </div>
     </li>
   );
 };
 
 Questions.propTypes = {
-  country: PropTypes.element.isRequired,
-  nbQuestion: PropTypes.element.isRequired,
-  arrayLength: PropTypes.element.isRequired,
-  challengeSwitch: PropTypes.element.isRequired,
-  setResultQuestion: PropTypes.element.isRequired,
+  country: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  nbQuestion: PropTypes.number.isRequired,
+  arrayLength: PropTypes.number.isRequired,
+  challengeSwitch: PropTypes.string.isRequired,
+  setResultQuestion: PropTypes.func.isRequired,
 };
 
 export default Questions;
