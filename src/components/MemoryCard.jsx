@@ -1,35 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './memoryCard.css';
 
-const MemoryCard = ({ country }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [flagValue, setFlagValue] = useState([]);
-  const handleToggle = () => {
-    const result = { flag: country.flag };
-    // result = { flag: country.flag };
-    setIsActive(true);
-    // setFlagValue([...flagValue, result]);
-    setFlagValue(flagValue.concat(result));
-    // setFlagValue(result);
-    if (flagValue === result) {
-      console.log('yes');
-    } else {
-      console.log('noooo');
-    }
-  };
-  console.log(flagValue);
-
+const MemoryCard = ({ country, onClick, className }) => {
   return (
     <div
-      className={
-        isActive
-          ? 'activeFlagCard containerImagesMemory'
-          : 'containerImagesMemory'
-      }
-      onClick={handleToggle}
-      onKeyDown={handleToggle}
+      onClick={onClick}
+      onKeyDown={onClick}
       aria-hidden="true"
+      className={className}
     >
       <img className="flagCard" src={country.flag} alt={country.name} />
     </div>
@@ -38,6 +17,8 @@ const MemoryCard = ({ country }) => {
 
 MemoryCard.propTypes = {
   country: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default MemoryCard;

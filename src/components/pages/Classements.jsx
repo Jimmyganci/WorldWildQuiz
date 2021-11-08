@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react';
 import './classement.css';
 
 const Classements = () => {
-  const [playOnce, setPlayOnce] = useState(true);
+//   const [playOnce, setPlayOnce] = useState(true);
   const [dataBase, setDataBase] = useState([]); // variable d'état du resultat de l'appel a la BDD
 
   useEffect(() => {
-    if (playOnce) {
+    // if (playOnce) {
       axios.get(`/api/users`).then((res) => {
         setDataBase(res.data);
         setPlayOnce(false);
       });
-    }
+    // }
   }, [dataBase]);
 
   return (
