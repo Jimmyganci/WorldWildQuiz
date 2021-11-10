@@ -10,8 +10,6 @@ const Classements = () => {
   const [pseudoFilter, setPseudoFilter] = useState('');
   const [scoreFilter, setScoreFilter] = useState();
   const [selectGame, setSelectGame] = useState('Memory');
-  console.log(selectGame);
-  console.log(dataBase);
 
   useEffect(() => {
     let url = `http://localhost:8000/api/users/`;
