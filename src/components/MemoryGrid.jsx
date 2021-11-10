@@ -12,7 +12,6 @@ const MemoryGrid = ({
   checkItems,
   setStartTimer,
 }) => {
-  console.log(flagArray2.length);
   return (
     <div>
       <div

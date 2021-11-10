@@ -64,7 +64,6 @@ const Memory = () => {
         .get('https://restcountries.com/v2/all?fields=flag,name')
         .then((res) => {
           setData(res.data);
-          //   setPlayOnce(false);
         });
     }
 
