@@ -1,44 +1,61 @@
-.flagsCardsContainer {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
-  width: 98%;
-  height: 98%;
+.memoryGameContainer {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  grid-gap: 10px;
-  margin: auto;
 }
 
-.flagCard img {
+.timer {
+  margin-bottom: 1em;
+  padding: 1em;
+  background: rgb(255, 230, 109);
+  border-radius: 50%;
+}
+
+.winnerModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(78, 205, 196);
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  z-index: 2;
+}
+
+.screenBlack::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-
-  /* visibility: hidden; */
-  border-radius: 10px;
-  object-fit: cover;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
-.flagCard {
+.winnerModal p {
+  font-size: 2em;
+}
+
+.containerBtnMemory {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1em;
   width: 100%;
-  height: 100%;
-  background: rgba(255, 107, 107, 0.788);
-  border-radius: 10px;
-  transition: 0.3s ease-in-out;
 }
 
-.flagCard:hover {
-  transform: scale(1.1);
+#returnHome {
+  margin-top: 1em;
 }
 
-@media screen and (max-width: 600px) {
-  .flagsCardsContainer {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* création grille 4 col donc 6 lignes puisque 24 objets */
-    grid-auto-flow: dense;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-items: center;
-    grid-gap: 8px;
-  }
+.memoryDifficult {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
