@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './memory.css';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ const Memory = () => {
   const [playMemoryDifficult, setPlayMemoryDifficult] = useState(true); // affiche le bouton play dans le composant memory
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   const limitFlag = [];
-  console.log(playMemoryDifficult);
+
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
@@ -140,10 +140,43 @@ const Memory = () => {
       </div>
       {!playMemoryDifficult && (
         <>
-          <h2 className="timer">
-            {timer.hour > 0 ? `${timer.hour} : ` : ''} {timer.minute} :{' '}
-            {timer.sec}
-          </h2>
+          <div className="memoryGameHeadButtons">
+            <h2 className="timer">
+              {timer.hour > 0 ? `${timer.hour} : ` : ''} {timer.minute} :{' '}
+              {timer.sec}
+            </h2>
+
+            <div className="restartMemoryButtons">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  setVisibleItems([]);
+                  setFinishedItems([]);
+                  setWinner(false);
+                  setStartTimer(false);
+                  setTimer({ hour: 0, minute: 0, sec: 0 });
+                }}
+              >
+                Restart game
+              </button>
+
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  setVisibleItems([]);
+                  setFinishedItems([]);
+                  setWinner(false);
+                  setStartTimer(false);
+                  setTimer({ hour: 0, minute: 0, sec: 0 });
+                  setPlayMemoryDifficult(true);
+                }}
+              >
+                Change difficulty
+              </button>
+            </div>
+          </div>
 
           <MemoryGrid
             flagArray2={flagArray2}
@@ -175,7 +208,7 @@ const Memory = () => {
                 setTimer({ hour: 0, minute: 0, sec: 0 });
               }}
             >
-              New Game
+              Restart Game
             </button>
             <button
               type="button"
@@ -189,7 +222,7 @@ const Memory = () => {
                 setPlayMemoryDifficult(true);
               }}
             >
-              Change Difficulties
+              Change Difficulty
             </button>
           </div>
           <button type="button" className="btn" id="returnHome">

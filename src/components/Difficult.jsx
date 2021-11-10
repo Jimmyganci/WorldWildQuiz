@@ -9,7 +9,7 @@ const Difficult = ({
 }) => {
   return (
     <div className="checkDifficult">
-      <h2>Difficulties</h2>
+      <h2>Difficulty</h2>
       <form>
         <div
           className="checkBox"
