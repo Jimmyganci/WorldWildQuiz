@@ -5,6 +5,7 @@ import Answers from '../Answers';
 import Questions from '../Questions';
 import './quiz.css';
 import ResultQuiz from '../ResultQuiz';
+import './quizRapid.css';
 
 const QuizRapid = () => {
   const [data, setData] = useState([]); // recupère le premier tableau de l'appel api
@@ -158,6 +159,26 @@ const QuizRapid = () => {
             showResponse={showResponse}
             challengeSwitch={challengeSwitch}
           />
+          <div className="divBtnQuizRapid">
+            <button
+              type="button"
+              className={`btn ${
+                challengeSwitch === 'Capital' ? 'help scale' : ''
+              }`}
+              onClick={() => setChallengeSwitch('Capital')}
+            >
+              Capitals
+            </button>
+            <button
+              type="button"
+              className={`btn ${
+                challengeSwitch === 'Drapeaux' ? 'help scale' : ''
+              }`}
+              onClick={() => setChallengeSwitch('Drapeaux')}
+            >
+              Flags
+            </button>
+          </div>
         </div>
       </div>
     </div>
