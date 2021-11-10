@@ -117,7 +117,7 @@ const QuizRapid = () => {
           <Difficult setDifficult={setDifficult} difficult={difficult} />
           <button
             type="button"
-            className="btn"
+            className="btn btnQuizRapid"
             onClick={() => setIsHidden('quizRapid')}
           >
             Play
