@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './memory.css';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,6 @@ const Memory = () => {
   const [playMemoryDifficult, setPlayMemoryDifficult] = useState(true); // affiche le bouton play dans le composant memory
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   const limitFlag = [];
-  console.log(playMemoryDifficult);
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
@@ -137,6 +136,14 @@ const Memory = () => {
           playMemoryDifficult={playMemoryDifficult}
           setPlayMemoryDifficult={setPlayMemoryDifficult}
         />
+        <button
+          className="btn"
+          id="btnDifficultMemory"
+          onClick={() => setPlayMemoryDifficult(false)}
+          type="button"
+        >
+          Play
+        </button>
       </div>
       {!playMemoryDifficult && (
         <>
@@ -192,11 +199,13 @@ const Memory = () => {
               Change Difficulties
             </button>
           </div>
-          <button type="button" className="btn" id="returnHome">
-            <Link exact to="/">
+
+          <Link exact to="/">
+            <button type="button" className="btn" id="returnHome">
               Home
-            </Link>
-          </button>
+            </button>
+          </Link>
+
           <button
             className="noThanks"
             type="button"
@@ -207,12 +216,14 @@ const Memory = () => {
         </div>
       )}
 
-      <Register
-        total={timer}
-        setIsHiddenRegister={setIsHiddenRegister}
-        isHiddenRegister={isHiddenRegister}
-        handleCloseRegister={handleCloseRegister}
-      />
+      {winner && (
+        <Register
+          timer={timer}
+          setIsHiddenRegister={setIsHiddenRegister}
+          isHiddenRegister={isHiddenRegister}
+          handleCloseRegister={handleCloseRegister}
+        />
+      )}
     </div>
   );
 };
