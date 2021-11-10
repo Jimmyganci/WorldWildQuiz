@@ -147,10 +147,43 @@ const Memory = () => {
       </div>
       {!playMemoryDifficult && (
         <>
-          <h2 className="timer">
-            {timer.hour > 0 ? `${timer.hour} : ` : ''} {timer.minute} :{' '}
-            {timer.sec}
-          </h2>
+          <div className="memoryGameHeadButtons">
+            <h2 className="timer">
+              {timer.hour > 0 ? `${timer.hour} : ` : ''} {timer.minute} :{' '}
+              {timer.sec}
+            </h2>
+
+            <div className="restartMemoryButtons">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  setVisibleItems([]);
+                  setFinishedItems([]);
+                  setWinner(false);
+                  setStartTimer(false);
+                  setTimer({ hour: 0, minute: 0, sec: 0 });
+                }}
+              >
+                Restart game
+              </button>
+
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  setVisibleItems([]);
+                  setFinishedItems([]);
+                  setWinner(false);
+                  setStartTimer(false);
+                  setTimer({ hour: 0, minute: 0, sec: 0 });
+                  setPlayMemoryDifficult(true);
+                }}
+              >
+                Change difficulty
+              </button>
+            </div>
+          </div>
 
           <MemoryGrid
             flagArray2={flagArray2}
@@ -182,7 +215,7 @@ const Memory = () => {
                 setTimer({ hour: 0, minute: 0, sec: 0 });
               }}
             >
-              New Game
+              Restart Game
             </button>
             <button
               type="button"
@@ -196,7 +229,7 @@ const Memory = () => {
                 setPlayMemoryDifficult(true);
               }}
             >
-              Change Difficulties
+              Change Difficulty
             </button>
           </div>
 
