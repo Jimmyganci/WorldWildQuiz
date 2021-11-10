@@ -14,6 +14,12 @@
   background: transparent;
   border: none;
   margin: 0.5em;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.noThanks:hover {
+  letter-spacing: 1px;
 }
 
 .userFormRegister h2 {
