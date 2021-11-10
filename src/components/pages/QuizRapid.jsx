@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Difficult from '../Difficult';
 import Answers from '../Answers';
@@ -63,7 +63,6 @@ const QuizRapid = () => {
         )
         .then((res) => {
           setData(res.data);
-          console.log(data[0]);
           setPlayOnce(false);
         });
     }

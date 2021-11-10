@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Logo from './Logo';
 import Help from './Help';
 import './header.css';
@@ -21,9 +21,13 @@ const Header = () => {
           Memory
         </NavLink>
       </li>
-      <li className="logoheader">
-        <Logo />
+
+      <li className="logoHeader">
+        <Link className="nohover" to="/">
+          <Logo />
+        </Link>
       </li>
+
       <li>
         <NavLink activeClassName="active" to="/Culture">
           Culture
@@ -34,10 +38,8 @@ const Header = () => {
           Classements
         </NavLink>
       </li>
-      <li>
-        <NavLink className="scale" id="nohover" to="/Help">
-          <Help />
-        </NavLink>
+      <li className="scale" id="nohover">
+        <Help />
       </li>
     </div>
   );
