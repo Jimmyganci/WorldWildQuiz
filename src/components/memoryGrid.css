@@ -1,0 +1,31 @@
+.flagsCardsContainer {
+  display: grid;
+  margin: 0.5em;
+  align-items: center;
+  justify-items: center;
+  grid-gap: 10px;
+}
+
+.gridEasy {
+  grid-template-columns: repeat(3, 1fr); /* création grille 3 col */
+  grid-template-rows: repeat(4, 20vh);
+}
+
+.gridMedium {
+  grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
+
+  /* grid-auto-rows: 1fr; */
+}
+
+@media screen and (max-width: 600px) {
+  .flagsCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* création grille 4 col donc 6 lignes puisque 24 objets */
+    grid-auto-flow: dense;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 8px;
+  }
+}

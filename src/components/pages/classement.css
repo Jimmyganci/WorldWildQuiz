@@ -10,17 +10,23 @@
   margin: 0 1em;
   border-radius: 10px;
   padding: 0.5em;
+  align-items: center;
 }
 
 .bodyClassement {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   list-style-type: none;
+  padding: 0.5em;
+}
+
+.bgOpacity {
+  background: rgb(204 91 91 / 79%) !important;
 }
 
 .container__bodyClassement {
   background: rgb(255, 107, 107);
   margin: 1em 1em;
   border-radius: 10px;
-  padding: 0.5em;
+  padding: 0.5em 0;
 }
