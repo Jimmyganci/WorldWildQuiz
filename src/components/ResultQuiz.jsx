@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './resultquiz.css';
 import Register from './Register';
@@ -8,7 +8,6 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
   const [showCorrection, setShowCorrection] = useState(false); // permet d'afficher ou non la correction
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   let insensibleCasse = '';
-  console.log(total);
 
   if (filterCorrection) {
     insensibleCasse =

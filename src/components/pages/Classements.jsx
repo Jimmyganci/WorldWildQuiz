@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './classement.css';
 
 const Classements = () => {
@@ -9,7 +9,6 @@ const Classements = () => {
   const [regionFilter, setRegionFilter] = useState('');
   const [pseudoFilter, setPseudoFilter] = useState('');
   const [scoreFilter, setScoreFilter] = useState();
-  console.log(challengeFilter);
 
   useEffect(() => {
     if (playOnce) {
@@ -31,7 +30,6 @@ const Classements = () => {
         url += `?pseudo=${pseudoFilter}`;
       }
 
-      console.log(url);
       axios.get(url).then((res) => {
         setDataBase(res.data);
         setPlayOnce(false);
@@ -81,7 +79,7 @@ const Classements = () => {
             value={challengeFilter}
             className="inpt"
           >
-            <option className="optionSelect" value="" selected>
+            <option className="optionSelect" value="">
               All
             </option>
             <option className="optionSelect" value="drapeaux">

@@ -18,7 +18,7 @@ const Quiz = () => {
   const [sliceVal2, setSliceVal2] = useState(1);
   const [countQuestion, setCountQuestion] = useState(0); // j'enregistre le nombre de question au click pour les afficher
   const [regionSwitch, setRegionSwitch] = useState(''); // je récupère la valeur du continent ou se déroule le quiz
-  const [challengeSwitch, setChallengeSwitch] = useState(''); // je récupère la valeur du hallenge ou se déroule le quiz
+  const [challengeSwitch, setChallengeSwitch] = useState(''); // je récupère la valeur du challenge ou se déroule le quiz
   const [isHidden, setIsHidden] = useState('region'); // permet d'afficher ou non un composant
   const [total, setTotal] = useState(1); // permet de récupérer le score du jeu
   const [resultAnswer, setResultAnswer] = useState([]); // affiche la réponse selectionné

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import HomeCard from '../HomeCard';
 import gameType from '../../gameType';
@@ -9,7 +8,7 @@ import './home.css';
 const Home = () => {
   return (
     <div className="home">
-      <h1 className="homeH1">Bienvenue au World Wild Game</h1>
+      <h1 className="homeH1">Welcome to the World Wild Game</h1>
 
       <div className="choiceGame">
         <div className="homeQuizCard">
@@ -23,7 +22,9 @@ const Home = () => {
           </Link>
         </div>
         <div className="homeQuizRapidCard">
-          <CardQuizRapid />
+          <Link className="linkDiv" to="/quizrapid">
+            <CardQuizRapid />
+          </Link>
         </div>
         <div className="homeCultureCard">
           <Link className="linkDiv" to="/culture">
