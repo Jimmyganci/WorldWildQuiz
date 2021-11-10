@@ -12,7 +12,7 @@
   transition: .5s ease-in-out;
 }
 .help:hover {
-	transform: rotateZ(360deg) scale(1.1);
+	transform: rotateZ(720deg) scale(1.1);
 }
 
 .helpcontainer {
