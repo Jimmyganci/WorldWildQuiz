@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './difficult.css';
 
-const Difficult = ({ setDifficult }) => {
+const Difficult = ({
+  setDifficult,
+  playMemoryDifficult,
+  setPlayMemoryDifficult,
+}) => {
   return (
     <div className="checkDifficult">
-      <h2>Difficultés</h2>
+      <h2>Difficulties</h2>
       <form>
         <div
           className="checkBox"
@@ -19,7 +23,7 @@ const Difficult = ({ setDifficult }) => {
               id="easy"
               value="easy"
             />
-            Facile
+            Easy
           </label>
           <label htmlFor="medium">
             <input
@@ -30,7 +34,7 @@ const Difficult = ({ setDifficult }) => {
               value="medium"
               defaultChecked
             />
-            Moyen
+            Medium
           </label>
           <label htmlFor="hard">
             <input
@@ -40,9 +44,18 @@ const Difficult = ({ setDifficult }) => {
               id="hard"
               value="hard"
             />
-            Difficile
+            Hard
           </label>
         </div>
+        {playMemoryDifficult && (
+          <button
+            className="btn"
+            onClick={() => setPlayMemoryDifficult(false)}
+            type="button"
+          >
+            Play
+          </button>
+        )}
       </form>
     </div>
   );
@@ -50,6 +63,8 @@ const Difficult = ({ setDifficult }) => {
 
 Difficult.propTypes = {
   setDifficult: PropTypes.func.isRequired,
+  playMemoryDifficult: PropTypes.bool.isRequired,
+  setPlayMemoryDifficult: PropTypes.bool.isRequired,
 };
 
 export default Difficult;

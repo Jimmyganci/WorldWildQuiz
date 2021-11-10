@@ -18,6 +18,12 @@
   overflow: hidden;
   width: 100%;
   line-height: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+}
+
+.containerImagesMemory:hover {
+  transform: scale(1.05);
 }
 
 .containerImagesMemory::after {

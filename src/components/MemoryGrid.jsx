@@ -12,9 +12,14 @@ const MemoryGrid = ({
   checkItems,
   setStartTimer,
 }) => {
+  console.log(flagArray2.length);
   return (
     <div>
-      <div className="flagsCardsContainer">
+      <div
+        className={`flagsCardsContainer ${
+          flagArray2.length <= 12 ? 'gridEasy' : 'gridMedium'
+        }`}
+      >
         {flagArray2.map((country, index) => (
           <MemoryCard
             // key={uuid()}
@@ -36,7 +41,7 @@ const MemoryGrid = ({
                     }
                     break;
                   case 2:
-                    // setVisibleItems([index]);
+                    setVisibleItems([index]);
                     break;
                   default:
                     setVisibleItems([]);

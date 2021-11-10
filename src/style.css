@@ -16,11 +16,16 @@ html {
 
 .btn {
   background: rgb(255, 230, 109);
-  border: none;
+  border: 1px solid rgb(255, 230, 109);
   padding: 1em;
   border-radius: 50px;
   cursor: pointer;
   width: 150px;
+  transition: 0.3s ease-in;
+}
+
+.btn:hover {
+  background: transparent;
 }
 
 .inpt {
@@ -35,4 +40,13 @@ html {
 
 .inpt:focus {
   outline: 2px solid rgb(255, 107, 107);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

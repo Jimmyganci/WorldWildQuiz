@@ -1,13 +1,20 @@
 .flagsCardsContainer {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
-  grid-auto-rows: 1fr;
-  width: 98%;
-  height: 98%;
+  margin: 0.5em;
   align-items: center;
   justify-items: center;
   grid-gap: 10px;
-  margin: auto;
+}
+
+.gridEasy {
+  grid-template-columns: repeat(3, 1fr); /* création grille 3 col */
+  grid-template-rows: repeat(4, 20vh);
+}
+
+.gridMedium {
+  grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
+
+  /* grid-auto-rows: 1fr; */
 }
 
 @media screen and (max-width: 600px) {

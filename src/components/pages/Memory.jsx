@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './memory.css';
+import { Link } from 'react-router-dom';
+import Register from '../Register';
+import Difficult from '../Difficult';
 import MemoryGrid from '../MemoryGrid';
 
 const Memory = () => {
@@ -12,13 +15,12 @@ const Memory = () => {
   const [finishedItems, setFinishedItems] = useState([]);
   const [timer, setTimer] = useState({ hour: 0, minute: 0, sec: 0 });
   const [startTimer, setStartTimer] = useState(false);
+  const [winner, setWinner] = useState(false);
+  const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
+  const [playMemoryDifficult, setPlayMemoryDifficult] = useState(true); // affiche le bouton play dans le composant memory
+  const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   const limitFlag = [];
-  console.log(visibleItems);
-  console.log(finishedItems);
-  console.log(timer);
-
-  console.log(startTimer);
-
+  console.log(playMemoryDifficult);
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
@@ -34,18 +36,26 @@ const Memory = () => {
     const countryObj = Object.keys(data).map((i) => data[i]);
 
     shuffleArray(countryObj);
-    const sortedArray = countryObj
-      .sort((a, b) => {
-        return b.population - a.population;
-      })
-      .slice(0, 12);
-    setFlagArray(sortedArray);
+    const sortedArray = countryObj.sort((a, b) => {
+      return b.population - a.population;
+    });
+
+    if (difficult === 'easy') {
+      setFlagArray(sortedArray.slice(0, 6));
+    } else if (difficult === 'medium') {
+      setFlagArray(sortedArray.slice(0, 12));
+    } else if (difficult === 'hard') {
+      setFlagArray(sortedArray.slice(0, 18));
+    } else {
+      setFlagArray(sortedArray.slice(0, 12));
+    }
 
     for (let i = 0; i < 2; i += 1) {
       flagArray.map((el) => limitFlag.push(el));
     }
     shuffleArray(limitFlag);
     setFlagArray2(limitFlag);
+    setPlayOnce(false);
   };
 
   useEffect(() => {
@@ -54,15 +64,16 @@ const Memory = () => {
         .get('https://restcountries.com/v2/all?fields=flag,name')
         .then((res) => {
           setData(res.data);
-          setPlayOnce(false);
+          //   setPlayOnce(false);
         });
     }
 
     sortedCountry();
-  }, [playOnce, data]);
+  }, [playOnce, data, winner, difficult, playMemoryDifficult]);
 
   useEffect(() => {
     const useInterval =
+      !winner &&
       startTimer &&
       setInterval(() => {
         if (timer.sec > 59) {
@@ -90,6 +101,15 @@ const Memory = () => {
     };
   }, [timer, startTimer]);
 
+  useEffect(() => {
+    if (
+      finishedItems.length > 0 &&
+      finishedItems.length === flagArray2.length
+    ) {
+      setWinner(true);
+    }
+  }, [finishedItems]);
+
   const checkItems = (firstIndex, secondIndex) => {
     if (
       firstIndex !== secondIndex &&
@@ -99,22 +119,100 @@ const Memory = () => {
     } else {
       setTimeout(() => {
         setVisibleItems([]);
-      }, 1000);
+      }, 600);
     }
   };
 
+  const handleCloseRegister = () => {
+    setIsHiddenRegister(!isHiddenRegister);
+  };
+
   return (
-    <div className="memoryGameContainer">
-      <h2 className="timer">
-        {timer.hour > 0 ? `${timer.hour} : ` : ''} {timer.minute} : {timer.sec}
-      </h2>
-      <MemoryGrid
-        flagArray2={flagArray2}
-        visibleItems={visibleItems}
-        setVisibleItems={setVisibleItems}
-        checkItems={checkItems}
-        finishedItems={finishedItems}
-        setStartTimer={setStartTimer}
+    <div className={`memoryGameContainer ${winner && 'screenBlack'}`}>
+      <div
+        className={`memoryDifficult ${playMemoryDifficult ? '' : 'isHidden'}`}
+      >
+        <Difficult
+          difficult={difficult}
+          setDifficult={setDifficult}
+          playMemoryDifficult={playMemoryDifficult}
+          setPlayMemoryDifficult={setPlayMemoryDifficult}
+        />
+      </div>
+      {!playMemoryDifficult && (
+        <>
+          <h2 className="timer">
+            {timer.hour > 0 ? `${timer.hour} : ` : ''} {timer.minute} :{' '}
+            {timer.sec}
+          </h2>
+
+          <MemoryGrid
+            flagArray2={flagArray2}
+            visibleItems={visibleItems}
+            setVisibleItems={setVisibleItems}
+            checkItems={checkItems}
+            finishedItems={finishedItems}
+            setStartTimer={setStartTimer}
+          />
+        </>
+      )}
+      {winner && (
+        <div className="winnerModal">
+          <p>You Win !</p>
+          <br />
+          <p>
+            Finished in {timer.hour > 0 ? `${timer.hour} : ` : ''}{' '}
+            {timer.minute} : {timer.sec} seconds
+          </p>
+          <div className="containerBtnMemory">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                setVisibleItems([]);
+                setFinishedItems([]);
+                setWinner(false);
+                setStartTimer(false);
+                setTimer({ hour: 0, minute: 0, sec: 0 });
+              }}
+            >
+              New Game
+            </button>
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                setVisibleItems([]);
+                setFinishedItems([]);
+                setWinner(false);
+                setStartTimer(false);
+                setTimer({ hour: 0, minute: 0, sec: 0 });
+                setPlayMemoryDifficult(true);
+              }}
+            >
+              Change Difficulties
+            </button>
+          </div>
+          <button type="button" className="btn" id="returnHome">
+            <Link exact to="/">
+              Home
+            </Link>
+          </button>
+          <button
+            className="noThanks"
+            type="button"
+            onClick={handleCloseRegister}
+          >
+            {isHiddenRegister ? 'Register my Score' : 'Not register my score'}
+          </button>
+        </div>
+      )}
+
+      <Register
+        total={timer}
+        setIsHiddenRegister={setIsHiddenRegister}
+        isHiddenRegister={isHiddenRegister}
+        handleCloseRegister={handleCloseRegister}
       />
     </div>
   );
