@@ -30,7 +30,11 @@ const pool = mysql.createConnection({
 app.get('/api/users', (req, res) => {
   let sql = `select * from ${table}`;
   const sqlValues = [];
-  console.log(req.query.pseudo);
+  console.log(req.query.game_type);
+  if (req.query.game_type) {
+    sql += ' WHERE game_type = ?';
+    sqlValues.push(req.query.game_type);
+  }
   if (req.query.game && !req.query.region && !req.query.score) {
     // filtre juste les challenge
     sql += ' WHERE game = ?';
@@ -68,7 +72,6 @@ app.get('/api/users', (req, res) => {
 
   if (req.query.pseudo) {
     sql += ` WHERE pseudo LIKE '%${req.query.pseudo}%'`;
-    // sqlValues.push(req.query.pseudo);
   }
 
   console.log(sql);

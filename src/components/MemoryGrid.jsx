@@ -1,6 +1,4 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-// import uuid from 'react-uuid';
 import MemoryCard from './MemoryCard';
 import './memoryGrid.css';
 
@@ -21,7 +19,7 @@ const MemoryGrid = ({
       >
         {flagArray2.map((country, index) => (
           <MemoryCard
-            // key={uuid()}
+            // key={() => setKey(key + 1)}
             country={country}
             className={`containerImagesMemory ${
               visibleItems.includes(index) ? 'activeFlagCard' : ''

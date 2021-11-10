@@ -6,14 +6,17 @@
   grid-gap: 10px;
 }
 
+/* .flagsCardsContainer.gridEasy {
+  width: 100%;
+} */
+
 .gridEasy {
-  grid-template-columns: repeat(3, 1fr); /* création grille 3 col */
+  grid-template-columns: repeat(4, 1fr); /* création grille 3 col */
   grid-template-rows: repeat(4, 20vh);
 }
 
 .gridMedium {
   grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
-
   /* grid-auto-rows: 1fr; */
 }
 

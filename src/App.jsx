@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Memory from './components/pages/Memory';
 import Classements from './components/pages/Classements';
 import Header from './components/Header';
+import QuizRapid from './components/pages/QuizRapid';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/Memory" exact component={Memory} />
         <Route path="/Classements" exact component={Classements} />
         <Route path="/Culture" exact component={Culture} />
+        <Route path="/QuizRapid" exact component={QuizRapid} />
       </Switch>
     </BrowserRouter>
   );

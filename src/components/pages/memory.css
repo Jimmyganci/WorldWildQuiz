@@ -4,6 +4,17 @@
   align-items: center;
 }
 
+.memoryGameHeadButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.restartMemoryButtons button{
+  margin-left: 20px;
+}
+
 .timer {
   margin-bottom: 1em;
   padding: 1em;
