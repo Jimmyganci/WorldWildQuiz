@@ -90,7 +90,7 @@
   transform: translate3d(0, 0, 0);
   transform-origin: 200px 200px;
   transform: translate3d(0, 0, 0);
-  animation: rotate-left 240s linear 0s infinite;
+  animation: rotate-left 150s linear 0s infinite;
 }
 
 #floatingGlobe {
