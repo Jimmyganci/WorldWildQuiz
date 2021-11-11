@@ -1,13 +1,18 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './culture.css';
 import Modal from '../modal';
 
-const Culture = () => {
+const Culture = ({ setShowPresentation }) => {
   const [playOnce, setPlayOnce] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
   const [openModal, setOpenModal] = useState('');
+
+  useEffect(() => {
+    setShowPresentation(false);
+  }, []);
 
   /* Appel API */
   useEffect(() => {
@@ -127,6 +132,10 @@ const Culture = () => {
       </div>
     </div>
   );
+};
+
+Culture.propTypes = {
+  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Culture;

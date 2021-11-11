@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import './memory.css';
 import { Link } from 'react-router-dom';
@@ -6,7 +7,7 @@ import Register from '../Register';
 import Difficult from '../Difficult';
 import MemoryGrid from '../MemoryGrid';
 
-const Memory = () => {
+const Memory = ({ setShowPresentation }) => {
   const [data, setData] = useState([]);
   const [playOnce, setPlayOnce] = useState(true);
   const [flagArray, setFlagArray] = useState([]);
@@ -20,6 +21,11 @@ const Memory = () => {
   const [playMemoryDifficult, setPlayMemoryDifficult] = useState(true); // affiche le bouton play dans le composant memory
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   const limitFlag = [];
+
+  useEffect(() => {
+    setShowPresentation(false);
+  }, []);
+
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
@@ -259,6 +265,10 @@ const Memory = () => {
       )}
     </div>
   );
+};
+
+Memory.propTypes = {
+  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Memory;

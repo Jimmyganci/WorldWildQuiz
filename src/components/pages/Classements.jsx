@@ -1,8 +1,9 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './classement.css';
 
-const Classements = () => {
+const Classements = ({ setShowPresentation }) => {
   const [playOnce, setPlayOnce] = useState(true);
   const [dataBase, setDataBase] = useState([]); // variable d'état du resultat de l'appel a la BDD
   const [challengeFilter, setChallengeFilter] = useState('');
@@ -10,6 +11,10 @@ const Classements = () => {
   const [pseudoFilter, setPseudoFilter] = useState('');
   const [scoreFilter, setScoreFilter] = useState();
   const [selectGame, setSelectGame] = useState('Memory');
+
+  useEffect(() => {
+    setShowPresentation(false);
+  }, []);
 
   useEffect(() => {
     let url = `http://localhost:8000/api/users/`;
@@ -203,6 +208,10 @@ const Classements = () => {
       </div>
     </div>
   );
+};
+
+Classements.propTypes = {
+  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Classements;
