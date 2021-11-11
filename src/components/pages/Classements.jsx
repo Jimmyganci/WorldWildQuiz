@@ -10,8 +10,6 @@ const Classements = () => {
   const [pseudoFilter, setPseudoFilter] = useState('');
   const [scoreFilter, setScoreFilter] = useState();
   const [selectGame, setSelectGame] = useState('Memory');
-  console.log(selectGame);
-  console.log(dataBase);
 
   useEffect(() => {
     let url = `http://localhost:8000/api/users/`;
@@ -196,7 +194,10 @@ const Classements = () => {
             <li>{el.pseudo}</li>
             {selectGame !== 'Memory' && <li>{el.game}</li>}
             {selectGame !== 'Memory' && <li>{el.region}</li>}
-            <li>{el.score}</li>
+            <li>
+              {el.score}
+              {selectGame === 'Memory' ? 's' : ''}
+            </li>
           </ul>
         ))}
       </div>
