@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from './Logo';
 import Help from './Help';
 import './header.css';
@@ -22,11 +22,11 @@ const Header = () => {
         </NavLink>
       </li>
 
-      <li className="logoHeader">
+      <div className="logoHeader">
         <Link className="nohover" to="/">
           <Logo />
         </Link>
-      </li>
+      </div>
 
       <li>
         <NavLink activeClassName="active" to="/Culture">
