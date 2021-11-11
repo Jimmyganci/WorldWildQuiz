@@ -26,39 +26,11 @@ const App = () => {
               />
             )}
           />
-          <Route
-            path="/Quiz"
-            exact
-            component={() => <Quiz setShowPresentation={setShowPresentation} />}
-          />
-          <Route
-            path="/Memory"
-            exact
-            component={() => (
-              <Memory setShowPresentation={setShowPresentation} />
-            )}
-          />
-          <Route
-            path="/Classements"
-            exact
-            component={() => (
-              <Classements setShowPresentation={setShowPresentation} />
-            )}
-          />
-          <Route
-            path="/Culture"
-            exact
-            component={() => (
-              <Culture setShowPresentation={setShowPresentation} />
-            )}
-          />
-          <Route
-            path="/QuizRapid"
-            exact
-            component={() => (
-              <QuizRapid setShowPresentation={setShowPresentation} />
-            )}
-          />
+          <Route path="/Quiz" exact component={Quiz} />
+          <Route path="/Memory" exact component={Memory} />
+          <Route path="/Classements" exact component={Classements} />
+          <Route path="/Culture" exact component={Culture} />
+          <Route path="/QuizRapid" exact component={QuizRapid} />
         </Switch>
       </BrowserRouter>
     </div>
