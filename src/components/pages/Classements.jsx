@@ -194,7 +194,10 @@ const Classements = () => {
             <li>{el.pseudo}</li>
             {selectGame !== 'Memory' && <li>{el.game}</li>}
             {selectGame !== 'Memory' && <li>{el.region}</li>}
-            <li>{el.score}</li>
+            <li>
+              {el.score}
+              {selectGame === 'Memory' ? 's' : ''}
+            </li>
           </ul>
         ))}
       </div>

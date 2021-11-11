@@ -61,4 +61,5 @@
 
 .selectGameType {
   background: rgb(255, 107, 107) !important;
+  cursor: default !important;
 }

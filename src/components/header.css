@@ -9,7 +9,6 @@
 
 .header li {
   list-style: none;
-  list-style: none;
   display: flex;
   justify-content: center;
 }
@@ -70,10 +69,12 @@
 .scale:hover {
   transform: scale(1.1);
 }
+
 .linkLogo:focus:hover:visited:link:active {
   text-decoration: none;
   color: inherit;
 }
+
 .linkLogo {
   text-decoration: none;
   color: inherit;
