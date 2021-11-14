@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .memoryGameHeadButtons {
@@ -11,7 +13,7 @@
   width: 100%;
 }
 
-.restartMemoryButtons button{
+.restartMemoryButtons button {
   margin-left: 20px;
 }
 
