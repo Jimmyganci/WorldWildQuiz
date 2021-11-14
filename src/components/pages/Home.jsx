@@ -1,15 +1,28 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import HomeCard from '../HomeCard';
 import gameType from '../../gameType';
 import CardQuizRapid from '../CardQuizRapid';
 import CardCultureHome from '../CardCultureHome';
 import './home.css';
+import Logo from '../Logo';
 
-const Home = () => {
+const Home = ({ showPresentation, setShowPresentation }) => {
   return (
     <div className="home">
+      {showPresentation && (
+        <div className="logoPresentation">
+          <Logo />
+          <button
+            onMouseUp={() => setShowPresentation(false)}
+            type="button"
+            className="btnStart"
+          >
+            Start
+          </button>
+        </div>
+      )}
       <h1 className="homeH1">Welcome to the World Wild Game</h1>
-
       <div className="choiceGame">
         <div className="homeQuizCard">
           <Link className="linkDiv" to="/quiz">
@@ -34,6 +47,11 @@ const Home = () => {
       </div>
     </div>
   );
+};
+
+Home.propTypes = {
+  showPresentation: PropTypes.bool.isRequired,
+  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Home;
