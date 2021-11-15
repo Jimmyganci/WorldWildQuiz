@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/WorldWildQuiz/static/css/main.cec742a1.chunk.css",
-    "main.js": "/WorldWildQuiz/static/js/main.736e5615.chunk.js",
-    "main.js.map": "/WorldWildQuiz/static/js/main.736e5615.chunk.js.map",
-    "runtime-main.js": "/WorldWildQuiz/static/js/runtime-main.ad272f75.js",
-    "runtime-main.js.map": "/WorldWildQuiz/static/js/runtime-main.ad272f75.js.map",
-    "static/js/2.06b3b90f.chunk.js": "/WorldWildQuiz/static/js/2.06b3b90f.chunk.js",
-    "static/js/2.06b3b90f.chunk.js.map": "/WorldWildQuiz/static/js/2.06b3b90f.chunk.js.map",
-    "index.html": "/WorldWildQuiz/index.html",
-    "static/css/main.cec742a1.chunk.css.map": "/WorldWildQuiz/static/css/main.cec742a1.chunk.css.map",
-    "static/js/2.06b3b90f.chunk.js.LICENSE.txt": "/WorldWildQuiz/static/js/2.06b3b90f.chunk.js.LICENSE.txt",
-    "static/media/logo.225c77b9.svg": "/WorldWildQuiz/static/media/logo.225c77b9.svg",
-    "static/media/style.css": "/WorldWildQuiz/static/media/pathway-gothic-one-v9-latin-regular.c04fd9ca.woff2"
+    "main.css": "/WorldWildQuizz/static/css/main.825b1174.chunk.css",
+    "main.js": "/WorldWildQuizz/static/js/main.736e5615.chunk.js",
+    "main.js.map": "/WorldWildQuizz/static/js/main.736e5615.chunk.js.map",
+    "runtime-main.js": "/WorldWildQuizz/static/js/runtime-main.a39951ff.js",
+    "runtime-main.js.map": "/WorldWildQuizz/static/js/runtime-main.a39951ff.js.map",
+    "static/js/2.06b3b90f.chunk.js": "/WorldWildQuizz/static/js/2.06b3b90f.chunk.js",
+    "static/js/2.06b3b90f.chunk.js.map": "/WorldWildQuizz/static/js/2.06b3b90f.chunk.js.map",
+    "index.html": "/WorldWildQuizz/index.html",
+    "static/css/main.825b1174.chunk.css.map": "/WorldWildQuizz/static/css/main.825b1174.chunk.css.map",
+    "static/js/2.06b3b90f.chunk.js.LICENSE.txt": "/WorldWildQuizz/static/js/2.06b3b90f.chunk.js.LICENSE.txt",
+    "static/media/logo.225c77b9.svg": "/WorldWildQuizz/static/media/logo.225c77b9.svg",
+    "static/media/style.css": "/WorldWildQuizz/static/media/pathway-gothic-one-v9-latin-regular.c04fd9ca.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.ad272f75.js",
+    "static/js/runtime-main.a39951ff.js",
     "static/js/2.06b3b90f.chunk.js",
-    "static/css/main.cec742a1.chunk.css",
+    "static/css/main.825b1174.chunk.css",
     "static/js/main.736e5615.chunk.js"
   ]
 }
