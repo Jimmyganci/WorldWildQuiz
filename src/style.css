@@ -50,3 +50,40 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.errorMessage {
+  color: red;
+}
+
+.inptUsers {
+  width: 100%;
+  padding: 14px 3px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: normal;
+  color: #4a4a4a;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.inptUsers:active {
+  background: transparent;
+}
+
+.inptUsers::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: red;
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.4s ease-in-out;
+}
+
+.redError::before {
+  background: red;
+}

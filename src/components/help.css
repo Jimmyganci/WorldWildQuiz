@@ -19,3 +19,12 @@
   display: flex;
   align-items: center;
 }
+
+.contImageUser {
+  width: 50%;
+}
+
+.letterConnected {
+  color: green;
+  font-size: 2vw;
+}

@@ -17,7 +17,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route
-            path="/"
+            path="/WorldWildQuiz"
             exact
             component={() => (
               <Home
@@ -27,33 +27,33 @@ const App = () => {
             )}
           />
           <Route
-            path="/Quiz"
+            path="/WorldWildQuiz/Quiz"
             exact
             component={() => <Quiz setShowPresentation={setShowPresentation} />}
           />
           <Route
-            path="/Memory"
+            path="/WorldWildQuiz/Memory"
             exact
             component={() => (
               <Memory setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/Classements"
+            path="/WorldWildQuiz/Classements"
             exact
             component={() => (
               <Classements setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/Culture"
+            path="/WorldWildQuiz/Culture"
             exact
             component={() => (
               <Culture setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/QuizRapid"
+            path="/WorldWildQuiz/QuizRapid"
             exact
             component={() => (
               <QuizRapid setShowPresentation={setShowPresentation} />
