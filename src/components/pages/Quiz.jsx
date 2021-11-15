@@ -26,7 +26,7 @@ const Quiz = ({ setShowPresentation }) => {
   const [resultQuestion, setResultQuestion] = useState([]); // affiche l'objet de la question affiché
   const [capitalQuestion, setCapitalQuestion] = useState(''); // affiche l'objet selectionné de la question
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
-  const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
+  const [difficult, setDifficult] = useState('2'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
 
   // Applique un random sur les tableaux en parametre
@@ -48,15 +48,15 @@ const Quiz = ({ setShowPresentation }) => {
         country.region.includes(regionSwitch !== 'Monde' ? regionSwitch : '')
       ) // je filtre mon tableau par ordre de population décroissant
       .sort((a, b) => {
-        // permet d'appliquer une difficultée au jeu
+        // permet d'appliquer une difficulté au jeu
         return b.population - a.population;
       });
 
-    if (difficult === 'easy' && regionSwitch === 'Monde') {
+    if (difficult === '1' && regionSwitch === 'Monde') {
       setSortedData(sortedArray.slice(0, 33));
-    } else if (difficult === 'medium' && regionSwitch === 'Monde') {
+    } else if (difficult === '2' && regionSwitch === 'Monde') {
       setSortedData(sortedArray.slice(100, 133));
-    } else if (difficult === 'hard' && regionSwitch === 'Monde') {
+    } else if (difficult === '3' && regionSwitch === 'Monde') {
       setSortedData(sortedArray.slice(210, 243));
     } else {
       setSortedData(sortedArray);

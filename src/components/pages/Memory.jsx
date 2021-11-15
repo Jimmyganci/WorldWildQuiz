@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Register from '../Register';
 import Difficult from '../Difficult';
 import MemoryGrid from '../MemoryGrid';
+import '../../style.css';
 
 const Memory = ({ setShowPresentation }) => {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ const Memory = ({ setShowPresentation }) => {
   const [timer, setTimer] = useState({ hour: 0, minute: 0, sec: 0 });
   const [startTimer, setStartTimer] = useState(false);
   const [winner, setWinner] = useState(false);
-  const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
+  const [difficult, setDifficult] = useState('2');
   const [playMemoryDifficult, setPlayMemoryDifficult] = useState(true); // affiche le bouton play dans le composant memory
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   const limitFlag = [];
@@ -45,11 +46,14 @@ const Memory = ({ setShowPresentation }) => {
       return b.population - a.population;
     });
 
-    if (difficult === 'easy') {
+    if (difficult === '1') {
+      /* difficult === 'easy' */
       setFlagArray(sortedArray.slice(0, 6));
-    } else if (difficult === 'medium') {
+    } else if (difficult === '2') {
+      /* difficult === 'medium' */
       setFlagArray(sortedArray.slice(0, 12));
-    } else if (difficult === 'hard') {
+    } else if (difficult === '3') {
+      /* difficult === 'hard' */
       setFlagArray(sortedArray.slice(0, 18));
     } else {
       setFlagArray(sortedArray.slice(0, 12));
