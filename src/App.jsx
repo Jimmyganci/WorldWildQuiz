@@ -17,7 +17,7 @@ const App = () => {
         <Header />
         <Switch>
           <Route
-            path="/WorldWildQuiz/"
+            path="/WorldWildQuiz"
             exact
             component={() => (
               <Home

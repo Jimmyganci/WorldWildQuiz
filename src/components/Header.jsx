@@ -7,6 +7,7 @@ import './header.css';
 import Login from './Login';
 import SignUp from './SignUp';
 import Profil from './Profil';
+import ConnectUser from './ConnectUser';
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState({
@@ -17,7 +18,7 @@ const Header = () => {
   const [userConnected, setUserConnected] = useState([]);
   const [searchUser, setSearchUser] = useState(false);
   const [errorGetData, setErrorGetData] = useState('');
-  console.log(userConnected.length);
+
   useEffect(() => {
     const url = `http://localhost:8000/login`;
     axios
@@ -67,7 +68,7 @@ const Header = () => {
         <Profil user={userConnected} handleLogOut={handleLogOut} />
       )}
       <li>
-        <NavLink activeClassName="active" exact to="/WorldWildQuiz">
+        <NavLink activeClassName="active" exact to="/WorldWildQuiz/">
           Home
         </NavLink>
       </li>
@@ -99,9 +100,9 @@ const Header = () => {
         </NavLink>
       </li>
       <li className="contBtnHeader scale" id="nohover">
-        <Help content="?" />
-        <Help
-          content="user"
+        <Help />
+        <ConnectUser
+          searchUser={searchUser}
           userConnected={userConnected}
           onClick={() =>
             userConnected === '' || errorGetData

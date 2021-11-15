@@ -1,11 +1,11 @@
 const gameType = [
   {
     name: 'The Quiz',
-    image: 'WorldWildQuiz/assets/homequizimage.png',
+    image: 'assets/homequizimage.png',
   },
   {
     name: 'The memory',
-    image: 'WorldWildQuiz/assets/homememoryimage.png',
+    image: 'assets/homememoryimage.png',
   },
 ];
 export default gameType;
