@@ -67,7 +67,7 @@ const Header = () => {
         <Profil user={userConnected} handleLogOut={handleLogOut} />
       )}
       <li>
-        <NavLink activeClassName="active" exact to="/WorldWildQuiz">
+        <NavLink activeClassName="active" exact to="/WorldWildQuiz/">
           Home
         </NavLink>
       </li>

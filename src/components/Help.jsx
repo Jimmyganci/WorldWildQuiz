@@ -17,11 +17,7 @@ const Help = ({ content, onClick, userConnected }) => {
             {userConnected.length !== 0 ? (
               <p className="letterConnected">{userConnected.pseudo[0]}</p>
             ) : (
-              <img
-                src="WorldWildQuiz/assets/user.png"
-                id="userImage"
-                alt="logo_user"
-              />
+              <img src="assets/user.png" id="userImage" alt="logo_user" />
             )}
           </div>
         )}
