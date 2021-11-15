@@ -18,7 +18,7 @@ const Header = () => {
   const [userConnected, setUserConnected] = useState([]);
   const [searchUser, setSearchUser] = useState(false);
   const [errorGetData, setErrorGetData] = useState('');
-  console.log(userConnected.length);
+
   useEffect(() => {
     const url = `http://localhost:8000/login`;
     axios
@@ -102,7 +102,7 @@ const Header = () => {
       <li className="contBtnHeader scale" id="nohover">
         <Help />
         <ConnectUser
-          content="user"
+          searchUser={searchUser}
           userConnected={userConnected}
           onClick={() =>
             userConnected === '' || errorGetData
