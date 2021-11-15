@@ -1,0 +1,45 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 107, 107);
+  border-radius: 0 0 30px 30px;
+  padding: 1em;
+  height: 100%;
+}
+
+.login label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.login button {
+  margin-top: 1em;
+}
+
+.bottomBorder {
+  width: 0;
+  height: 0;
+}
+
+.bottomBorder::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: rgb(78, 205, 196);
+  z-index: 1;
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+}
+
+.activeInpt1.bottomBorder::before {
+  width: 70%;
+}

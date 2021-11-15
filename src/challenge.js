@@ -1,11 +1,11 @@
 const challenge = [
   {
     nameRegion: 'Capital',
-    image: '/assets/capital.png',
+    image: 'assets/capital.png',
   },
   {
     nameRegion: 'Drapeaux',
-    image: '/assets/drapeaux.png',
+    image: 'assets/drapeaux.png',
   },
 ];
 
