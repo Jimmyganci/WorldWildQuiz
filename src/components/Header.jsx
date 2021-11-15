@@ -7,6 +7,7 @@ import './header.css';
 import Login from './Login';
 import SignUp from './SignUp';
 import Profil from './Profil';
+import ConnectUser from './ConnectUser';
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState({
@@ -100,7 +101,7 @@ const Header = () => {
       </li>
       <li className="contBtnHeader scale" id="nohover">
         <Help content="?" />
-        <Help
+        <ConnectUser
           content="user"
           userConnected={userConnected}
           onClick={() =>
