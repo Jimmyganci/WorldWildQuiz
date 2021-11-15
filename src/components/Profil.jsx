@@ -28,7 +28,7 @@ const Profil = ({ user, handleLogOut }) => {
         <p>Pseudo: {user.pseudo}</p>
         <p>Mail: {user.mail}</p>
         <button className="logOut" type="button" onClick={handleLogOut}>
-          <img src="/assets/logout.png" alt="" />
+          <img src="assets/logout.png" alt="" />
         </button>
       </div>
     </div>

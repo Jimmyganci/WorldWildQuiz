@@ -100,7 +100,7 @@ const Header = () => {
         </NavLink>
       </li>
       <li className="contBtnHeader scale" id="nohover">
-        <Help content="?" />
+        <Help />
         <ConnectUser
           content="user"
           userConnected={userConnected}
