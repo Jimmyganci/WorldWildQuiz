@@ -21,3 +21,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.contImageUser {
+  width: 50%;
+}
+
+.letterConnected {
+  color: green;
+  font-size: 2vw;
+}

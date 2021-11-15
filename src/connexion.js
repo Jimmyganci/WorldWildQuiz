@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-// const session = require('express-session');
+const session = require('express-session');
 const mysql = require('mysql');
 require('dotenv').config();
 
@@ -8,17 +8,22 @@ const app = express();
 const port = process.env.PORT || 8000;
 const table = 'member';
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:8001',
+  credentials: true, // access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.use(express.json()).use(express.urlencoded({ extended: true }));
-//   .use(
-//     session({
-//       secret: 'keyboard cat',
-//       resave: false,
-//       saveUninitialized: true,
-//       cookie: { secure: true },
-//     })
-//   );
+app.use(
+  session({
+    secret: '12345',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 365 * 1000 },
+  })
+);
 
 const pool = mysql.createConnection({
   host: process.env.REACT_APP_MYSQL_HOST,
@@ -27,7 +32,28 @@ const pool = mysql.createConnection({
   database: process.env.REACT_APP_MYSQL_DB,
 });
 
-app.get('/api/users', (req, res) => {
+app.post('/login', (req, res) => {
+  req.session.user = req.body;
+  req.session.save();
+  res.json(req.session.user);
+});
+
+app.get('/login', (req, res) => {
+  res.json(req.session.user);
+});
+
+app.post('/logout', (req, res) => {
+  if (req.session) {
+    req.session.destroy((error) => {
+      res.redirect('/');
+      if (error) {
+        console.log(error);
+      }
+    });
+  }
+});
+
+app.get('/api/score', (req, res) => {
   let sql = `select * from ${table}`;
   const sqlValues = [];
   console.log(req.query.game_type);
@@ -74,7 +100,6 @@ app.get('/api/users', (req, res) => {
     sql += ` WHERE pseudo LIKE '%${req.query.pseudo}%'`;
   }
 
-  console.log(sql);
   pool.query(sql, sqlValues, (err, result) => {
     if (err) {
       res.status(500).send('Error retrieving data from database');
@@ -84,7 +109,7 @@ app.get('/api/users', (req, res) => {
   });
 });
 
-app.post('/api/users', function (req, res) {
+app.post('/api/score', function (req, res) {
   // Get sent data.
   const { pseudo, score, game, region } = req.body;
   // Do a MySQL query.
@@ -92,6 +117,61 @@ app.post('/api/users', function (req, res) {
     `INSERT INTO ${table} (pseudo, score, game, region) VALUES ('${pseudo}', '${score}', '${game}', '${region}')`
   );
   res.end('Success');
+});
+
+app.get('/api/users/:id', (req, res) => {
+  const { id } = req.params;
+  pool.query('SELECT * FROM usersdata where id=?', [id], (err) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database');
+    } else {
+      res.status(404).send('user not found');
+    }
+  });
+});
+
+app.get('/api/users/', (req, res) => {
+  let sql = 'select * from usersdata';
+  const sqlValues = [];
+
+  if (req.query.pseudo && !req.query.mail) {
+    // filtre juste les pseudos
+    sql += ' WHERE pseudo = ?';
+    sqlValues.push(req.query.pseudo);
+  }
+  if (req.query.mail && !req.query.pseudo) {
+    // filtre juste les mail
+    sql += ' WHERE mail = ?';
+    sqlValues.push(req.query.mail);
+  }
+  if (req.query.pseudo && req.query.mail) {
+    // filtre sur les pseudo et les mails
+    sql += ` WHERE pseudo = ? OR mail = ? `;
+    sqlValues.push(req.query.pseudo, req.query.mail);
+  }
+  pool.query(sql, sqlValues, (err, result) => {
+    if (err) {
+      res.status(500).send('Error retrieving data from database');
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});
+
+app.post('/api/users', (req, res) => {
+  const { pseudo, mail, password } = req.body;
+  pool.query(
+    `INSERT INTO usersdata (pseudo, mail, password) VALUES (?, ? ,?)`,
+    [pseudo, mail, password],
+    (err) => {
+      if (err) {
+        res.status(500).send('Error saving the movie');
+      } else {
+        const posted = { pseudo, mail, password };
+        res.status(201).json(posted);
+      }
+    }
+  );
 });
 
 app.listen(port, () => {

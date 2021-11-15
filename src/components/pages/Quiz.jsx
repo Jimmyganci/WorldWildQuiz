@@ -29,6 +29,10 @@ const Quiz = ({ setShowPresentation }) => {
   const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
 
+  useEffect(() => {
+    axios.get('http://localhost:8000/login/').then((res) => console.log(res));
+  }, []);
+
   // Applique un random sur les tableaux en parametre
   const shuffleArray = (array) => {
     const array2 = array;
@@ -80,6 +84,8 @@ const Quiz = ({ setShowPresentation }) => {
     }
 
     sortedCountry();
+
+    return () => {};
   }, [data, playOnce, regionSwitch, difficult]);
 
   const answerRandom = sortedData.slice(sliceVal1, sliceVal2 + 3);
