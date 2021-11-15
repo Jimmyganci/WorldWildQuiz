@@ -18,7 +18,6 @@
   object-fit: cover;
   overflow: hidden;
   object-position: center;
-
 }
 
 .flagCard img {
@@ -37,7 +36,6 @@
   line-height: 0;
   cursor: pointer;
   transition: transform 0.2s ease-in;
-
 }
 
 .containerImagesMemory:hover {
