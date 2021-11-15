@@ -239,7 +239,7 @@ const Memory = ({ setShowPresentation }) => {
             </button>
           </div>
 
-          <Link exact to="/">
+          <Link exact to="WorldWildQuiz/">
             <button type="button" className="btn" id="returnHome">
               Home
             </button>
