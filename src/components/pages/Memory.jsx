@@ -46,6 +46,7 @@ const Memory = ({ setShowPresentation }) => {
       return b.population - a.population;
     });
 
+    // Affichage d'un tableau de cartes plus ou moins grand selon la difficulté choisie
     if (difficult === '1') {
       /* difficult === 'easy' */
       setFlagArray(sortedArray.slice(0, 6));
@@ -67,6 +68,7 @@ const Memory = ({ setShowPresentation }) => {
     setPlayOnce(false);
   };
 
+  // appel API
   useEffect(() => {
     if (playOnce) {
       axios
@@ -79,6 +81,7 @@ const Memory = ({ setShowPresentation }) => {
     sortedCountry();
   }, [playOnce, data, winner, difficult, playMemoryDifficult]);
 
+  // Timer
   useEffect(() => {
     const useInterval =
       !winner &&
@@ -109,6 +112,7 @@ const Memory = ({ setShowPresentation }) => {
     };
   }, [timer, startTimer]);
 
+  // Fin de la partie (joueur a gagné)
   useEffect(() => {
     if (
       finishedItems.length > 0 &&
@@ -118,6 +122,7 @@ const Memory = ({ setShowPresentation }) => {
     }
   }, [finishedItems]);
 
+  // Logique du jeu
   const checkItems = (firstIndex, secondIndex) => {
     if (
       firstIndex !== secondIndex &&
@@ -167,6 +172,7 @@ const Memory = ({ setShowPresentation }) => {
               <button
                 type="button"
                 className="btn"
+                id="restartBtn"
                 onClick={() => {
                   setVisibleItems([]);
                   setFinishedItems([]);
@@ -175,12 +181,13 @@ const Memory = ({ setShowPresentation }) => {
                   setTimer({ hour: 0, minute: 0, sec: 0 });
                 }}
               >
-                Restart game
+                <span>Restart game</span>
               </button>
 
               <button
                 type="button"
                 className="btn"
+                id="difficultyBtn"
                 onClick={() => {
                   setVisibleItems([]);
                   setFinishedItems([]);
@@ -190,7 +197,7 @@ const Memory = ({ setShowPresentation }) => {
                   setPlayMemoryDifficult(true);
                 }}
               >
-                Change difficulty
+                <span>Change difficulty</span>
               </button>
             </div>
           </div>
@@ -217,6 +224,7 @@ const Memory = ({ setShowPresentation }) => {
             <button
               type="button"
               className="btn"
+              id="restartBtn"
               onClick={() => {
                 setVisibleItems([]);
                 setFinishedItems([]);
@@ -225,11 +233,12 @@ const Memory = ({ setShowPresentation }) => {
                 setTimer({ hour: 0, minute: 0, sec: 0 });
               }}
             >
-              Restart Game
+              <span>Restart game</span>
             </button>
             <button
               type="button"
               className="btn"
+              id="difficultyBtn"
               onClick={() => {
                 setVisibleItems([]);
                 setFinishedItems([]);
@@ -239,11 +248,11 @@ const Memory = ({ setShowPresentation }) => {
                 setPlayMemoryDifficult(true);
               }}
             >
-              Change Difficulty
+              <span>Change difficulty</span>
             </button>
           </div>
 
-          <Link exact to="WorldWildQuiz/">
+          <Link exact to="/WorldWildQuiz/">
             <button type="button" className="btn" id="returnHome">
               Home
             </button>
