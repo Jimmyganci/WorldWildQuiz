@@ -110,12 +110,20 @@ const Header = ({ showLogin, setShowLogin }) => {
         </div>
 
         <li>
-          <NavLink activeClassName="active" to="/Culture">
+          <NavLink
+            activeClassName="active"
+            to="/Culture"
+            onClick={handleShowLinks}
+          >
             Culture
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="active" to="/Classements">
+          <NavLink
+            activeClassName="active"
+            to="/Classements"
+            onClick={handleShowLinks}
+          >
             Classements
           </NavLink>
         </li>
