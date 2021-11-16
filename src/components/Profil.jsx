@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import './profil.css';
+import logout from '../imageHome/logout.png';
 
 const Profil = ({ user, handleLogOut }) => {
   const [showCategoryProfil, setShowCategoryProfil] = useState('profil');
@@ -50,7 +51,7 @@ const Profil = ({ user, handleLogOut }) => {
             </div>
 
             <button className="logOut" type="button" onClick={handleLogOut}>
-              <img src="assets/logout.png" alt="" />
+              <img src={logout} alt="" />
             </button>
           </div>
         )}

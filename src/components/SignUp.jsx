@@ -13,7 +13,6 @@ const Login = ({ setShowLogin, showLogin }) => {
     errorMail: false,
     error: '',
   });
-  //   const [userVerif, setUserVerif] = useState([]);
   const [hover, setHover] = useState({
     inpt1: false,
     inpt2: false,
@@ -77,8 +76,6 @@ const Login = ({ setShowLogin, showLogin }) => {
             className="inptUsers"
             placeholder="Pseudo"
             onChange={(e) => setPseudo(e.target.value)}
-            // onMouseOver={() => setHover({ ...hover, inpt1: true })}
-            // onMouseOut={() => setHover({ ...hover, inpt1: false })}
             onFocus={() => setHover({ ...hover, inpt1: true })}
             onBlur={() => setHover({ ...hover, inpt1: false })}
             autoComplete="off"
@@ -98,8 +95,6 @@ const Login = ({ setShowLogin, showLogin }) => {
             className="inptUsers"
             placeholder="E-mail"
             onChange={(e) => setMail(e.target.value)}
-            // onMouseOver={() => setHover({ ...hover, inpt2: true })}
-            // onMouseOut={() => setHover({ ...hover, inpt2: false })}
             onBlur={() => setHover({ ...hover, inpt2: false })}
             onFocus={() => setHover({ ...hover, inpt2: true })}
             autoComplete="off"
@@ -119,8 +114,6 @@ const Login = ({ setShowLogin, showLogin }) => {
             className="inptUsers"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
-            // onMouseOver={() => setHover({ ...hover, inpt3: true })}
-            // onMouseOut={() => setHover({ ...hover, inpt3: false })}
             onBlur={() => setHover({ ...hover, inpt3: false })}
             onFocus={() => setHover({ ...hover, inpt3: true })}
             autoComplete="off"
@@ -136,8 +129,6 @@ const Login = ({ setShowLogin, showLogin }) => {
             className="inptUsers"
             placeholder="Confirm password"
             onChange={(e) => setConfirmPassword(e.target.value)}
-            // onMouseOver={() => setHover({ ...hover, inpt4: true })}
-            // onMouseOut={() => setHover({ ...hover, inpt4: false })}
             onBlur={() => setHover({ ...hover, inpt4: false })}
             onFocus={() => setHover({ ...hover, inpt4: true })}
             autoComplete="off"

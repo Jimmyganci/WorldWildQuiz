@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Logo from './Logo';
 import Help from './Help';
@@ -9,12 +10,7 @@ import SignUp from './SignUp';
 import Profil from './Profil';
 import ConnectUser from './ConnectUser';
 
-const Header = () => {
-  const [showLogin, setShowLogin] = useState({
-    login: false,
-    signup: false,
-    profil: false,
-  });
+const Header = ({ showLogin, setShowLogin }) => {
   const [userConnected, setUserConnected] = useState([]);
   const [searchUser, setSearchUser] = useState(false);
   const [errorGetData, setErrorGetData] = useState('');
@@ -31,8 +27,7 @@ const Header = () => {
   const handleLogOut = () => {
     axios
       .post('/logout', { withCredentials: true })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         setShowLogin({ ...showLogin, profil: false });
       })
       .catch((err) => {
@@ -115,4 +110,8 @@ const Header = () => {
   );
 };
 
+Header.propTypes = {
+  setShowLogin: PropTypes.func.isRequired,
+  showLogin: PropTypes.func.isRequired,
+};
 export default Header;
