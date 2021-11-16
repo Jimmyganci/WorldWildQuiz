@@ -4,7 +4,7 @@ import Culture from './components/pages/Culture';
 import Quiz from './components/pages/Quiz';
 import Home from './components/pages/Home';
 import Memory from './components/pages/Memory';
-import Classements from './components/pages/Classements';
+import Classement from './components/pages/Classement';
 import Header from './components/Header';
 import QuizRapid from './components/pages/QuizRapid';
 import './app.css';
@@ -39,10 +39,10 @@ const App = () => {
             )}
           />
           <Route
-            path="/WorldWildQuiz/Classements"
+            path="/WorldWildQuiz/Classement"
             exact
             component={() => (
-              <Classements setShowPresentation={setShowPresentation} />
+              <Classement setShowPresentation={setShowPresentation} />
             )}
           />
           <Route

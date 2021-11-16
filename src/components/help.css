@@ -15,7 +15,7 @@
   transform: rotateZ(720deg) scale(1.1);
 }
 
-.helpContainer {
+.helpContainer  {
   display: flex;
   align-items: center;
 }

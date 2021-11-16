@@ -10,6 +10,7 @@ const Culture = () => {
   const [searchCountry, setSearchCountry] = useState('');
   const [openModal, setOpenModal] = useState('');
   const [loading, setLoading] = useState(true);
+  const [showButton, setShowButton] = useState(false);
 
   /* Appel API */
   useEffect(() => {
@@ -26,6 +27,24 @@ const Culture = () => {
     }
   }, [allCountries]);
 
+  /* Scroll button */
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   /* Modal */
   const showModal = (id) => {
     setOpenModal(id);
@@ -37,11 +56,13 @@ const Culture = () => {
   return (
     <div>
       {loading ? (
-        <Logo />
+        <div className="loadingLogo">
+          <Logo />
+        </div>
       ) : (
-        <div>
-          <h1>Chercher un pays :</h1>
+        <div className="cultureBody">
           <form className="cultureForm" onSubmit={(e) => e.preventDefault()}>
+            <h1>Search a country :</h1>
             <input
               className="cultureSearch"
               type="text"
@@ -63,7 +84,7 @@ const Culture = () => {
               .map((country) => {
                 return (
                   <div key={country.name}>
-                    <div className="cultureFlag">
+                    <div className="cultureMap">
                       <img
                         onClick={() => showModal(country.name)}
                         aria-hidden="true"
@@ -84,35 +105,35 @@ const Culture = () => {
                             src={country.flag}
                             alt={country.flag}
                           />
-                          Pays: <h2>{country.translations.fr}</h2>
+                          Country: <h3>{country.translations.fr}</h3>
                         </div>
                         <div className="modalInfoOne">
-                          Continent : <h2>{country.region}</h2>
-                          Capitale :
-                          <h2>
+                          Region : <h3>{country.region}</h3>
+                          Capital :
+                          <h3>
                             {country.capital} <br />
-                          </h2>
+                          </h3>
                           Population :
-                          <h2>
-                            {country.population} habitants <br />
-                          </h2>
+                          <h3>
+                            {country.population} people <br />
+                          </h3>
                         </div>
                         <div className="modalInfoTwo">
-                          Monnaie :
-                          <h2>
+                          Currencie :
+                          <h3>
                             {country.currencies
                               ? country.currencies[0].name
                               : ' Inconnu'}
                             <br />
-                          </h2>
-                          Symbole monnaie :
-                          <h2>
+                          </h3>
+                          Currencie symbol :
+                          <h3>
                             {country.currencies
                               ? country.currencies[0].symbol
                               : ' Inconnu'}
                             <br />
-                          </h2>
-                          Aire : <h2>{country.area} km²</h2>
+                          </h3>
+                          Area : <h3>{country.area} km²</h3>
                         </div>
                         <div className="modalFooter">
                           <button
@@ -120,7 +141,7 @@ const Culture = () => {
                             className="modalBtn"
                             onClick={hideModal}
                           >
-                            Fermer
+                            Close
                           </button>
                         </div>
                       </Modal>
@@ -130,6 +151,11 @@ const Culture = () => {
               })}
           </div>
         </div>
+      )}
+      {showButton && (
+        <button type="button" onClick={scrollToTop} className="back-to-top">
+          &#8679; {/* Arrow */}
+        </button>
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './classement.css';
 
-const Classements = ({ setShowPresentation }) => {
+const Classement = ({ setShowPresentation }) => {
   const [playOnce, setPlayOnce] = useState(true);
   const [dataBase, setDataBase] = useState([]); // variable d'état du resultat de l'appel a la BDD
   const [challengeFilter, setChallengeFilter] = useState('');
@@ -210,8 +210,8 @@ const Classements = ({ setShowPresentation }) => {
   );
 };
 
-Classements.propTypes = {
+Classement.propTypes = {
   setShowPresentation: PropTypes.func.isRequired,
 };
 
-export default Classements;
+export default Classement;
