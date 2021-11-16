@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import Culture from './components/pages/Culture';
 import Quiz from './components/pages/Quiz';
 import Home from './components/pages/Home';
@@ -14,12 +14,12 @@ const App = () => {
   const [showPresentation, setShowPresentation] = useState(true);
   return (
     <div className={showPresentation ? 'app' : ''}>
-      <BrowserRouter>
+      <HashRouter basename="/">
         <Header />
         <Switch>
           <Route
-            path="/"
             exact
+            path="/"
             component={() => (
               <Home
                 showPresentation={showPresentation}
@@ -29,39 +29,34 @@ const App = () => {
           />
           <Route
             path="/Quiz"
-            exact
             component={() => <Quiz setShowPresentation={setShowPresentation} />}
           />
           <Route
             path="/Memory"
-            exact
             component={() => (
               <Memory setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
             path="/Classements"
-            exact
             component={() => (
               <Classements setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
             path="/Culture"
-            exact
             component={() => (
               <Culture setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
             path="/QuizRapid"
-            exact
             component={() => (
               <QuizRapid setShowPresentation={setShowPresentation} />
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };

@@ -45,7 +45,7 @@ app.get('/login', (req, res) => {
 app.post('/logout', (req, res) => {
   if (req.session) {
     req.session.destroy((error) => {
-      res.redirect('/');
+      res.redirect('/WorldWildQuiz/');
       if (error) {
         console.log(error);
       }

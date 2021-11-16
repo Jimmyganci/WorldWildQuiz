@@ -62,3 +62,52 @@
     transform: scale(1);
   }
 }
+
+.profilUser {
+  background: rgb(255, 107, 107);
+  height: 100%;
+  border-radius: 0 0 30px 30px;
+}
+
+.profilEdit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.profilEdit span {
+  font-size: 1.8em;
+}
+
+.profilUser h2,
+badgeprofil h2 {
+  color: rgb(78, 205, 196);
+  text-transform: uppercase;
+  font-size: 2.3em;
+}
+
+.scoresProfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.containerBadge {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  gap: 10px;
+}
+
+.containerBadge div {
+  width: calc(100%/3);
+  margin: 0 auto;
+}
+
+.containerBadge div img {
+  width: 100%;
+}

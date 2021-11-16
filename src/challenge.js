@@ -1,11 +1,14 @@
+import capital from './imageHome/capital.png';
+import flag from './imageHome/drapeaux.png';
+
 const challenge = [
   {
     nameRegion: 'Capital',
-    image: '/assets/capital.png',
+    image: capital,
   },
   {
     nameRegion: 'Drapeaux',
-    image: '/assets/drapeaux.png',
+    image: flag,
   },
 ];
 
