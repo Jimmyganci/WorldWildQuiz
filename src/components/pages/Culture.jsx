@@ -40,12 +40,12 @@ const Culture = () => {
         <Logo />
       ) : (
         <div>
-          <h1>Chercher un pays :</h1>
+          <h1>Search a country :</h1>
           <form className="cultureForm" onSubmit={(e) => e.preventDefault()}>
             <input
               className="cultureSearch"
               type="text"
-              placeholder="Entrez le nom d'un pays"
+              placeholder="Enter a country name"
               value={searchCountry}
               onChange={(e) => setSearchCountry(e.target.value)}
             />
