@@ -95,13 +95,19 @@ badgeprofil h2 {
   justify-content: space-around;
   height: 100%;
 }
+
 .containerBadge {
-	display: flex;
-	flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  gap: 10px;
 }
+
 .containerBadge div {
-	width: calc(100%/3);
+  width: calc(100%/3);
+  margin: 0 auto;
 }
+
 .containerBadge div img {
-	width: 100%;
+  width: 100%;
 }
