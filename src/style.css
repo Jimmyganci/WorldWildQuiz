@@ -88,15 +88,10 @@ a {
 .redError::before {
   background: red;
 }
-<<<<<<< HEAD
-.footer {
-  display: none;
-=======
 
 /* Media queries - tablettes */
 @media screen and (max-width: 600px) {
   .btn {
     width: 15vw;
   }
->>>>>>> 9ca5694ff104b18ebeafd5318041fbba374661a1
 }
