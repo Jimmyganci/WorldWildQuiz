@@ -7,6 +7,7 @@ import Memory from './components/pages/Memory';
 import Classements from './components/pages/Classements';
 import Header from './components/Header';
 import QuizRapid from './components/pages/QuizRapid';
+
 import './app.css';
 
 const App = () => {

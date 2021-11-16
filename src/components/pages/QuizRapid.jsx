@@ -106,9 +106,9 @@ const QuizRapid = () => {
   };
 
   return (
-    <div>
+    <div className="divquizrapid">
       <h2>Rapid quiz</h2>
-      <div className="divquizrapid">
+      <div>
         <div
           className="containerDifficult"
           id={isHidden === 'difficult' ? '' : 'hidden'}
