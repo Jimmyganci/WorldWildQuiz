@@ -14,6 +14,7 @@ const Difficult = ({ setDifficult }) => {
               min="1"
               max="3"
               step="1"
+              defaultValue="2"
               onChange={(e) => setDifficult(e.target.value)}
             />
             Hard
