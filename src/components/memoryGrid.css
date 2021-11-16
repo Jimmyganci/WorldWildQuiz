@@ -13,12 +13,11 @@
 }
 
 .gridMedium {
-  grid-template-columns: repeat(6, 1fr); /* création grille 6 col donc 4 lignes puisque 24 objets */
+  grid-template-columns: repeat(6, 1fr); /* création grille 6 col */
   grid-template-rows: (4, 1fr);
-
-  /* grid-auto-rows: minmax(auto, 15vh); */
 }
 
+/* Media queries */
 @media screen and (max-width: 600px) {
   .flagsCardsContainer {
     display: grid;

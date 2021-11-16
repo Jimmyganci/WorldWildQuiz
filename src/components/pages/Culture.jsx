@@ -1,16 +1,21 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './culture.css';
 import Modal from '../modal';
 import Logo from '../Logo';
 
-const Culture = () => {
+const Culture = ({ setShowPresentation }) => {
   const [playOnce, setPlayOnce] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
   const [openModal, setOpenModal] = useState('');
   const [loading, setLoading] = useState(true);
   const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    setShowPresentation(false);
+  }, []);
 
   /* Appel API */
   useEffect(() => {
@@ -66,7 +71,7 @@ const Culture = () => {
             <input
               className="cultureSearch"
               type="text"
-              placeholder="Entrez le nom d'un pays"
+              placeholder="Enter a country name"
               value={searchCountry}
               onChange={(e) => setSearchCountry(e.target.value)}
             />
@@ -159,6 +164,10 @@ const Culture = () => {
       )}
     </div>
   );
+};
+
+Culture.propTypes = {
+  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Culture;

@@ -9,7 +9,7 @@ const port = process.env.PORT || 8000;
 const table = 'member';
 
 const corsOptions = {
-  origin: 'http://localhost:8001',
+  origin: true,
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -111,10 +111,10 @@ app.get('/api/score', (req, res) => {
 
 app.post('/api/score', function (req, res) {
   // Get sent data.
-  const { pseudo, score, game, region } = req.body;
+  const { pseudo, idUser, score, game, region, gameType } = req.body;
   // Do a MySQL query.
   pool.query(
-    `INSERT INTO ${table} (pseudo, score, game, region) VALUES ('${pseudo}', '${score}', '${game}', '${region}')`
+    `INSERT INTO ${table} (pseudo, idUser, score, game, region, game_type) VALUES ('${pseudo}', '${idUser}', '${score}', '${game}', '${region}', '${gameType}')`
   );
   res.end('Success');
 });

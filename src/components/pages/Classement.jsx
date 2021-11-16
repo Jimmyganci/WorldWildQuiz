@@ -162,7 +162,7 @@ const Classement = ({ setShowPresentation }) => {
                 className="inpt"
               >
                 <option value="">All</option>
-                <option value="monde">Monde</option>
+                <option value="world">World</option>
                 <option value="africa">Africa</option>
                 <option value="america">America</option>
                 <option value="asia">Asia</option>

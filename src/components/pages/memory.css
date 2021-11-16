@@ -22,6 +22,7 @@
   padding: 1em;
   background: rgb(255, 230, 109);
   border-radius: 50%;
+  font-size: 2.4vw;
 }
 
 .winnerModal {
@@ -78,4 +79,13 @@
 
 #btnDifficultMemory {
   margin-top: 2em;
+}
+
+/* Media queries */
+@media screen and (max-width: 600px) {
+  .timer {
+    margin-bottom: 0.5em;
+    padding: 0.8em;
+    font-size: 2.8vw;
+  }
 }

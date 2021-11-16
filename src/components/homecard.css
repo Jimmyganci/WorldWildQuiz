@@ -15,7 +15,7 @@
 }
 
 .homecard h2 {
-  position: relative;
+  position: inherit;
   top: 1em;
   letter-spacing: 3px;
   font-size: 2em;
@@ -79,13 +79,13 @@
 }
 
 .cardCultureHome h2 {
-  position: relative;
+  position: inherit;
   letter-spacing: 3px;
   font-size: 2em;
 }
 
 .cardCultureHome h3 {
-  position: relative;
+  position: inherit;
   font-style: italic;
   font-size: 1.7em;
 }

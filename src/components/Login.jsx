@@ -62,8 +62,6 @@ const Login = ({ searchUser, setSearchUser, setShowLogin, showLogin }) => {
             className="inptUsers"
             placeholder="Login"
             onChange={(e) => setDataLogin(e.target.value)}
-            // onMouseOver={() => setHoverLog({ ...hoverLog, inpt1: true })}
-            // onMouseOut={() => setHoverLog({ ...hoverLog, inpt1: false })}
             onBlur={() => setHoverLog({ ...hoverLog, inpt1: false })}
             onFocus={() => setHoverLog({ ...hoverLog, inpt1: true })}
             autoComplete="off"
@@ -80,8 +78,6 @@ const Login = ({ searchUser, setSearchUser, setShowLogin, showLogin }) => {
             placeholder="Password"
             required
             onChange={(e) => setDataPassword(e.target.value)}
-            // onMouseOver={() => setHoverLog({ ...hoverLog, inpt2: true })}
-            // onMouseOut={() => setHoverLog({ ...hoverLog, inpt2: false })}
             onBlur={() => setHoverLog({ ...hoverLog, inpt2: false })}
             onFocus={() => setHoverLog({ ...hoverLog, inpt2: true })}
             autoComplete="off"

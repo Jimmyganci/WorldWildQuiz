@@ -1,27 +1,34 @@
+import monde from './imageHome/monde.png';
+import africa from './imageHome/africa.png';
+import america from './imageHome/america.png';
+import asia from './imageHome/asia.png';
+import europa from './imageHome/europa.png';
+import oceania from './imageHome/oceania.png';
+
 const regions = [
   {
-    nameRegion: 'Monde',
-    image: 'assets/monde.png',
+    nameRegion: 'World',
+    image: monde,
   },
   {
     nameRegion: 'Africa',
-    image: 'assets/africa.png',
+    image: africa,
   },
   {
     nameRegion: 'America',
-    image: 'assets/america.png',
+    image: america,
   },
   {
     nameRegion: 'Asia',
-    image: 'assets/asia.png',
+    image: asia,
   },
   {
     nameRegion: 'Europe',
-    image: 'assets/europa.png',
+    image: europa,
   },
   {
     nameRegion: 'Oceania',
-    image: 'assets/oceania.png',
+    image: oceania,
   },
 ];
 
