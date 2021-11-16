@@ -1,33 +1,44 @@
+/* eslint-disable*/
+
+import React from 'react';
 import './help.css';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import logoUser from "../imageHome/user.png"
 
-const ConnectUser = ({ searchUser, onClick, userConnected }) => {
-  const [isLoggin, setIsLoggin] = useState(false);
-  console.log(isLoggin);
+class ConnectUser extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggin: false,
+    };
+  }
 
-  return (
-    <div className="helpcontainer">
-      <div
-        className="help"
-        onClick={() => {
-          onClick();
-          return searchUser && setIsLoggin(true);
-        }}
-        onKeyDown={onClick}
-        aria-hidden="true"
-      >
-        <div className="contImageUser">
-          {userConnected.length !== 0 ? (
-            <p className="letterConnected">{userConnected.pseudo[0]}</p>
-          ) : (
-            <img src="assets/user.png" id="userImage" alt="logo_user" />
-          )}
+  render() {
+    const { searchUser, onClick, userConnected } = this.props;
+
+    return (
+      <div className="helpcontainer">
+        <div
+          className="help"
+          onClick={() => {
+            onClick();
+            return searchUser && this.setState({ isLoggin: true });
+          }}
+          onKeyDown={onClick}
+          aria-hidden="true"
+        >
+          <div className="contImageUser">
+            {userConnected.length !== 0 ? (
+              <p className="letterConnected">{userConnected.pseudo[0]}</p>
+            ) : (
+              <img src={logoUser} id="userImage" alt="logo_user" />
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 ConnectUser.propTypes = {
   userConnected: PropTypes.oneOfType([PropTypes.object]),
@@ -41,3 +52,5 @@ ConnectUser.defaultProps = {
 };
 
 export default ConnectUser;
+
+/* eslint-enable */

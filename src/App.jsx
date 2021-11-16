@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import Culture from './components/pages/Culture';
 import Quiz from './components/pages/Quiz';
 import Home from './components/pages/Home';
@@ -7,18 +7,25 @@ import Memory from './components/pages/Memory';
 import Classements from './components/pages/Classements';
 import Header from './components/Header';
 import QuizRapid from './components/pages/QuizRapid';
+
 import './app.css';
 
 const App = () => {
   const [showPresentation, setShowPresentation] = useState(true);
+  const [showLogin, setShowLogin] = useState({
+    login: false,
+    signup: false,
+    profil: false,
+  });
+  console.log(showPresentation);
   return (
     <div className={showPresentation ? 'app' : ''}>
-      <BrowserRouter>
-        <Header />
+      <HashRouter basename="/">
+        <Header showLogin={showLogin} setShowLogin={setShowLogin} />
         <Switch>
           <Route
-            path="/WorldWildQuiz"
             exact
+            path="/"
             component={() => (
               <Home
                 showPresentation={showPresentation}
@@ -27,40 +34,40 @@ const App = () => {
             )}
           />
           <Route
-            path="/WorldWildQuiz/Quiz"
-            exact
-            component={() => <Quiz setShowPresentation={setShowPresentation} />}
+            path="/Quiz"
+            component={() => (
+              <Quiz
+                setShowLogin={setShowLogin}
+                setShowPresentation={setShowPresentation}
+              />
+            )}
           />
           <Route
-            path="/WorldWildQuiz/Memory"
-            exact
+            path="/Memory"
             component={() => (
               <Memory setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/WorldWildQuiz/Classements"
-            exact
+            path="/Classements"
             component={() => (
               <Classements setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/WorldWildQuiz/Culture"
-            exact
+            path="/Culture"
             component={() => (
               <Culture setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/WorldWildQuiz/QuizRapid"
-            exact
+            path="/QuizRapid"
             component={() => (
               <QuizRapid setShowPresentation={setShowPresentation} />
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };

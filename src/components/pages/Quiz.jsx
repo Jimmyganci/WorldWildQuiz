@@ -11,7 +11,7 @@ import regions from '../../regions';
 import './quiz.css';
 import ResultQuiz from '../ResultQuiz';
 
-const Quiz = ({ setShowPresentation }) => {
+const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [data, setData] = useState([]); // recupère le premier tableau de l'appel api
   const [playOnce, setPlayOnce] = useState(true); // gere l'appel API pour eviter l'appel en boucle
   const [sortedData, setSortedData] = useState([]); // tableau de l'appel api trié par ordre de population
@@ -187,6 +187,9 @@ const Quiz = ({ setShowPresentation }) => {
           key={capitalQuestion.name}
           showResponse={showResponse}
           challengeSwitch={challengeSwitch}
+          arrayLength={arrayLength}
+          setShowLogin={setShowLogin}
+          setIsHidden={setIsHidden}
         />
       </div>
 
@@ -250,6 +253,7 @@ const Quiz = ({ setShowPresentation }) => {
 
 Quiz.propTypes = {
   setShowPresentation: PropTypes.func.isRequired,
+  setShowLogin: PropTypes.func.isRequired,
 };
 
 export default Quiz;

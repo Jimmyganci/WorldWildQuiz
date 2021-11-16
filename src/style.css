@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "fontTitle";
-  src: url("./fonts/pathway-gothic-one-v9-latin-regular.woff2");
+  font-family: 'fontTitle';
+  src: url('./fonts/pathway-gothic-one-v9-latin-regular.woff2');
 }
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "fontTitle";
+  font-family: 'fontTitle';
   text-align: center;
 }
 
