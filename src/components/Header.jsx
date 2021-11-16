@@ -11,6 +11,7 @@ import Profil from './Profil';
 import ConnectUser from './ConnectUser';
 
 const Header = ({ showLogin, setShowLogin }) => {
+  const [showlinks, setShowLinks] = useState(false);
   const [userConnected, setUserConnected] = useState([]);
   const [searchUser, setSearchUser] = useState(false);
   const [errorGetData, setErrorGetData] = useState('');
@@ -34,78 +35,103 @@ const Header = ({ showLogin, setShowLogin }) => {
         console.log(err);
       });
   };
+
+  const handleShowLinks = () => {
+    setShowLinks(!showlinks);
+  };
+  console.log(showlinks);
+
   return (
-    <div className="header">
-      {(showLogin.login || showLogin.profil || showLogin.signup) && (
-        <span
-          id="screenBackBlack"
-          onClick={() =>
-            setShowLogin({ login: false, profil: false, signup: false })
-          }
-          onKeyDown={() =>
-            setShowLogin({ login: false, profil: false, signup: false })
-          }
-          aria-hidden="true"
-        />
-      )}
-      {showLogin.login && userConnected === '' && (
-        <Login
-          setSearchUser={setSearchUser}
-          searchUser={searchUser}
-          setShowLogin={setShowLogin}
-          showLogin={showLogin}
-        />
-      )}
-      {showLogin.signup && (
-        <SignUp setShowLogin={setShowLogin} showLogin={showLogin} />
-      )}
-      {showLogin.profil && userConnected && (
-        <Profil user={userConnected} handleLogOut={handleLogOut} />
-      )}
-      <li>
-        <NavLink activeClassName="active" exact to="/">
-          Home
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="active" to="/Quiz">
-          Quiz
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="active" to="/Memory">
-          Memory
-        </NavLink>
-      </li>
+    <div className="sectionHeader">
+      <button type="button" className="burger" onClick={handleShowLinks}>
+        <span className="burger-bar"> </span>
+      </button>
+      <div className={`header ${showlinks ? 'show-nav' : 'hide-nav'}`}>
+        {(showLogin.login || showLogin.profil || showLogin.signup) && (
+          <span
+            id="screenBackBlack"
+            onClick={() =>
+              setShowLogin({ login: false, profil: false, signup: false })
+            }
+            onKeyDown={() =>
+              setShowLogin({ login: false, profil: false, signup: false })
+            }
+            aria-hidden="true"
+          />
+        )}
+        {showLogin.login && userConnected === '' && (
+          <Login
+            setSearchUser={setSearchUser}
+            searchUser={searchUser}
+            setShowLogin={setShowLogin}
+            showLogin={showLogin}
+          />
+        )}
+        {showLogin.signup && (
+          <SignUp setShowLogin={setShowLogin} showLogin={showLogin} />
+        )}
+        {showLogin.profil && userConnected && (
+          <Profil user={userConnected} handleLogOut={handleLogOut} />
+        )}
 
-      <div className="logoHeader">
-        <Link className="nohover" to="/">
-          <Logo />
-        </Link>
+        <li>
+          <NavLink
+            activeClassName="active"
+            exact
+            to="/"
+            onClick={handleShowLinks}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            activeClassName="active"
+            to="/Quiz"
+            onClick={handleShowLinks}
+          >
+            Quiz
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            activeClassName="active"
+            to="/Memory"
+            onClick={handleShowLinks}
+          >
+            Memory
+          </NavLink>
+        </li>
+
+        <div className="logoHeader">
+          <Link className="nohover" to="/">
+            <Logo />
+          </Link>
+        </div>
+
+        <li>
+          <NavLink activeClassName="active" to="/Culture">
+            Culture
+          </NavLink>
+        </li>
+        <li>
+          <NavLink activeClassName="active" to="/Classements">
+            Classements
+          </NavLink>
+        </li>
+        <li className="contBtnHeader scale" id="nohover">
+          <Help />
+          <ConnectUser
+            searchUser={searchUser}
+            userConnected={userConnected}
+            onClick={() =>
+              userConnected === '' || errorGetData
+                ? setShowLogin({ ...showLogin, login: true })
+                : setShowLogin({ ...showLogin, profil: true })
+            }
+          />
+        </li>
       </div>
-
-      <li>
-        <NavLink activeClassName="active" to="/Culture">
-          Culture
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="active" to="/Classements">
-          Classements
-        </NavLink>
-      </li>
-      <li className="contBtnHeader scale" id="nohover">
-        <Help />
-        <ConnectUser
-          searchUser={searchUser}
-          userConnected={userConnected}
-          onClick={() =>
-            userConnected === '' || errorGetData
-              ? setShowLogin({ ...showLogin, login: true })
-              : setShowLogin({ ...showLogin, profil: true })
-          }
-        />
-      </li>
     </div>
   );
 };
