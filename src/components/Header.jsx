@@ -49,7 +49,7 @@ const Header = ({ showLogin, setShowLogin }) => {
       });
   };
 
-  const pathName = window.location.pathname;
+  console.log(window.location);
 
   const handleShowLinks = () => {
     setShowLinks(!showlinks);
@@ -89,7 +89,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           <Profil user={userConnected} handleLogOut={handleLogOut} />
         )}
         {/* ***** Link Home ***** */}
-        {openModal && pathName === '/WorldWildQuiz/' ? (
+        {openModal && window.location.hash === '#/' ? (
           <Modal
             openModal={openModal}
             showModal={showModal}
@@ -119,7 +119,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           </Modal>
         ) : null}
         {/* ***** Link Quiz ***** */}
-        {openModal && pathName === '/WorldWildQuiz/Quiz' ? (
+        {openModal && window.location.hash === '#/Quiz' ? (
           <Modal
             openModal={openModal}
             showModal={showModal}
@@ -154,7 +154,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           </Modal>
         ) : null}
         {/* ***** Link Quiz ***** */}
-        {openModal && pathName === '/WorldWildQuiz/quizrapid' ? (
+        {openModal && window.location.hash === '#/quizrapid' ? (
           <Modal
             openModal={openModal}
             showModal={showModal}
@@ -182,7 +182,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           </Modal>
         ) : null}
         {/* ***** Link Memory ***** */}
-        {openModal && pathName === '/WorldWildQuiz/Memory' ? (
+        {openModal && window.location.hash === '#/Memory' ? (
           <Modal
             openModal={openModal}
             showModal={showModal}
@@ -210,7 +210,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           </Modal>
         ) : null}
         {/* ***** Link Culture ***** */}
-        {openModal && pathName === '/WorldWildQuiz/Culture' ? (
+        {openModal && window.location.hash === '#/Culture' ? (
           <Modal
             openModal={openModal}
             showModal={showModal}
@@ -239,7 +239,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           </Modal>
         ) : null}
         {/* ***** Link Classement ***** */}
-        {openModal && pathName === '/WorldWildQuiz/Classement' ? (
+        {openModal && window.location.hash === '#/Classements' ? (
           <Modal
             openModal={openModal}
             showModal={showModal}

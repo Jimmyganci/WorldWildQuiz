@@ -4,7 +4,7 @@ import Culture from './components/pages/Culture';
 import Quiz from './components/pages/Quiz';
 import Home from './components/pages/Home';
 import Memory from './components/pages/Memory';
-import Classement from './components/pages/Classement';
+import Classements from './components/pages/Classements';
 import Header from './components/Header';
 import QuizRapid from './components/pages/QuizRapid';
 
@@ -49,9 +49,9 @@ const App = () => {
             )}
           />
           <Route
-            path="/Classement"
+            path="/Classements"
             component={() => (
-              <Classement setShowPresentation={setShowPresentation} />
+              <Classements setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
