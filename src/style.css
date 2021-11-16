@@ -17,10 +17,11 @@ html {
 .btn {
   background: rgb(255, 230, 109);
   border: 1px solid rgb(255, 230, 109);
+  box-shadow: 1px 1px 2px rgb(233, 154, 7);
   padding: 1em;
   border-radius: 50px;
   cursor: pointer;
-  width: 150px;
+  width: 10vw;
   transition: 0.3s ease-in;
 }
 
@@ -86,4 +87,11 @@ a {
 
 .redError::before {
   background: red;
+}
+
+/* Media queries - tablettes */
+@media screen and (max-width: 600px) {
+  .btn {
+    width: 15vw;
+  }
 }
