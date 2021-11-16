@@ -19,7 +19,7 @@ const Classements = ({ setShowPresentation }) => {
   useEffect(() => {
     let url = `http://localhost:8000/api/score/`;
     if (selectGame) {
-      url += `?game_type=${selectGame}`;
+      url += `?gameType=${selectGame}`;
     }
     if (challengeFilter) {
       url += `?game=${challengeFilter}`;

@@ -26,12 +26,12 @@
   width: 100%;
   justify-content: center;
 }
-@media screen and (max-width:700px) {
-	ul.choiceRegions {
-		grid-template-columns: repeat(2, 0.3fr);
-		margin-top: 10vh;
-	}
-	
+
+@media screen and (max-width: 700px) {
+  ul.choiceRegions {
+    grid-template-columns: repeat(2, 0.3fr);
+    margin-top: 10vh;
+  }
 }
 
 .choiceChallenge {
@@ -39,20 +39,23 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-@media screen and (max-width:700px) {
-	ul.choiceChallenge {
-		margin-top: 10vh;
-	}
-	ul.choiceChallenge .card {
-		margin-bottom: 1em;
-	}
+
+@media screen and (max-width: 700px) {
+  ul.choiceChallenge {
+    margin-top: 10vh;
+  }
+
+  ul.choiceChallenge .card {
+    margin-bottom: 1em;
+  }
 }
-@media screen and (max-width:300px) {
-	ul.choiceChallenge .card {
-		margin-bottom: 1em;
-		height: 150px;
-		padding: 50px;
-	}
+
+@media screen and (max-width: 300px) {
+  ul.choiceChallenge .card {
+    margin-bottom: 1em;
+    height: 150px;
+    padding: 50px;
+  }
 }
 
 .choiceChallenge .card {
