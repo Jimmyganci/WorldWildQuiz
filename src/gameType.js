@@ -1,11 +1,14 @@
+import imageQuiz from './imageHome/homequizimage.png';
+import imageMemory from './imageHome/homememoryimage.png';
+
 const gameType = [
   {
     name: 'The Quiz',
-    image: 'assets/homequizimage.png',
+    image: imageQuiz,
   },
   {
     name: 'The memory',
-    image: 'assets/homememoryimage.png',
+    image: imageMemory,
   },
 ];
 export default gameType;

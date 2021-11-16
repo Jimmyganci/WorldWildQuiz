@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import Culture from './components/pages/Culture';
 import Quiz from './components/pages/Quiz';
 import Home from './components/pages/Home';
@@ -13,12 +13,12 @@ const App = () => {
   const [showPresentation, setShowPresentation] = useState(true);
   return (
     <div className={showPresentation ? 'app' : ''}>
-      <BrowserRouter>
+      <HashRouter basename="/">
         <Header />
         <Switch>
           <Route
-            path="/WorldWildQuiz"
             exact
+            path="/"
             component={() => (
               <Home
                 showPresentation={showPresentation}
@@ -27,40 +27,35 @@ const App = () => {
             )}
           />
           <Route
-            path="/WorldWildQuiz/Quiz"
-            exact
+            path="/Quiz"
             component={() => <Quiz setShowPresentation={setShowPresentation} />}
           />
           <Route
-            path="/WorldWildQuiz/Memory"
-            exact
+            path="/Memory"
             component={() => (
               <Memory setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/WorldWildQuiz/Classements"
-            exact
+            path="/Classements"
             component={() => (
               <Classements setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/WorldWildQuiz/Culture"
-            exact
+            path="/Culture"
             component={() => (
               <Culture setShowPresentation={setShowPresentation} />
             )}
           />
           <Route
-            path="/WorldWildQuiz/QuizRapid"
-            exact
+            path="/QuizRapid"
             component={() => (
               <QuizRapid setShowPresentation={setShowPresentation} />
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };

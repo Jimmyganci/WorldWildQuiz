@@ -68,34 +68,34 @@ const Header = () => {
         <Profil user={userConnected} handleLogOut={handleLogOut} />
       )}
       <li>
-        <NavLink activeClassName="active" exact to="/WorldWildQuiz/">
+        <NavLink activeClassName="active" exact to="/">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink activeClassName="active" to="/WorldWildQuiz/Quiz">
+        <NavLink activeClassName="active" to="/Quiz">
           Quiz
         </NavLink>
       </li>
       <li>
-        <NavLink activeClassName="active" to="/WorldWildQuiz/Memory">
+        <NavLink activeClassName="active" to="/Memory">
           Memory
         </NavLink>
       </li>
 
       <div className="logoHeader">
-        <Link className="nohover" to="/WorldWildQuiz">
+        <Link className="nohover" to="/">
           <Logo />
         </Link>
       </div>
 
       <li>
-        <NavLink activeClassName="active" to="/WorldWildQuiz/Culture">
+        <NavLink activeClassName="active" to="/Culture">
           Culture
         </NavLink>
       </li>
       <li>
-        <NavLink activeClassName="active" to="/WorldWildQuiz/Classements">
+        <NavLink activeClassName="active" to="/Classements">
           Classements
         </NavLink>
       </li>
