@@ -86,17 +86,6 @@
   align-items: center;
 }
 
-.registerModal {
-  background: rgb(255, 107, 107);
-  padding: 0.6em;
-  width: 60%;
-  border-radius: 50px;
-  position: fixed;
-  bottom: 2%;
-  transition-delay: 0.5s;
-  transition: 0.5s ease-in-out;
-}
-
 .noThanks {
   background: transparent;
   border: none;

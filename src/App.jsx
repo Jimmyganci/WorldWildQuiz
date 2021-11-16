@@ -12,10 +12,16 @@ import './app.css';
 
 const App = () => {
   const [showPresentation, setShowPresentation] = useState(true);
+  const [showLogin, setShowLogin] = useState({
+    login: false,
+    signup: false,
+    profil: false,
+  });
+  console.log(showPresentation);
   return (
     <div className={showPresentation ? 'app' : ''}>
       <HashRouter basename="/">
-        <Header />
+        <Header showLogin={showLogin} setShowLogin={setShowLogin} />
         <Switch>
           <Route
             exact
@@ -29,7 +35,12 @@ const App = () => {
           />
           <Route
             path="/Quiz"
-            component={() => <Quiz setShowPresentation={setShowPresentation} />}
+            component={() => (
+              <Quiz
+                setShowLogin={setShowLogin}
+                setShowPresentation={setShowPresentation}
+              />
+            )}
           />
           <Route
             path="/Memory"
