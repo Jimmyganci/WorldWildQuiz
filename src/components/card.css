@@ -6,7 +6,6 @@
   padding: 20px;
   background: rgb(255, 107, 107);
   border-radius: 30px;
-  height: 200px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
@@ -20,7 +19,5 @@
 }
 
 .card img {
-  width: 160px;
-  height: 200px;
-  object-fit: contain;
+  width: 100%;
 }
