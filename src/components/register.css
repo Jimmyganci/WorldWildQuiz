@@ -39,6 +39,17 @@
   font-size: 1.1em;
 }
 
+@media screen and (max-width: 450px) {
+  div.registerMessage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.registerMessage button {
+    width: 100%;
+  }
+}
+
 .registerMessage p span {
   color: rgb(26, 83, 92);
   font-size: 1.5em;

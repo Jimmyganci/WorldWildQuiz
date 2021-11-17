@@ -1,9 +1,8 @@
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './classement.css';
 
-const Classements = ({ setShowPresentation }) => {
+const Classements = () => {
   const [playOnce, setPlayOnce] = useState(true);
   const [dataBase, setDataBase] = useState([]); // variable d'état du resultat de l'appel a la BDD
   const [challengeFilter, setChallengeFilter] = useState('');
@@ -192,9 +191,9 @@ const Classements = ({ setShowPresentation }) => {
         {dataBase.map((el, index) => (
           <ul
             key={el.id}
-            className={
+            className={`${selectGame === 'Memory' && 'gridColTwo'} ${
               index % 2 === 0 ? `bodyClassement` : `bodyClassement bgOpacity`
-            }
+            }`}
           >
             <li>{el.pseudo}</li>
             {selectGame !== 'Memory' && <li>{el.game}</li>}
@@ -208,10 +207,6 @@ const Classements = ({ setShowPresentation }) => {
       </div>
     </div>
   );
-};
-
-Classements.propTypes = {
-  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Classements;

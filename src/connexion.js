@@ -109,6 +109,22 @@ app.get('/api/score', (req, res) => {
   });
 });
 
+app.get('/api/score/:id', (req, res) => {
+  const idUser = req.params.id;
+  console.log(req.params.id);
+  pool.query(
+    'SELECT * FROM member WHERE idUser = ?',
+    [idUser],
+    (err, result) => {
+      if (err) {
+        res.status(500).send('Error retrieving data from database');
+      } else {
+        res.status(200).json(result);
+      }
+    }
+  );
+});
+
 app.post('/api/score', function (req, res) {
   // Get sent data.
   const { pseudo, idUser, score, game, region, gameType } = req.body;
@@ -117,17 +133,6 @@ app.post('/api/score', function (req, res) {
     `INSERT INTO ${table} (pseudo, idUser, score, game, region, game_type) VALUES ('${pseudo}', '${idUser}', '${score}', '${game}', '${region}', '${gameType}')`
   );
   res.end('Success');
-});
-
-app.get('/api/users/:id', (req, res) => {
-  const { id } = req.params;
-  pool.query('SELECT * FROM usersdata where id=?', [id], (err) => {
-    if (err) {
-      res.status(500).send('Error retrieving data from database');
-    } else {
-      res.status(404).send('user not found');
-    }
-  });
 });
 
 app.get('/api/users/', (req, res) => {

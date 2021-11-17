@@ -15,7 +15,13 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: dense;
-  width: 61%;
+  width: 70%;
+}
+
+@media screen and (max-width: 450px) {
+  ul.answers {
+    grid-template-columns: 1fr;
+  }
 }
 
 .choiceRegions {
@@ -74,6 +80,12 @@
   width: 100%;
 }
 
+@media screen and (max-width: 700px) {
+  div.quizMain {
+    margin-top: 10vw;
+  }
+}
+
 .restartContainer {
   display: flex;
   width: 100%;
@@ -81,8 +93,22 @@
   margin: 2em 0;
 }
 
+@media screen and (max-width: 450px) {
+  div.restartContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .restartContainer button {
   margin: 0 1em;
+}
+
+@media screen and (max-width: 450px) {
+  div.restartContainer button {
+    margin: 0.3em 0;
+    width: 70%;
+  }
 }
 
 .containerDifficult {

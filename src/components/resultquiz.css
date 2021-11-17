@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 700px) {
+  div.resultQuizContainer {
+    margin-top: 10vw;
+  }
+}
+
 .resultQuiz {
   width: 70%;
   display: flex;
@@ -27,6 +33,12 @@
   gap: 10px;
   margin: 0 0 50px 0;
   padding: 1em;
+}
+
+@media screen and (max-width: 450px) {
+  div.gridResultQuiz {
+    width: 100%;
+  }
 }
 
 .gridResultQuiz p {
@@ -76,6 +88,12 @@
 
 #btnCorrection {
   margin: 0 0 1em 0;
+}
+
+@media screen and (max-width: 450px) {
+  button#btnCorrection {
+    width: 70%;
+  }
 }
 
 .labelCorrection {

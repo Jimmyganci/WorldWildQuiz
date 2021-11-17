@@ -5,17 +5,13 @@ import './culture.css';
 import Modal from '../modal';
 import Logo from '../Logo';
 
-const Culture = ({ setShowPresentation }) => {
+const Culture = () => {
   const [playOnce, setPlayOnce] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
   const [openModal, setOpenModal] = useState('');
   const [loading, setLoading] = useState(true);
   const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    setShowPresentation(false);
-  }, []);
 
   /* Appel API */
   useEffect(() => {
@@ -164,10 +160,6 @@ const Culture = ({ setShowPresentation }) => {
       )}
     </div>
   );
-};
-
-Culture.propTypes = {
-  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Culture;
