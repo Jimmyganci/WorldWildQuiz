@@ -35,7 +35,7 @@ const Home = ({ showPresentation, setShowPresentation }) => {
           </Link>
         </div>
         <div className="homeQuizRapidCard">
-          <Link className="linkDiv" to="/Quizrapid">
+          <Link className="linkDiv" to="/QuizRapid">
             <CardQuizRapid />
           </Link>
         </div>

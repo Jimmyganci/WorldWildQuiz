@@ -32,8 +32,6 @@ const Header = ({ showLogin, setShowLogin }) => {
     setOpenModal('');
   };
   /* Fin Modal */
-  console.log(errorGetData);
-  console.log(showLogin);
   useEffect(() => {
     const url = `http://localhost:8000/login`;
     axios

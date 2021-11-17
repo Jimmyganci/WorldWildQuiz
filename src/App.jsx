@@ -19,7 +19,7 @@ const App = () => {
   });
   return (
     <div className={showPresentation ? 'app' : ''}>
-      <HashRouter basename="">
+      <HashRouter basename="/">
         <Header showLogin={showLogin} setShowLogin={setShowLogin} />
         <Switch>
           <Route
