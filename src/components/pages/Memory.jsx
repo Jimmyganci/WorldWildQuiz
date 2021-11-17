@@ -246,11 +246,7 @@ const Memory = () => {
             </button>
           </div>
 
-<<<<<<< HEAD
-          <Link exact to="WorldWildQuiz/">
-=======
           <Link exact to="/">
->>>>>>> 1c34f93f460721e1579480aa9b3bb35616d5050c
             <button type="button" className="btn" id="returnHome">
               Home
             </button>
