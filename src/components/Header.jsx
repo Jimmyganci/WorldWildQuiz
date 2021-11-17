@@ -29,7 +29,8 @@ const Header = ({ showLogin, setShowLogin }) => {
     setOpenModal('');
   };
   /* Fin Modal */
-
+  console.log(errorGetData);
+  console.log(showLogin);
   useEffect(() => {
     const url = `http://localhost:8000/login`;
     axios
@@ -75,7 +76,7 @@ const Header = ({ showLogin, setShowLogin }) => {
             aria-hidden="true"
           />
         )}
-        {showLogin.login && userConnected === '' && (
+        {showLogin.login && (
           <Login
             setSearchUser={setSearchUser}
             searchUser={searchUser}
