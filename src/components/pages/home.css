@@ -103,6 +103,8 @@
 .logoPresentation div {
   width: 100vh;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .btnStart {
@@ -122,6 +124,34 @@
   text-transform: uppercase;
   font-size: 3em;
   color: rgb(78, 205, 196);
+}
+@media screen and (max-width:800px) {
+	button.btnStart {
+		width: 37vw;
+		height: 37vw;
+		opacity: 1;
+		animation: clignote 2s linear infinite;
+	}
+	@keyframes clignote {
+		0% {
+			opacity: 1;
+		}
+		5% {
+			opacity: 1;
+		}
+		20%{
+			opacity: 0;
+		}
+		80% {
+			opacity: 0;
+		}
+		95%{
+			opacity: 1;
+		}
+		100% {
+			opacity:1;
+		}
+	}
 }
 
 .btnStart:active {

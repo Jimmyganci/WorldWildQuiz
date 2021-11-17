@@ -28,9 +28,16 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
   const [difficult, setDifficult] = useState('2'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
+  console.log(setShowPresentation);
 
   useEffect(() => {
-    setShowPresentation(false);
+    let isMounted = true;
+    if (isMounted) {
+      setShowPresentation(false);
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -84,8 +91,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
     }
 
     sortedCountry();
-
-    return () => {};
   }, [data, playOnce, regionSwitch, difficult]);
 
   const answerRandom = sortedData.slice(sliceVal1, sliceVal2 + 3);
