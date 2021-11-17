@@ -5,7 +5,7 @@ import './culture.css';
 import Modal from '../modal';
 import Logo from '../Logo';
 
-const Culture = () => {
+const Culture = ({ setShowPresentation }) => {
   const [playOnce, setPlayOnce] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
@@ -13,6 +13,9 @@ const Culture = () => {
   const [loading, setLoading] = useState(true);
   const [showButton, setShowButton] = useState(false);
 
+  useEffect(() => {
+    setShowPresentation(false);
+  }, []);
   /* Appel API */
   useEffect(() => {
     if (playOnce) {
@@ -160,6 +163,10 @@ const Culture = () => {
       )}
     </div>
   );
+};
+
+Culture.propTypes = {
+  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Culture;

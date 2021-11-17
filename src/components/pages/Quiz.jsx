@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Difficult from '../Difficult';
 import challenge from '../../challenge';
@@ -9,7 +10,6 @@ import Questions from '../Questions';
 import regions from '../../regions';
 import './quiz.css';
 import ResultQuiz from '../ResultQuiz';
-
 
 const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [data, setData] = useState([]); // recupère le premier tableau de l'appel api
@@ -28,6 +28,10 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
   const [difficult, setDifficult] = useState('2'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
+
+  useEffect(() => {
+    setShowPresentation(false);
+  }, []);
 
   useEffect(() => {
     axios.get('http://localhost:8000/login/').then((res) => console.log(res));
