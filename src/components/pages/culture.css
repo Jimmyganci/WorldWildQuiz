@@ -4,8 +4,8 @@
 }
 
 .loadingLogo {
-  height: 30%;
-  width: 30%;
+  height: 40%;
+  width: 40%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -34,7 +34,7 @@ h1 {
 }
 
 .cultureSearch {
-  width: 30%;
+  width: 40%;
   padding: 0.5rem;
   text-align: center;
   background: rgb(38, 199, 240);
@@ -52,7 +52,7 @@ h1 {
 
 .cultureFilter {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 5px;
   line-height: 0;
 }
@@ -74,4 +74,63 @@ h1 {
 .back-to-top:hover {
   background: rgb(38, 199, 240);
   color: rgb(255, 107, 107);
+}
+/* <------ Responsive ------> */
+
+@media screen and (max-width: 1000px) {
+
+  .cultureFilter{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 5px;
+    line-height: 0;
+  }
+  .cultureSearch{
+    width: 50%;
+  }
+  
+  .loadingLogo {
+    height: 50%;
+    width: 50%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 750px) {
+
+  #cultureFlags {
+    height: 125px;
+  }
+
+  .cultureFilter{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+    line-height: 0;
+  }
+
+  .cultureSearch{
+    width: 70%;
+  }
+
+  .loadingLogo {
+    height: 60%;
+    width: 60%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .loadingLogo {
+    height: 80%;
+    width: 80%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
