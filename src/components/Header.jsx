@@ -43,9 +43,11 @@ const Header = ({ showLogin, setShowLogin }) => {
 
   return (
     <div className="sectionHeader">
-      <button type="button" className="burger" onClick={handleShowLinks}>
-        <span className="burger-bar"> </span>
-      </button>
+      <div className="divBurger">
+        <button type="button" className="burger" onClick={handleShowLinks}>
+          <span className="burger-bar"> </span>
+        </button>
+      </div>
       <div className={`header ${showlinks ? 'show-nav' : 'hide-nav'}`}>
         {(showLogin.login || showLogin.profil || showLogin.signup) && (
           <span

@@ -122,6 +122,15 @@
     height: 15vh;
     background-color: rgb(26, 83, 92);
   }
+  .divBurger {
+    display: block;
+    height: 15vh;
+    width: 100%;
+    background-color: rgb(26, 83, 92);
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 
   .header {
     display: flex;
@@ -140,6 +149,7 @@
     bottom: 0;
     height: 100vh;
     padding: 0;
+    z-index: 1;
   }
 
   .logoHeader {
@@ -170,7 +180,7 @@
     top: 4em;
     right: 3em;
     padding-bottom: 3em;
-    z-index: 1;
+    z-index: 2;
   }
 
   .burger-bar,
