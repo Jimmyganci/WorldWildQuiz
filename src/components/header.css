@@ -20,6 +20,7 @@
   position: relative;
   color: #ff6b6b;
   text-decoration: none;
+  padding-bottom: 1em;
 }
 
 .header a #text {
@@ -133,7 +134,16 @@
   .sectionHeader {
     display: block;
     height: 15vh;
+  }
+
+  .divBurger {
+    display: block;
+    height: 15vh;
+    width: 100%;
     background-color: rgb(26, 83, 92);
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 
   .header {
@@ -149,10 +159,14 @@
   }
 
   .show-nav {
+    display: flex;
+    justify-content: flex-start;
     right: 0;
     bottom: 0;
-    height: 100vh;
+    height: 90vh;
+    width: 100vw;
     padding: 0;
+    z-index: 1;
   }
 
   .logoHeader {
@@ -216,7 +230,6 @@
     top: 4em;
     right: 3em;
     padding-bottom: 3em;
-    z-index: 1;
   }
 
   .burger-bar,
@@ -243,13 +256,5 @@
 
   .burger-bar::after {
     transform: translateY(12px);
-  }
-
-  .burger-bar::before .show-nav {
-    transform: rotate(45°);
-  }
-
-  .show-nav .burger-bar::after {
-    transform: rotate(-45°);
   }
 }
