@@ -192,9 +192,9 @@ const Classements = ({ setShowPresentation }) => {
         {dataBase.map((el, index) => (
           <ul
             key={el.id}
-            className={
+            className={`${selectGame === 'Memory' && 'gridColTwo'} ${
               index % 2 === 0 ? `bodyClassement` : `bodyClassement bgOpacity`
-            }
+            }`}
           >
             <li>{el.pseudo}</li>
             {selectGame !== 'Memory' && <li>{el.game}</li>}

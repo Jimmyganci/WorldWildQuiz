@@ -16,6 +16,7 @@ const Header = ({ showLogin, setShowLogin }) => {
   const [userConnected, setUserConnected] = useState([]);
   const [searchUser, setSearchUser] = useState(false);
   const [errorGetData, setErrorGetData] = useState('');
+  const [test, setTest] = useState(false);
 
   /* Modal */
   const [openModal, setOpenModal] = useState('');
@@ -34,7 +35,10 @@ const Header = ({ showLogin, setShowLogin }) => {
     axios
       .get(url, { withCredentials: true })
       .then((res) => res.data)
-      .then((data) => setUserConnected(data))
+      .then((data) => {
+        setUserConnected(data);
+        setTest(true);
+      })
       .catch((err) => setErrorGetData(err.response.status));
   }, [searchUser, showLogin]);
 
@@ -49,12 +53,9 @@ const Header = ({ showLogin, setShowLogin }) => {
       });
   };
 
-  console.log(window.location);
-
   const handleShowLinks = () => {
     setShowLinks(!showlinks);
   };
-  console.log(showlinks);
 
   return (
     <div className="sectionHeader">
@@ -80,6 +81,7 @@ const Header = ({ showLogin, setShowLogin }) => {
             searchUser={searchUser}
             setShowLogin={setShowLogin}
             showLogin={showLogin}
+            setTest={setTest}
           />
         )}
         {showLogin.signup && (
@@ -332,6 +334,7 @@ const Header = ({ showLogin, setShowLogin }) => {
           <ConnectUser
             searchUser={searchUser}
             userConnected={userConnected}
+            test={test}
             onClick={() =>
               userConnected === '' || errorGetData
                 ? setShowLogin({ ...showLogin, login: true })
