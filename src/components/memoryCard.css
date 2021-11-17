@@ -62,3 +62,22 @@
 .activeFlagCard::after {
   transform: rotateY(180deg) perspective(100px);
 }
+
+/* Media queries */
+@media screen and (max-width: 600px) {
+  .flagCard {
+    max-width: 100%;
+    height: 12vh;
+  }
+
+  .flagCard img {
+    width: 100%;
+    height: 12vh;
+    border-radius: 10px;
+  }
+
+  .activeFlagCard img {
+    width: 100%;
+    height: 12vh;
+  }
+}

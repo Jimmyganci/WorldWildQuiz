@@ -14,12 +14,14 @@ const Difficult = ({ setDifficult }) => {
               min="1"
               max="3"
               step="1"
-              onInput={(e) => setDifficult(e.target.value)}
+              defaultValue="2"
+              onChange={(e) => setDifficult(e.target.value)}
             />
             Hard
           </label>
         </div>
       </form>
+      <p>Medium</p>
     </div>
   );
 };
