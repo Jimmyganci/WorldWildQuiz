@@ -1,14 +1,17 @@
 import './help.css';
 import PropTypes from 'prop-types';
 
-const Help = ({ showModal }) => {
+const Help = ({ showModal, setRevealOption }) => {
   return (
     <div className="helpcontainer" key={window.location.pathname}>
       {/* Button Help header */}
       <div
         className="help"
         aria-hidden="true"
-        onClick={() => showModal(window.location.pathname)}
+        onClick={() => {
+          setRevealOption(false);
+          showModal(window.location.pathname);
+        }}
       >
         <p>?</p>
       </div>
@@ -18,6 +21,7 @@ const Help = ({ showModal }) => {
 
 Help.propTypes = {
   showModal: PropTypes.func.isRequired,
+  setRevealOption: PropTypes.func.isRequired,
 };
 
 export default Help;
