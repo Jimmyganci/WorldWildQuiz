@@ -10,6 +10,8 @@ import SignUp from './SignUp';
 import Profil from './Profil';
 import ConnectUser from './ConnectUser';
 import Modal from './modal';
+import flecheHaut from '../imageHome/flechehaut.png';
+import flecheBas from '../imageHome/flechebas.png';
 
 const Header = ({ showLogin, setShowLogin }) => {
   const [showlinks, setShowLinks] = useState(false);
@@ -17,6 +19,7 @@ const Header = ({ showLogin, setShowLogin }) => {
   const [searchUser, setSearchUser] = useState(false);
   const [errorGetData, setErrorGetData] = useState('');
   const [test, setTest] = useState(false);
+  const [revealOption, setRevealOption] = useState(false);
 
   /* Modal */
   const [openModal, setOpenModal] = useState('');
@@ -29,7 +32,8 @@ const Header = ({ showLogin, setShowLogin }) => {
     setOpenModal('');
   };
   /* Fin Modal */
-
+  console.log(errorGetData);
+  console.log(showLogin);
   useEffect(() => {
     const url = `http://localhost:8000/login`;
     axios
@@ -59,11 +63,16 @@ const Header = ({ showLogin, setShowLogin }) => {
 
   return (
     <div className="sectionHeader">
-      <button type="button" className="burger" onClick={handleShowLinks}>
-        <span className="burger-bar"> </span>
-      </button>
+      <div className="divBurger">
+        <button type="button" className="burger" onClick={handleShowLinks}>
+          <span className="burger-bar"> </span>
+        </button>
+      </div>
       <div className={`header ${showlinks ? 'show-nav' : 'hide-nav'}`}>
-        {(showLogin.login || showLogin.profil || showLogin.signup) && (
+        {(showLogin.login ||
+          showLogin.profil ||
+          showLogin.signup ||
+          revealOption) && (
           <span
             id="screenBackBlack"
             onClick={() =>
@@ -75,7 +84,7 @@ const Header = ({ showLogin, setShowLogin }) => {
             aria-hidden="true"
           />
         )}
-        {showLogin.login && userConnected === '' && (
+        {showLogin.login && (
           <Login
             setSearchUser={setSearchUser}
             searchUser={searchUser}
@@ -321,22 +330,39 @@ const Header = ({ showLogin, setShowLogin }) => {
             Classements
           </NavLink>
         </li>
-        <li className="contBtnHeader scale" id="nohover">
-          <Help
-            openModal={openModal}
-            showModal={showModal}
-            hideModal={hideModal}
-          />
-          <ConnectUser
-            searchUser={searchUser}
-            userConnected={userConnected}
-            test={test}
-            onClick={() =>
-              userConnected === '' || errorGetData
-                ? setShowLogin({ ...showLogin, login: true })
-                : setShowLogin({ ...showLogin, profil: true })
-            }
-          />
+        <li
+          className={`contBtnHeader scale ${revealOption && 'revealOption'}`}
+          id="nohover"
+        >
+          <div className="contMobUp">
+            <Help
+              openModal={openModal}
+              showModal={showModal}
+              hideModal={hideModal}
+              setRevealOption={setRevealOption}
+            />
+            <span
+              onClick={() => setRevealOption(!revealOption)}
+              onKeyDown={() => setRevealOption(!revealOption)}
+              aria-hidden="true"
+            >
+              <img
+                src={revealOption ? flecheBas : flecheHaut}
+                alt="fleche_up"
+              />
+            </span>
+            <ConnectUser
+              searchUser={searchUser}
+              userConnected={userConnected}
+              test={test}
+              onClick={() => {
+                setRevealOption(false);
+                return userConnected === '' || errorGetData
+                  ? setShowLogin({ ...showLogin, login: true })
+                  : setShowLogin({ ...showLogin, profil: true });
+              }}
+            />
+          </div>
         </li>
       </div>
     </div>

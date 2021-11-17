@@ -20,6 +20,7 @@
   position: relative;
   color: #ff6b6b;
   text-decoration: none;
+  padding-bottom: 1em;
 }
 
 .header a #text {
@@ -116,11 +117,33 @@
   display: none;
 }
 
+.contBtnHeader span {
+  display: none;
+}
+
+.contMobUp {
+  display: flex;
+}
+@media screen and (max-width:950px) {
+	div.contMobUp {
+		flex-direction: column;
+	}
+}
+
 @media screen and (max-width: 700px) {
   .sectionHeader {
     display: block;
     height: 15vh;
+  }
+
+  .divBurger {
+    display: block;
+    height: 15vh;
+    width: 100%;
     background-color: rgb(26, 83, 92);
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 
   .header {
@@ -136,10 +159,14 @@
   }
 
   .show-nav {
+    display: flex;
+    justify-content: flex-start;
     right: 0;
     bottom: 0;
-    height: 100vh;
+    height: 90vh;
+    width: 100vw;
     padding: 0;
+    z-index: 1;
   }
 
   .logoHeader {
@@ -159,9 +186,42 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    right: 2em;
-    bottom: 2em;
+    right: 0;
+    bottom: 0;
+    transform: translateY(83px) !important;
     z-index: 5;
+    width: 100%;
+  }
+
+  .contMobUp {
+    display: flex;
+	flex-direction: row!important;
+    justify-content: space-around;
+    position: relative;
+    background: rgb(255, 107, 107);
+    width: 100%;
+  }
+
+  .contBtnHeader span {
+    width: 30px;
+    height: 30px;
+    display: block;
+    align-self: flex-start;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(255, 230, 109);
+    padding: 5px 30px 5px 30px;
+    border-radius: 5px;
+  }
+
+  .contBtnHeader span img {
+    width: 100%;
+  }
+
+  .revealOption {
+    transform: translateY(0) !important;
   }
 
   .burger {
@@ -170,7 +230,6 @@
     top: 4em;
     right: 3em;
     padding-bottom: 3em;
-    z-index: 1;
   }
 
   .burger-bar,
@@ -197,13 +256,5 @@
 
   .burger-bar::after {
     transform: translateY(12px);
-  }
-
-  .burger-bar::before .show-nav {
-    transform: rotate(45°);
-  }
-
-  .show-nav .burger-bar::after {
-    transform: rotate(-45°);
   }
 }
