@@ -36,7 +36,7 @@ const Register = ({
       score: total || timer.hour + timer.minute + timer.sec,
       game: challengeSwitch || 'NC',
       region: regionSwitch || 'NC',
-      gameType: regionSwitch && 'Quiz',
+      gameType: regionSwitch ? 'Quiz' : 'Memory',
     });
     setIsHiddenRegister(true);
   };
@@ -57,9 +57,9 @@ const Register = ({
               <span>{userConnected && userConnected.pseudo}</span> your score is{' '}
               {`${
                 total
-                  ? Math.round((total / arrayLength) * 100)
-                  : timer.hour + timer.minute + timer.sec
-              }%`}
+                  ? `${Math.round((total / arrayLength) * 100)}%`
+                  : `${timer.hour + timer.minute + timer.sec}s`
+              }`}
             </p>
             {!userConnected && <p>Log in to save your result!</p>}
           </div>

@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './login.css';
 
-const Login = ({ searchUser, setSearchUser, setShowLogin, showLogin }) => {
+const Login = ({
+  searchUser,
+  setSearchUser,
+  setShowLogin,
+  showLogin,
+  setTest,
+}) => {
   const [dataUsers, setDataUsers] = useState([]);
   const [error, setError] = useState('');
   const [dataLogin, setDataLogin] = useState('');
@@ -32,7 +38,9 @@ const Login = ({ searchUser, setSearchUser, setShowLogin, showLogin }) => {
           dataLogin === dataUsers.pseudo
         ) {
           setError('');
-          axios.post(`/login`, dataUsers, { withCredentials: true });
+          axios
+            .post(`/login`, dataUsers, { withCredentials: true })
+            .then((res) => res.status === 200 && setTest(true));
           setShowLogin({ ...showLogin, login: false });
         } else {
           setError('Password Invalid');
@@ -111,6 +119,7 @@ Login.propTypes = {
   setSearchUser: PropTypes.func.isRequired,
   setShowLogin: PropTypes.func.isRequired,
   showLogin: PropTypes.oneOfType([PropTypes.object]).isRequired,
+  setTest: PropTypes.func.isRequired,
 };
 
 export default Login;

@@ -17,10 +17,9 @@ const App = () => {
     signup: false,
     profil: false,
   });
-  console.log(showPresentation);
   return (
     <div className={showPresentation ? 'app' : ''}>
-      <HashRouter basename="/">
+      <HashRouter basename="">
         <Header showLogin={showLogin} setShowLogin={setShowLogin} />
         <Switch>
           <Route
