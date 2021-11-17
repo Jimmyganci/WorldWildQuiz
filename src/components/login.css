@@ -21,6 +21,12 @@
   margin-top: 1em;
 }
 
+@media screen and (max-width: 550px) {
+  .login button {
+    width: 80%;
+  }
+}
+
 .bottomBorder {
   width: 0;
   height: 0;

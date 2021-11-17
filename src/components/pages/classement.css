@@ -1,3 +1,7 @@
+.classement {
+  margin-top: 10vw;
+}
+
 .classement h1 {
   margin-bottom: 1em;
 }
@@ -12,11 +16,34 @@
   align-items: center;
 }
 
+@media screen and (max-width: 550px) {
+  ul.headClassement {
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  input#pseudo {
+    grid-area: 1/1/2/2;
+  }
+
+  ul.headClassement:nth-child(1) {
+    grid-area: 1/1/2/4;
+  }
+}
+
+.headClassement label select,
+.headClassement label input {
+  width: 80%;
+}
+
 .bodyClassement {
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(4, 1fr);
   list-style-type: none;
   padding: 0.5em;
+}
+
+.gridColTwo {
+  grid-template-columns: repeat(2, 1fr) !important;
 }
 
 .bgOpacity {

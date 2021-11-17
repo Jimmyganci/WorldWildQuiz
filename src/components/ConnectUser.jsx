@@ -14,8 +14,7 @@ class ConnectUser extends React.Component {
   }
 
   render() {
-    const { searchUser, onClick, userConnected } = this.props;
-	console.log(userConnected);
+    const { searchUser, onClick, userConnected, test } = this.props;
 
     return (
       <div className="helpcontainer">
@@ -29,7 +28,7 @@ class ConnectUser extends React.Component {
           aria-hidden="true"
         >
           <div className="contImageUser">
-            {userConnected.length !== 0 ? (
+            {test && userConnected !== '' ? (
               <p className="letterConnected">{userConnected.pseudo[0]}</p>
             ) : (
               <img src={logoUser} id="userImage" alt="logo_user" />

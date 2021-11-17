@@ -30,6 +30,10 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const arrayLength = sortedData.length;
 
   useEffect(() => {
+    setShowPresentation(false);
+  }, []);
+
+  useEffect(() => {
     axios.get('http://localhost:8000/login/').then((res) => console.log(res));
   }, []);
 
@@ -66,10 +70,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
       setSortedData(sortedArray);
     }
   };
-
-  useEffect(() => {
-    setShowPresentation(false);
-  }, []);
 
   useEffect(() => {
     if (playOnce) {
@@ -255,5 +255,4 @@ Quiz.propTypes = {
   setShowPresentation: PropTypes.func.isRequired,
   setShowLogin: PropTypes.func.isRequired,
 };
-
 export default Quiz;

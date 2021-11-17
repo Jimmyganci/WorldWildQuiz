@@ -16,7 +16,6 @@ const Culture = ({ setShowPresentation }) => {
   useEffect(() => {
     setShowPresentation(false);
   }, []);
-
   /* Appel API */
   useEffect(() => {
     if (playOnce) {

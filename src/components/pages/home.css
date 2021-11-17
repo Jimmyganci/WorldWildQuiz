@@ -6,49 +6,58 @@
   padding: 1em;
 }
 
+@media screen and (max-width: 700px) {
+  div.home {
+    margin-top: 10vw;
+  }
+}
+
 .choiceGame {
   display: grid;
-  justify-content: center;
-  align-content: center;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 0.3fr);
+  gap: 10px;
   padding: 1em;
-  max-width: 800px;
-  max-height: auto;
+}
+
+@media screen and (max-width: 450px) {
+  div.choiceGame {
+    grid-template-columns: 1fr;
+  }
 }
 
 .homeQuizCard {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  grid-area: 2/1;
+}
+
+@media screen and (max-width: 450px) {
+  div.homeQuizCard {
+    grid-area: 2/1;
+  }
 }
 
 .homeMemoryCard {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  grid-area: 2/2;
+}
+
+@media screen and (max-width: 450px) {
+  div.homeMemoryCard {
+    grid-area: 3/1;
+  }
 }
 
 .homeQuizRapidCard {
-  width: 100%;
-  height: 100%;
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 4;
-  grid-row-end: 5;
+  grid-area: 3/1/4/3;
+}
+
+@media screen and (max-width: 450px) {
+  div.homeQuizRapidCard {
+    grid-area: 4/1;
+  }
 }
 
 .homeCultureCard {
-  width: 100%;
-  height: 100%;
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-area: 1/1/2/3;
 }
 
 .homeH1 {
@@ -122,8 +131,4 @@
 
 .btnStart:hover {
   opacity: 1;
-}
-
-#airplane2 {
-  display: none;
 }
