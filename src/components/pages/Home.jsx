@@ -25,22 +25,22 @@ const Home = ({ showPresentation, setShowPresentation }) => {
       <h1 className="homeH1">Welcome to the World Wild Game</h1>
       <div className="choiceGame">
         <div className="homeQuizCard">
-          <Link className="linkDiv" to="/quiz">
+          <Link className="linkDiv" to="/Quiz">
             <HomeCard gameType={gameType[0]} />
           </Link>
         </div>
         <div className="homeMemoryCard">
-          <Link className="linkDiv" to="/memory">
+          <Link className="linkDiv" to="/Memory">
             <HomeCard gameType={gameType[1]} />
           </Link>
         </div>
         <div className="homeQuizRapidCard">
-          <Link className="linkDiv" to="/quizrapid">
+          <Link className="linkDiv" to="/Quizrapid">
             <CardQuizRapid />
           </Link>
         </div>
         <div className="homeCultureCard">
-          <Link className="linkDiv" to="/culture">
+          <Link className="linkDiv" to="/Culture">
             <CardCultureHome />
           </Link>
         </div>

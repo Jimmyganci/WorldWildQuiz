@@ -12,9 +12,13 @@ const Classements = () => {
   const [selectGame, setSelectGame] = useState('Memory');
 
   useEffect(() => {
-    let url = `http://localhost:8000/api/users/`;
+    setShowPresentation(false);
+  }, []);
+
+  useEffect(() => {
+    let url = `http://localhost:8000/api/score/`;
     if (selectGame) {
-      url += `?game_type=${selectGame}`;
+      url += `?gameType=${selectGame}`;
     }
     if (challengeFilter) {
       url += `?game=${challengeFilter}`;
@@ -157,7 +161,7 @@ const Classements = () => {
                 className="inpt"
               >
                 <option value="">All</option>
-                <option value="monde">Monde</option>
+                <option value="world">World</option>
                 <option value="africa">Africa</option>
                 <option value="america">America</option>
                 <option value="asia">Asia</option>
@@ -187,9 +191,9 @@ const Classements = () => {
         {dataBase.map((el, index) => (
           <ul
             key={el.id}
-            className={
+            className={`${selectGame === 'Memory' && 'gridColTwo'} ${
               index % 2 === 0 ? `bodyClassement` : `bodyClassement bgOpacity`
-            }
+            }`}
           >
             <li>{el.pseudo}</li>
             {selectGame !== 'Memory' && <li>{el.game}</li>}

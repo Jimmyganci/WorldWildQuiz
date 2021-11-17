@@ -1,13 +1,17 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './culture.css';
 import Modal from '../modal';
+import Logo from '../Logo';
 
 const Culture = () => {
   const [playOnce, setPlayOnce] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
   const [openModal, setOpenModal] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [showButton, setShowButton] = useState(false);
 
   /* Appel API */
   useEffect(() => {
@@ -18,10 +22,29 @@ const Culture = () => {
         .then((data) => {
           setAllCountries(data);
           setPlayOnce(false);
+          setLoading(false);
         })
         .catch((err) => console.log(err));
     }
   }, [allCountries]);
+
+  /* Scroll button */
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        setShowButton(true);
+      } else {
+        setShowButton(false);
+      }
+    });
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   /* Modal */
   const showModal = (id) => {
@@ -33,98 +56,108 @@ const Culture = () => {
 
   return (
     <div>
-      <div className="cultureBody">
-        <h1>Chercher un pays :</h1>
-        <form className="cultureForm" onSubmit={(e) => e.preventDefault()}>
-          <input
-            className="cultureSearch"
-            type="text"
-            placeholder="Entrez le nom d'un pays"
-            value={searchCountry}
-            onChange={(e) => setSearchCountry(e.target.value)}
-          />
-        </form>
-        <div className="cultureFilter">
-          {allCountries
-            .filter((country) =>
-              searchCountry
-                ? country.name.includes(searchCountry.toLowerCase()) ||
-                  country.translations.fr
-                    .toLowerCase()
-                    .includes(searchCountry.toLowerCase())
-                : country
-            )
-            .map((country) => {
-              return (
-                <div key={country.name}>
-                  <div className="cultureFlag">
-                    <img
-                      onClick={() => showModal(country.name)}
-                      onKeyDown={() => showModal()}
-                      aria-hidden="true"
-                      id="cultureFlags"
-                      src={country.flag}
-                      alt={country.name}
-                    />
-                  </div>
-                  {country.name === openModal && (
-                    <Modal
-                      openModal={openModal}
-                      showModal={showModal}
-                      hideModal={hideModal}
-                    >
-                      <div className="modalHeader">
-                        <img
-                          id="modalFlag"
-                          src={country.flag}
-                          alt={country.flag}
-                        />
-                        Pays: <h2>{country.translations.fr}</h2>
-                      </div>
-                      <div className="modalInfoOne">
-                        Continent : <h2>{country.region}</h2>
-                        Capitale :
-                        <h2>
-                          {country.capital} <br />
-                        </h2>
-                        Population :
-                        <h2>
-                          {country.population} habitants <br />
-                        </h2>
-                      </div>
-                      <div className="modalInfoTwo">
-                        Monnaie :
-                        <h2>
-                          {country.currencies
-                            ? country.currencies[0].name
-                            : ' Inconnu'}
-                          <br />
-                        </h2>
-                        Symbole monnaie :
-                        <h2>
-                          {country.currencies
-                            ? country.currencies[0].symbol
-                            : ' Inconnu'}
-                          <br />
-                        </h2>
-                        Aire : <h2>{country.area} km²</h2>
-                      </div>
-                      <div className="modalFooter">
-                        <button
-                          type="button"
-                          className="modalBtn"
-                          onClick={hideModal}
-                        >
-                          Fermer
-                        </button>
-                      </div>
-                    </Modal>
-                  )}
-                </div>
-              );
-            })}
+      {loading ? (
+        <div className="loadingLogo">
+          <Logo />
         </div>
-      </div>
+      ) : (
+        <div className="cultureBody">
+          <form className="cultureForm" onSubmit={(e) => e.preventDefault()}>
+            <h1>Search a country :</h1>
+            <input
+              className="cultureSearch"
+              type="text"
+              placeholder="Enter a country name"
+              value={searchCountry}
+              onChange={(e) => setSearchCountry(e.target.value)}
+            />
+          </form>
+          <div className="cultureFilter">
+            {allCountries
+              .filter((country) =>
+                searchCountry
+                  ? country.name.includes(searchCountry) ||
+                    country.translations.fr
+                      .toLowerCase()
+                      .includes(searchCountry.toLowerCase())
+                  : country
+              )
+              .map((country) => {
+                return (
+                  <div key={country.name}>
+                    <div className="cultureMap">
+                      <img
+                        onClick={() => showModal(country.name)}
+                        aria-hidden="true"
+                        id="cultureFlags"
+                        src={country.flag}
+                        alt={country.name}
+                      />
+                    </div>
+                    {country.name === openModal && (
+                      <Modal
+                        openModal={openModal}
+                        showModal={showModal}
+                        hideModal={hideModal}
+                      >
+                        <div className="modalHeader">
+                          <img
+                            id="modalFlag"
+                            src={country.flag}
+                            alt={country.flag}
+                          />
+                          Country: <h3>{country.translations.fr}</h3>
+                        </div>
+                        <div className="modalInfoOne">
+                          Region : <h3>{country.region}</h3>
+                          Capital :
+                          <h3>
+                            {country.capital} <br />
+                          </h3>
+                          Population :
+                          <h3>
+                            {country.population} people <br />
+                          </h3>
+                        </div>
+                        <div className="modalInfoTwo">
+                          Currencie :
+                          <h3>
+                            {country.currencies
+                              ? country.currencies[0].name
+                              : ' Inconnu'}
+                            <br />
+                          </h3>
+                          Currencie symbol :
+                          <h3>
+                            {country.currencies
+                              ? country.currencies[0].symbol
+                              : ' Inconnu'}
+                            <br />
+                          </h3>
+                          Area : <h3>{country.area} km²</h3>
+                        </div>
+                        <div className="modalFooter">
+                          <button
+                            type="button"
+                            className="modalBtn"
+                            onClick={hideModal}
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </Modal>
+                    )}
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      )}
+      {showButton && (
+        <button type="button" onClick={scrollToTop} className="back-to-top">
+          &#8679; {/* Arrow */}
+        </button>
+      )}
     </div>
   );
 };

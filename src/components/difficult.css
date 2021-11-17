@@ -1,4 +1,6 @@
 .checkDifficult {
+  display: flex;
+  flex-direction: column;
   background: rgb(255, 107, 107);
   width: 60%;
   border-radius: 20px;
@@ -13,47 +15,35 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
 }
 
-.checkBox label input {
-  margin: 0 1em;
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 2em;
+  margin-left: 2em;
+  width: 25vw;
+  height: 7px;
+  background: rgb(78, 205, 196);
+  border-radius: 5px;
+  box-shadow: 0 0 5px 0 #555;
 }
 
-/* input[type="radio"].radioDifficult  {
-  display: none;
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: rgb(27, 119, 113) 0.5px solid;
+  background: rgb(78, 205, 196);
+  cursor: pointer;
+  box-shadow: 0 0 5px 0 #555;
+  transition: 0.3s ease-in-out;
 }
 
-input[type="radio"].radioDifficult + label {
-  position: relative;
-  padding-left: 1.3rem;
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
 }
-
-input[type="radio"].radioDifficult + label::before,
-input[type="checkbox"].radioDifficult + label::after {
-  display: block;
-  position: absolute;
-  box-sizing: border-box;
-  content: '';
-  border-radius: 1rem;
-}
-
-input[type="radio"].radioDifficult + label::before {
-  border: 1px solid rgb(78, 205, 196);
-  background-color: white;
-  bottom: 0;
-  left: 0;
-  width: 1rem;
-  height: 1rem;
-}
-
-input[type="radio"].radioDifficult + label::after {
-  bottom: 3px;
-  left: 3px;
-  width: calc(1rem - 6px);
-  height: calc(1rem - 6px);
-}
-
-input[type="radio"].radioDifficult:checked + label::after {
-  background-color: rgb(78, 205, 196);
-} */

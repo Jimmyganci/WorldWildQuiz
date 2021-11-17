@@ -1,0 +1,66 @@
+.containerFormSubscription {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  width: 50%;
+  height: 50%;
+}
+
+@media screen and (max-width: 550px) {
+  div.containerFormSubscription {
+    width: 90%;
+  }
+}
+
+.headerLogin {
+  background: rgb(78, 205, 196);
+  border-radius: 30px 30px 0 0;
+  padding: 0.5em;
+  position: relative;
+}
+
+.headerLogin span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5%;
+}
+
+.newUsers label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.newUsers button {
+  margin-top: 1em;
+}
+
+.bottomBorder {
+  width: 0;
+  height: 0;
+}
+
+.bottomBorder::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: rgb(78, 205, 196);
+  z-index: 1;
+  pointer-events: none;
+  transition: 0.5s ease-in-out;
+}
+
+.activeInpt1.bottomBorder::before {
+  width: 70%;
+}

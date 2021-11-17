@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 700px) {
+  div.resultQuizContainer {
+    margin-top: 10vw;
+  }
+}
+
 .resultQuiz {
   width: 70%;
   display: flex;
@@ -27,6 +33,12 @@
   gap: 10px;
   margin: 0 0 50px 0;
   padding: 1em;
+}
+
+@media screen and (max-width: 450px) {
+  div.gridResultQuiz {
+    width: 100%;
+  }
 }
 
 .gridResultQuiz p {
@@ -78,23 +90,18 @@
   margin: 0 0 1em 0;
 }
 
+@media screen and (max-width: 450px) {
+  button#btnCorrection {
+    width: 70%;
+  }
+}
+
 .labelCorrection {
   width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.registerModal {
-  background: rgb(255, 107, 107);
-  padding: 0.6em;
-  width: 60%;
-  border-radius: 50px;
-  position: fixed;
-  bottom: 2%;
-  transition-delay: 0.5s;
-  transition: 0.5s ease-in-out;
 }
 
 .noThanks {

@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 import './resultquiz.css';
 import Register from './Register';
 
-const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
+const ResultQuiz = ({
+  total,
+  showResponse,
+  challengeSwitch,
+  regionSwitch,
+  arrayLength,
+  setShowLogin,
+  setIsHidden,
+}) => {
   const [filterCorrection, setFilterCorrection] = useState(''); // récupère la valeur de l'input
   const [showCorrection, setShowCorrection] = useState(false); // permet d'afficher ou non la correction
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
@@ -22,7 +30,7 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
 
   return (
     <div className="resultQuiz">
-      <h5>Votre score est de : {total} </h5>
+      <h5>Votre score est de : {Math.round((total / arrayLength) * 100)}% </h5>
       <button className="noThanks" type="button" onClick={handleCloseRegister}>
         {isHiddenRegister ? 'Register my Score' : 'Not register my score'}
       </button>
@@ -95,6 +103,9 @@ const ResultQuiz = ({ total, showResponse, challengeSwitch, regionSwitch }) => {
         handleCloseRegister={handleCloseRegister}
         regionSwitch={regionSwitch}
         challengeSwitch={challengeSwitch}
+        arrayLength={arrayLength}
+        setShowLogin={setShowLogin}
+        setIsHidden={setIsHidden}
       />
     </div>
   );
@@ -105,10 +116,13 @@ ResultQuiz.propTypes = {
   showResponse: PropTypes.arrayOf(PropTypes.object).isRequired,
   challengeSwitch: PropTypes.string.isRequired,
   regionSwitch: PropTypes.string,
+  arrayLength: PropTypes.number.isRequired,
+  setShowLogin: PropTypes.func.isRequired,
+  setIsHidden: PropTypes.func.isRequired,
 };
 
 ResultQuiz.defaultProps = {
-  regionSwitch: 'Monde',
+  regionSwitch: 'World',
 };
 
 export default ResultQuiz;

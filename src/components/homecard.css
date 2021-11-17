@@ -15,7 +15,7 @@
 }
 
 .homecard h2 {
-  position: relative;
+  position: inherit;
   top: 1em;
   letter-spacing: 3px;
   font-size: 2em;
@@ -36,6 +36,11 @@
   transition: 0.3s ease-in-out;
   height: 100%;
 }
+@media screen and (max-width:450px) {
+	div.cardQuizRapid {
+		flex-direction: column;
+	}
+}
 
 .cardQuizRapid:hover {
   transform: scale(1.03);
@@ -47,6 +52,7 @@
   letter-spacing: 3px;
   font-size: 2em;
   padding-right: 0.5em;
+  margin-top: 15px;
 }
 
 .cardQuizRapid h3 {
@@ -67,6 +73,12 @@
   transition: 0.3s ease-in-out;
   height: 100%;
 }
+@media screen and (max-width:450px) {
+	div.cardCultureHome {
+		display: flex;
+		flex-direction: column;
+	}
+}
 
 .cardCultureHome img {
   width: 200px;
@@ -79,13 +91,13 @@
 }
 
 .cardCultureHome h2 {
-  position: relative;
+  position: inherit;
   letter-spacing: 3px;
   font-size: 2em;
 }
 
 .cardCultureHome h3 {
-  position: relative;
+  position: inherit;
   font-style: italic;
   font-size: 1.7em;
 }

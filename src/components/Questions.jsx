@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './questions.css';
 
@@ -9,7 +9,9 @@ const Questions = ({
   challengeSwitch,
   setResultQuestion,
 }) => {
-  setResultQuestion(country);
+  useEffect(() => {
+    setResultQuestion(country);
+  }, []);
 
   return (
     <li className="questions">

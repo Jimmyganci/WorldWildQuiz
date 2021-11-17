@@ -1,6 +1,6 @@
 .registerModal {
   background: rgb(255, 107, 107);
-  padding: 0.6em;
+  padding: 1em;
   width: 60%;
   border-radius: 50px;
   position: fixed;
@@ -13,7 +13,6 @@
 .noThanks {
   background: transparent;
   border: none;
-  margin: 0.5em;
   cursor: pointer;
   transition: 0.3s ease-in;
 }
@@ -28,4 +27,30 @@
 
 .isHiddenDown {
   transform: translateY(100vh);
+}
+
+.registerMessage {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.registerMessage p {
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 450px) {
+  div.registerMessage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.registerMessage button {
+    width: 100%;
+  }
+}
+
+.registerMessage p span {
+  color: rgb(26, 83, 92);
+  font-size: 1.5em;
 }

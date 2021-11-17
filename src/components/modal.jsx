@@ -1,16 +1,14 @@
-import React from 'react';
 import { PropTypes } from 'prop-types';
 import './modal.css';
 
 const Modal = ({ children, openModal, hideModal }) => {
   return (
-    <div>
-      <div
-        className="modalBackground"
-        role="button"
-        aria-hidden="true"
-        onClick={() => hideModal()}
-      />
+    <div
+      className="modalBackground"
+      role="button"
+      aria-hidden="true"
+      onClick={() => hideModal()}
+    >
       <div className={openModal ? 'modalContainer' : 'modalContainer isHidden'}>
         {children}
       </div>

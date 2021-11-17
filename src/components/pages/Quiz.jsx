@@ -10,7 +10,8 @@ import regions from '../../regions';
 import './quiz.css';
 import ResultQuiz from '../ResultQuiz';
 
-const Quiz = () => {
+
+const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [data, setData] = useState([]); // recupère le premier tableau de l'appel api
   const [playOnce, setPlayOnce] = useState(true); // gere l'appel API pour eviter l'appel en boucle
   const [sortedData, setSortedData] = useState([]); // tableau de l'appel api trié par ordre de population
@@ -25,8 +26,12 @@ const Quiz = () => {
   const [resultQuestion, setResultQuestion] = useState([]); // affiche l'objet de la question affiché
   const [capitalQuestion, setCapitalQuestion] = useState(''); // affiche l'objet selectionné de la question
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
-  const [difficult, setDifficult] = useState('medium'); // récupère un tableau de réponses érronées
+  const [difficult, setDifficult] = useState('2'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/login/').then((res) => console.log(res));
+  }, []);
 
   // Applique un random sur les tableaux en parametre
   const shuffleArray = (array) => {
@@ -44,18 +49,18 @@ const Quiz = () => {
     const countryObj = Object.keys(data).map((i) => data[i]);
     const sortedArray = countryObj
       .filter((country) =>
-        country.region.includes(regionSwitch !== 'Monde' ? regionSwitch : '')
+        country.region.includes(regionSwitch !== 'World' ? regionSwitch : '')
       ) // je filtre mon tableau par ordre de population décroissant
       .sort((a, b) => {
-        // permet d'appliquer une difficultée au jeu
+        // permet d'appliquer une difficulté au jeu
         return b.population - a.population;
       });
 
-    if (difficult === 'easy' && regionSwitch === 'Monde') {
+    if (difficult === '1' && regionSwitch === 'World') {
       setSortedData(sortedArray.slice(0, 33));
-    } else if (difficult === 'medium' && regionSwitch === 'Monde') {
+    } else if (difficult === '2' && regionSwitch === 'World') {
       setSortedData(sortedArray.slice(100, 133));
-    } else if (difficult === 'hard' && regionSwitch === 'Monde') {
+    } else if (difficult === '3' && regionSwitch === 'World') {
       setSortedData(sortedArray.slice(210, 243));
     } else {
       setSortedData(sortedArray);
@@ -75,6 +80,8 @@ const Quiz = () => {
     }
 
     sortedCountry();
+
+    return () => {};
   }, [data, playOnce, regionSwitch, difficult]);
 
   const answerRandom = sortedData.slice(sliceVal1, sliceVal2 + 3);
@@ -137,7 +144,7 @@ const Quiz = () => {
       <div
         className="containerDifficult"
         id={
-          isHidden === 'challenge' && regionSwitch === 'Monde' ? '' : 'hidden'
+          isHidden === 'challenge' && regionSwitch === 'World' ? '' : 'hidden'
         }
       >
         <Difficult setDifficult={setDifficult} difficult={difficult} />
@@ -176,6 +183,9 @@ const Quiz = () => {
           key={capitalQuestion.name}
           showResponse={showResponse}
           challengeSwitch={challengeSwitch}
+          arrayLength={arrayLength}
+          setShowLogin={setShowLogin}
+          setIsHidden={setIsHidden}
         />
       </div>
 
@@ -237,4 +247,8 @@ const Quiz = () => {
   );
 };
 
+Quiz.propTypes = {
+  setShowPresentation: PropTypes.func.isRequired,
+  setShowLogin: PropTypes.func.isRequired,
+};
 export default Quiz;
