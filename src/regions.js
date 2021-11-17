@@ -7,7 +7,7 @@ import oceania from './imageHome/oceania.png';
 
 const regions = [
   {
-    nameRegion: 'Monde',
+    nameRegion: 'World',
     image: monde,
   },
   {

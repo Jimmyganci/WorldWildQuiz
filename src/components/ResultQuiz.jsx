@@ -122,7 +122,7 @@ ResultQuiz.propTypes = {
 };
 
 ResultQuiz.defaultProps = {
-  regionSwitch: 'Monde',
+  regionSwitch: 'World',
 };
 
 export default ResultQuiz;

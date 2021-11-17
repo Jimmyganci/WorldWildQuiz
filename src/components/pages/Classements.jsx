@@ -19,7 +19,7 @@ const Classements = ({ setShowPresentation }) => {
   useEffect(() => {
     let url = `http://localhost:8000/api/score/`;
     if (selectGame) {
-      url += `?game_type=${selectGame}`;
+      url += `?gameType=${selectGame}`;
     }
     if (challengeFilter) {
       url += `?game=${challengeFilter}`;
@@ -162,7 +162,7 @@ const Classements = ({ setShowPresentation }) => {
                 className="inpt"
               >
                 <option value="">All</option>
-                <option value="monde">Monde</option>
+                <option value="world">World</option>
                 <option value="africa">Africa</option>
                 <option value="america">America</option>
                 <option value="asia">Asia</option>

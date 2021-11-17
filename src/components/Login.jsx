@@ -110,7 +110,7 @@ Login.propTypes = {
   searchUser: PropTypes.bool.isRequired,
   setSearchUser: PropTypes.func.isRequired,
   setShowLogin: PropTypes.func.isRequired,
-  showLogin: PropTypes.func.isRequired,
+  showLogin: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default Login;

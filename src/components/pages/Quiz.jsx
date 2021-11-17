@@ -49,18 +49,18 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
     const countryObj = Object.keys(data).map((i) => data[i]);
     const sortedArray = countryObj
       .filter((country) =>
-        country.region.includes(regionSwitch !== 'Monde' ? regionSwitch : '')
+        country.region.includes(regionSwitch !== 'World' ? regionSwitch : '')
       ) // je filtre mon tableau par ordre de population décroissant
       .sort((a, b) => {
         // permet d'appliquer une difficulté au jeu
         return b.population - a.population;
       });
 
-    if (difficult === '1' && regionSwitch === 'Monde') {
+    if (difficult === '1' && regionSwitch === 'World') {
       setSortedData(sortedArray.slice(0, 33));
-    } else if (difficult === '2' && regionSwitch === 'Monde') {
+    } else if (difficult === '2' && regionSwitch === 'World') {
       setSortedData(sortedArray.slice(100, 133));
-    } else if (difficult === '3' && regionSwitch === 'Monde') {
+    } else if (difficult === '3' && regionSwitch === 'World') {
       setSortedData(sortedArray.slice(210, 243));
     } else {
       setSortedData(sortedArray);
@@ -148,7 +148,7 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
       <div
         className="containerDifficult"
         id={
-          isHidden === 'challenge' && regionSwitch === 'Monde' ? '' : 'hidden'
+          isHidden === 'challenge' && regionSwitch === 'World' ? '' : 'hidden'
         }
       >
         <Difficult setDifficult={setDifficult} difficult={difficult} />
