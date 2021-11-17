@@ -36,10 +36,11 @@
   transition: 0.3s ease-in-out;
   height: 100%;
 }
-@media screen and (max-width:450px) {
-	div.cardQuizRapid {
-		flex-direction: column;
-	}
+
+@media screen and (max-width: 450px) {
+  div.cardQuizRapid {
+    flex-direction: column;
+  }
 }
 
 .cardQuizRapid:hover {
@@ -73,11 +74,12 @@
   transition: 0.3s ease-in-out;
   height: 100%;
 }
-@media screen and (max-width:450px) {
-	div.cardCultureHome {
-		display: flex;
-		flex-direction: column;
-	}
+
+@media screen and (max-width: 450px) {
+  div.cardCultureHome {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .cardCultureHome img {
