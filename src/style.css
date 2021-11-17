@@ -89,7 +89,7 @@ a {
   background: red;
 }
 
-/* Media queries - tablettes */
+/* Media queries */
 @media screen and (max-width: 600px) {
   .btn {
     width: 15vw;
