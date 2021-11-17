@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import Difficult from '../Difficult';
 import challenge from '../../challenge';
@@ -10,6 +9,7 @@ import Questions from '../Questions';
 import regions from '../../regions';
 import './quiz.css';
 import ResultQuiz from '../ResultQuiz';
+
 
 const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [data, setData] = useState([]); // recupère le premier tableau de l'appel api
@@ -66,10 +66,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
       setSortedData(sortedArray);
     }
   };
-
-  useEffect(() => {
-    setShowPresentation(false);
-  }, []);
 
   useEffect(() => {
     if (playOnce) {
@@ -255,5 +251,4 @@ Quiz.propTypes = {
   setShowPresentation: PropTypes.func.isRequired,
   setShowLogin: PropTypes.func.isRequired,
 };
-
 export default Quiz;
