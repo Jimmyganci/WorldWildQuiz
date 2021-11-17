@@ -75,20 +75,21 @@ h1 {
   background: rgb(38, 199, 240);
   color: rgb(255, 107, 107);
 }
+
 /* <------ Responsive ------> */
 
 @media screen and (max-width: 1000px) {
-
-  .cultureFilter{
+  .cultureFilter {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 5px;
     line-height: 0;
   }
-  .cultureSearch{
+
+  .cultureSearch {
     width: 50%;
   }
-  
+
   .loadingLogo {
     height: 50%;
     width: 50%;
@@ -99,19 +100,18 @@ h1 {
 }
 
 @media screen and (max-width: 750px) {
-
   #cultureFlags {
     height: 125px;
   }
 
-  .cultureFilter{
+  .cultureFilter {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 5px;
     line-height: 0;
   }
 
-  .cultureSearch{
+  .cultureSearch {
     width: 70%;
   }
 
@@ -125,7 +125,6 @@ h1 {
 }
 
 @media screen and (max-width: 500px) {
-
   .loadingLogo {
     height: 80%;
     width: 80%;

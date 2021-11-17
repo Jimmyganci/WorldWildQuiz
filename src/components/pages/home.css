@@ -5,54 +5,59 @@
   align-items: center;
   padding: 1em;
 }
-@media screen and (max-width:700px) {
-	div.home {
-		margin-top: 10vw;
-	}
+
+@media screen and (max-width: 700px) {
+  div.home {
+    margin-top: 10vw;
+  }
 }
 
 .choiceGame {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, .3fr);
+  grid-template-rows: repeat(4, 0.3fr);
   gap: 10px;
   padding: 1em;
 }
-@media screen and (max-width:450px) {
-	div.choiceGame {
-		grid-template-columns:1fr;
-	}
+
+@media screen and (max-width: 450px) {
+  div.choiceGame {
+    grid-template-columns: 1fr;
+  }
 }
 
 .homeQuizCard {
-	grid-area: 2/1;
+  grid-area: 2/1;
 }
-@media screen and (max-width:450px) {
-	div.homeQuizCard {
-		grid-area: 2/1 ;
-	}
+
+@media screen and (max-width: 450px) {
+  div.homeQuizCard {
+    grid-area: 2/1;
+  }
 }
 
 .homeMemoryCard {
-	grid-area: 2/2;
+  grid-area: 2/2;
 }
-@media screen and (max-width:450px) {
-	div.homeMemoryCard {
-		grid-area: 3/1;
-	}
+
+@media screen and (max-width: 450px) {
+  div.homeMemoryCard {
+    grid-area: 3/1;
+  }
 }
 
 .homeQuizRapidCard {
-	grid-area: 3/1/4/3;
+  grid-area: 3/1/4/3;
 }
-@media screen and (max-width:450px) {
-	div.homeQuizRapidCard {
-	  grid-area: 4/1;
-	}
+
+@media screen and (max-width: 450px) {
+  div.homeQuizRapidCard {
+    grid-area: 4/1;
+  }
 }
 
 .homeCultureCard {
-	grid-area: 1/1/2/3;
+  grid-area: 1/1/2/3;
 }
 
 .homeH1 {
