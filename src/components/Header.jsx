@@ -40,7 +40,6 @@ const Header = ({ showLogin, setShowLogin }) => {
       .get(url, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
-        console.log(data);
         setUserConnected(data);
         setTest(true);
       })
@@ -62,6 +61,19 @@ const Header = ({ showLogin, setShowLogin }) => {
     setShowLinks(!showlinks);
   };
 
+  const handleLogin = (dataLogin) => {
+    axios
+      .post('/login', dataLogin, { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) =>
+        setUserConnected({
+          ...userConnected,
+          pseudo: data.pseudo,
+          mail: data.mail,
+        })
+      );
+  };
+
   const handleUpdatePseudo = (param, pseudo) => {
     axios
       .put(`http://localhost:8000/api/users/${param}`, {
@@ -71,7 +83,7 @@ const Header = ({ showLogin, setShowLogin }) => {
         return res.status === 200 && res.data;
       })
       .then((data) => {
-        setUserConnected({ ...userConnected, pseudo: data.pseudo });
+        handleLogin(data);
       });
     setShowInputPseudo(!showInputPseudo);
   };
@@ -84,11 +96,23 @@ const Header = ({ showLogin, setShowLogin }) => {
         return res.status === 200 && res.data;
       })
       .then((data) => {
-        setUserConnected({ ...userConnected, mail: data.mail });
+        handleLogin(data);
       });
     setShowInputMail(!showInputMail);
   };
-  console.log(userConnected);
+  const handleUpdatePassword = (param, password) => {
+    axios
+      .put(`http://localhost:8000/api/users/${param}`, {
+        password,
+      })
+      .then((res) => {
+        return res.status === 200 && res.data;
+      })
+      .then((data) => {
+        setUserConnected({ ...userConnected, password: data.password });
+        handleLogin(data);
+      });
+  };
   return (
     <div className="sectionHeader">
       <div className="divBurger">
@@ -130,6 +154,7 @@ const Header = ({ showLogin, setShowLogin }) => {
             handleLogOut={handleLogOut}
             handleUpdatePseudo={handleUpdatePseudo}
             handleUpdateMail={handleUpdateMail}
+            handleUpdatePassword={handleUpdatePassword}
             showInputPseudo={showInputPseudo}
             setShowInputPseudo={setShowInputPseudo}
             showInputMail={showInputMail}

@@ -15,7 +15,6 @@ class ConnectUser extends React.Component {
 
   render() {
     const { searchUser, onClick, userConnected, test } = this.props;
-    console.log(typeof(userConnected));
     return (
       <div className="helpcontainer">
         <div
@@ -41,7 +40,7 @@ class ConnectUser extends React.Component {
 }
 
 ConnectUser.propTypes = {
-  userConnected: PropTypes.string,
+  userConnected: PropTypes.PropTypes.oneOfType([PropTypes.object]),
   onClick: PropTypes.func,
   searchUser: PropTypes.bool.isRequired,
 };

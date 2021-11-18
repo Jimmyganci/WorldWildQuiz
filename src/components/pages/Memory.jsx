@@ -21,7 +21,6 @@ const Memory = () => {
   const [playMemoryDifficult, setPlayMemoryDifficult] = useState(true); // affiche le bouton play dans le composant memory
   const [isHiddenRegister, setIsHiddenRegister] = useState(false); // affiche ou non le modal pour s'enregistrer
   const limitFlag = [];
-  console.log(difficult);
   const shuffleArray = (array) => {
     const array2 = array;
     for (let i = array2.length - 1; i > 0; i -= 1) {
