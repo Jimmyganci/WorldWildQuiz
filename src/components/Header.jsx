@@ -369,6 +369,6 @@ const Header = ({ showLogin, setShowLogin }) => {
 
 Header.propTypes = {
   setShowLogin: PropTypes.func.isRequired,
-  showLogin: PropTypes.func.isRequired,
+  showLogin: PropTypes.PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 export default Header;

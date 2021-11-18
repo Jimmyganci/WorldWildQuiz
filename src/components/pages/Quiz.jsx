@@ -28,7 +28,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
   const [difficult, setDifficult] = useState('2'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
-  console.log(setShowPresentation);
 
   useEffect(() => {
     let isMounted = true;

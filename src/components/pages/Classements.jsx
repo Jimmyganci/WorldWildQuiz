@@ -17,25 +17,21 @@ const Classements = ({ setShowPresentation }) => {
   }, []);
 
   useEffect(() => {
-    let url = `http://localhost:8000/api/score/`;
-    if (selectGame) {
-      url += `?gameType=${selectGame}`;
-    }
+    let url = `http://localhost:8000/api/score/?gameType=${selectGame}`;
+
     if (challengeFilter) {
-      url += `?game=${challengeFilter}`;
+      url += `&game=${challengeFilter}`;
     }
 
     if (regionFilter) {
-      url += `${challengeFilter ? '&' : '?'}region=${regionFilter}`;
+      url += `&region=${regionFilter}`;
     }
 
     if (scoreFilter) {
-      url += `${
-        challengeFilter || regionFilter ? '&' : '?'
-      }score=${scoreFilter}`;
+      url += `&score=${scoreFilter}`;
     }
     if (pseudoFilter) {
-      url += `?pseudo=${pseudoFilter}`;
+      url += `&pseudo=${pseudoFilter}`;
     }
     if (playOnce) {
       axios.get(url).then((res) => {
@@ -80,6 +76,9 @@ const Classements = ({ setShowPresentation }) => {
           <li>
             <button
               onClick={() => {
+                setChallengeFilter('');
+                setRegionFilter('');
+                setScoreFilter('');
                 setPlayOnce(true);
                 setSelectGame('Quiz');
               }}
@@ -94,6 +93,9 @@ const Classements = ({ setShowPresentation }) => {
           <li>
             <button
               onClick={() => {
+                setChallengeFilter('');
+                setRegionFilter('');
+                setScoreFilter('');
                 setPlayOnce(true);
                 setSelectGame('Memory');
               }}
@@ -108,6 +110,9 @@ const Classements = ({ setShowPresentation }) => {
           <li>
             <button
               onClick={() => {
+                setChallengeFilter('');
+                setRegionFilter('');
+                setScoreFilter('');
                 setPlayOnce(true);
                 setSelectGame('Rapid Quiz');
               }}
