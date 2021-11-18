@@ -10,7 +10,6 @@ const Classements = () => {
   const [pseudoFilter, setPseudoFilter] = useState('');
   const [scoreFilter, setScoreFilter] = useState('');
   const [selectGame, setSelectGame] = useState('Quiz');
-  console.log(scoreFilter);
   useEffect(() => {
     let url = `http://localhost:8000/api/score/?gameType=${selectGame}`;
 

@@ -20,6 +20,8 @@ const Header = ({ showLogin, setShowLogin }) => {
   const [errorGetData, setErrorGetData] = useState('');
   const [test, setTest] = useState(false);
   const [revealOption, setRevealOption] = useState(false);
+  const [showInputPseudo, setShowInputPseudo] = useState(false);
+  const [showInputMail, setShowInputMail] = useState(false);
 
   /* Modal */
   const [openModal, setOpenModal] = useState('');
@@ -38,12 +40,11 @@ const Header = ({ showLogin, setShowLogin }) => {
       .get(url, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
-        console.log(data);
         setUserConnected(data);
         setTest(true);
       })
       .catch((err) => setErrorGetData(err.response.status));
-  }, [searchUser, showLogin]);
+  }, [searchUser, showLogin, showInputPseudo]);
 
   const handleLogOut = () => {
     axios
@@ -60,6 +61,58 @@ const Header = ({ showLogin, setShowLogin }) => {
     setShowLinks(!showlinks);
   };
 
+  const handleLogin = (dataLogin) => {
+    axios
+      .post('/login', dataLogin, { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) =>
+        setUserConnected({
+          ...userConnected,
+          pseudo: data.pseudo,
+          mail: data.mail,
+        })
+      );
+  };
+
+  const handleUpdatePseudo = (param, pseudo) => {
+    axios
+      .put(`http://localhost:8000/api/users/${param}`, {
+        pseudo,
+      })
+      .then((res) => {
+        return res.status === 200 && res.data;
+      })
+      .then((data) => {
+        handleLogin(data);
+      });
+    setShowInputPseudo(!showInputPseudo);
+  };
+  const handleUpdateMail = (param, mail) => {
+    axios
+      .put(`http://localhost:8000/api/users/${param}`, {
+        mail,
+      })
+      .then((res) => {
+        return res.status === 200 && res.data;
+      })
+      .then((data) => {
+        handleLogin(data);
+      });
+    setShowInputMail(!showInputMail);
+  };
+  const handleUpdatePassword = (param, password) => {
+    axios
+      .put(`http://localhost:8000/api/users/${param}`, {
+        password,
+      })
+      .then((res) => {
+        return res.status === 200 && res.data;
+      })
+      .then((data) => {
+        setUserConnected({ ...userConnected, password: data.password });
+        handleLogin(data);
+      });
+  };
   return (
     <div className="sectionHeader">
       <div className="divBurger">
@@ -96,7 +149,17 @@ const Header = ({ showLogin, setShowLogin }) => {
           <SignUp setShowLogin={setShowLogin} showLogin={showLogin} />
         )}
         {showLogin.profil && userConnected && (
-          <Profil user={userConnected} handleLogOut={handleLogOut} />
+          <Profil
+            user={userConnected}
+            handleLogOut={handleLogOut}
+            handleUpdatePseudo={handleUpdatePseudo}
+            handleUpdateMail={handleUpdateMail}
+            handleUpdatePassword={handleUpdatePassword}
+            showInputPseudo={showInputPseudo}
+            setShowInputPseudo={setShowInputPseudo}
+            showInputMail={showInputMail}
+            setShowInputMail={setShowInputMail}
+          />
         )}
         {/* ***** Link Home ***** */}
         {openModal && window.location.hash === '#/' ? (
