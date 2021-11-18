@@ -18,6 +18,7 @@
   object-fit: cover;
   overflow: hidden;
   object-position: center;
+  opacity: 0.99;
 }
 
 .flagCard img {
@@ -26,6 +27,7 @@
   border-radius: 10px;
   object-fit: cover;
   transition: 0.3s ease-in-out;
+  opacity: 0.99;
 }
 
 .containerImagesMemory {
@@ -36,6 +38,7 @@
   line-height: 0;
   cursor: pointer;
   transition: transform 0.2s ease-in;
+  opacity: 0.99;
 }
 
 .containerImagesMemory:hover {
@@ -53,14 +56,18 @@
   transform: rotateY(0) perspective(100px);
   transition: 0.4s;
   backface-visibility: hidden;
+  border-radius: 10px;
+  opacity: 0.99;
 }
 
 .activeFlagCard .flagCard {
   transform: rotateY(0) perspective(100px);
+  opacity: 0.99;
 }
 
 .activeFlagCard::after {
   transform: rotateY(180deg) perspective(100px);
+  opacity: 0.99;
 }
 
 /* Media queries */
