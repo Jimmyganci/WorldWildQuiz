@@ -102,20 +102,19 @@ const Header = ({ showLogin, setShowLogin }) => {
             </div>
             <div className="modalFullInfo">
               <p>
-                This website was created by @Jimmy, @Christelle, @Patxi and
-                @David <br /> at the opportunity for a project, during our
-                training at the Wild School from Biarritz!
+                This website was created by Jimmy, Christelle, Patxi and David
+                <br /> at the opportunity for a project, during our training at
+                the Wild Code School from Biarritz!
                 <br />
                 <br />
                 During your experience, <br /> if you wish to be guided or if
                 you have any doubt, click on this icon and you will get help !
               </p>
-              <br />
             </div>
             <div className="modalFooter">
               <h2>Have a good game !</h2>
               <button type="button" className="modalBtn" onClick={hideModal}>
-                Fermer
+                Close
               </button>
             </div>
           </Modal>
@@ -220,10 +219,11 @@ const Header = ({ showLogin, setShowLogin }) => {
             </div>
             <div className="modalFullInfo">
               <p>
-                To find a country, <br /> just type in the name of a country to
-                display its flag under the search bar.
+                To find a country, <br /> just type the name of a country
+                <br /> to display flag under the search bar.
                 <br /> <br />
-                Finally, click on the country flag to display the information.
+                Finally, <br /> click on the country flag to display the
+                information.
                 <br />
                 You can also click on the displayed flags, by browsing the page.
               </p>
@@ -231,7 +231,7 @@ const Header = ({ showLogin, setShowLogin }) => {
             <div className="modalFooter">
               <h2> It`s time to discover !</h2>
               <button type="button" className="modalBtn" onClick={hideModal}>
-                Fermer
+                Close
               </button>
             </div>
           </Modal>

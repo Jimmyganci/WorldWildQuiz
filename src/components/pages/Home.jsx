@@ -22,7 +22,7 @@ const Home = ({ showPresentation, setShowPresentation }) => {
           </button>
         </div>
       )}
-      <h1 className="homeH1">Welcome to the World Wild Game</h1>
+      <h1 className="homeH1">Welcome to the World Wild Quiz</h1>
       <div className="choiceGame">
         <div className="homeQuizCard">
           <Link className="linkDiv" to="/Quiz">
