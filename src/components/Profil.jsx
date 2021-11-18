@@ -11,9 +11,20 @@ import badge4 from '../imageHome/badge4.png';
 import badge5 from '../imageHome/badge5.png';
 import badge6 from '../imageHome/badge6.png';
 
-const Profil = ({ user, handleLogOut }) => {
+const Profil = ({
+  user,
+  handleLogOut,
+  handleUpdatePseudo,
+  showInputPseudo,
+  setShowInputPseudo,
+  handleUpdateMail,
+  showInputMail,
+  setShowInputMail,
+}) => {
   const [showCategoryProfil, setShowCategoryProfil] = useState('profil');
   const [scoreUser, setScoreUser] = useState([]);
+  const [updatePseudo, setUpdatePseudo] = useState('');
+  const [updateMail, setUpdateMail] = useState('');
 
   useEffect(() => {
     axios
@@ -76,8 +87,53 @@ const Profil = ({ user, handleLogOut }) => {
             </div>
 
             <div>
-              <p>Pseudo: {user.pseudo}</p>
-              <p>Mail: {user.mail}</p>
+              <div>
+                {showInputPseudo ? (
+                  <input
+                    type="text"
+                    onChange={(e) => setUpdatePseudo(e.target.value)}
+                  />
+                ) : (
+                  <p>Pseudo: {user.pseudo}</p>
+                )}
+
+                <button
+                  className="btnProfil"
+                  type="button"
+                  onClick={() =>
+                    updatePseudo
+                      ? handleUpdatePseudo(user.id, updatePseudo)
+                      : setShowInputPseudo(!showInputPseudo)
+                  }
+                >
+                  Change Pseudo
+                </button>
+              </div>
+              <div>
+                {showInputMail ? (
+                  <input
+                    type="mail"
+                    onChange={(e) => setUpdateMail(e.target.value)}
+                  />
+                ) : (
+                  <p>Pseudo: {user.mail}</p>
+                )}
+                <button
+                  className="btnProfil"
+                  type="button"
+                  onClick={() =>
+                    updateMail
+                      ? handleUpdateMail(user.id, updateMail)
+                      : setShowInputMail(!showInputMail)
+                  }
+                >
+                  Change Mail
+                </button>
+              </div>
+
+              <button className="btnProfil" type="button">
+                Change Password
+              </button>
             </div>
 
             <button className="logOut" type="button" onClick={handleLogOut}>
@@ -141,6 +197,12 @@ const Profil = ({ user, handleLogOut }) => {
 Profil.propTypes = {
   user: PropTypes.oneOfType([PropTypes.object]),
   handleLogOut: PropTypes.func.isRequired,
+  handleUpdatePseudo: PropTypes.func.isRequired,
+  handleUpdateMail: PropTypes.func.isRequired,
+  setShowInputPseudo: PropTypes.func.isRequired,
+  showInputPseudo: PropTypes.bool.isRequired,
+  setShowInputMail: PropTypes.func.isRequired,
+  showInputMail: PropTypes.bool.isRequired,
 };
 
 Profil.defaultProps = {
