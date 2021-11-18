@@ -11,7 +11,7 @@ import regions from '../../regions';
 import './quiz.css';
 import ResultQuiz from '../ResultQuiz';
 
-const Quiz = ({ setShowPresentation, setShowLogin }) => {
+const Quiz = ({ setShowLogin }) => {
   const [data, setData] = useState([]); // recupère le premier tableau de l'appel api
   const [playOnce, setPlayOnce] = useState(true); // gere l'appel API pour eviter l'appel en boucle
   const [sortedData, setSortedData] = useState([]); // tableau de l'appel api trié par ordre de population
@@ -28,20 +28,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
   const [difficult, setDifficult] = useState('2'); // récupère un tableau de réponses érronées
   const arrayLength = sortedData.length;
-
-  useEffect(() => {
-    let isMounted = true;
-    if (isMounted) {
-      setShowPresentation(false);
-    }
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/login/').then((res) => console.log(res));
-  }, []);
 
   // Applique un random sur les tableaux en parametre
   const shuffleArray = (array) => {
@@ -256,7 +242,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
 };
 
 Quiz.propTypes = {
-  setShowPresentation: PropTypes.func.isRequired,
   setShowLogin: PropTypes.func.isRequired,
 };
 export default Quiz;
