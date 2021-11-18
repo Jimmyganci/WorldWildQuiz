@@ -12,7 +12,7 @@
 .headClassement {
   display: grid;
   grid-auto-flow: column;
-  list-style-type: none;
+  list-style: none;
   background: rgb(255, 107, 107);
   border-radius: 0 0 10px 10px;
   padding: 0.5em;
@@ -35,6 +35,7 @@
   ul.headClassement div:nth-child(4) {
     grid-area: 2/3/3/4;
   }
+
   ul.headClassement.gridColOne {
     grid-template-columns: repeat(1, 1fr) !important;
   }

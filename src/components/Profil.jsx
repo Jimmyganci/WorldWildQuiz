@@ -11,10 +11,24 @@ import badge4 from '../imageHome/badge4.png';
 import badge5 from '../imageHome/badge5.png';
 import badge6 from '../imageHome/badge6.png';
 
-const Profil = ({ user, handleLogOut }) => {
+const Profil = ({
+  user,
+  handleLogOut,
+  handleUpdatePseudo,
+  handleUpdatePassword,
+  showInputPseudo,
+  setShowInputPseudo,
+  handleUpdateMail,
+  showInputMail,
+  setShowInputMail,
+}) => {
   const [showCategoryProfil, setShowCategoryProfil] = useState('profil');
   const [scoreUser, setScoreUser] = useState([]);
-
+  const [updatePseudo, setUpdatePseudo] = useState('');
+  const [updateMail, setUpdateMail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showInputPassword, setShowInputPassword] = useState(false);
   useEffect(() => {
     axios
       .get(`/api/score/${user.id}`)
@@ -23,6 +37,16 @@ const Profil = ({ user, handleLogOut }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handlePasswordUpdateBDD = (param, password) => {
+    if (newPassword === confirmPassword) {
+      handleUpdatePassword(param, password);
+      setShowInputPassword(!showInputPassword);
+      setNewPassword('');
+      setConfirmPassword('');
+    } else {
+      alert('password no similar');
+    }
+  };
   return (
     <div className="containerFormSubscription profilContainer">
       <div className="headerLogin">
@@ -75,9 +99,95 @@ const Profil = ({ user, handleLogOut }) => {
               <span>Welcome to your profil</span>
             </div>
 
-            <div>
-              <p>Pseudo: {user.pseudo}</p>
-              <p>Mail: {user.mail}</p>
+            <div className="informationProfil">
+              <div className="infoEditProfil">
+                <h5>My Pseudo</h5>
+                {showInputPseudo ? (
+                  <input
+                    type="text"
+                    placeholder="Enter your new pseudo"
+                    onChange={(e) => setUpdatePseudo(e.target.value)}
+                  />
+                ) : (
+                  <p>{user.pseudo}</p>
+                )}
+
+                <button
+                  className="btnProfil"
+                  type="button"
+                  onClick={() =>
+                    updatePseudo
+                      ? handleUpdatePseudo(user.id, updatePseudo)
+                      : setShowInputPseudo(!showInputPseudo)
+                  }
+                >
+                  Change Pseudo
+                </button>
+              </div>
+              <div className="infoEditProfil">
+                <h5>My Mail</h5>
+                {showInputMail ? (
+                  <input
+                    type="mail"
+                    placeholder="Enter your new mail"
+                    onChange={(e) => setUpdateMail(e.target.value)}
+                  />
+                ) : (
+                  <p>{user.mail}</p>
+                )}
+                <button
+                  className="btnProfil"
+                  type="button"
+                  onClick={() =>
+                    updateMail
+                      ? handleUpdateMail(user.id, updateMail)
+                      : setShowInputMail(!showInputMail)
+                  }
+                >
+                  Change Mail
+                </button>
+              </div>
+              <div className="infoEditProfil">
+                <h5>My Password</h5>
+                {showInputPassword && (
+                  <div className="contChangePassword">
+                    <label htmlFor="newPassword">
+                      <input
+                        type="password"
+                        name="newPassword"
+                        id="newPassword"
+                        placeholder="Enter tour new password"
+                        onChange={(e) => setNewPassword(e.target.value)}
+                      />
+                    </label>
+                    <label htmlFor="confirmPassword">
+                      <input
+                        type="password"
+                        name="confirmPassword"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                )}
+                <button
+                  className="btnProfil"
+                  type="button"
+                  onClick={() =>
+                    newPassword || confirmPassword
+                      ? handlePasswordUpdateBDD(user.id, newPassword)
+                      : setShowInputPassword(!showInputPassword)
+                  }
+                >
+                  Change Password
+                </button>
+              </div>
+              <div className="infoEditProfil">
+                <button type="button" className="btnProfil">
+                  Delete my account
+                </button>
+              </div>
             </div>
 
             <button className="logOut" type="button" onClick={handleLogOut}>
@@ -141,6 +251,13 @@ const Profil = ({ user, handleLogOut }) => {
 Profil.propTypes = {
   user: PropTypes.oneOfType([PropTypes.object]),
   handleLogOut: PropTypes.func.isRequired,
+  handleUpdatePseudo: PropTypes.func.isRequired,
+  handleUpdatePassword: PropTypes.func.isRequired,
+  handleUpdateMail: PropTypes.func.isRequired,
+  setShowInputPseudo: PropTypes.func.isRequired,
+  showInputPseudo: PropTypes.bool.isRequired,
+  setShowInputMail: PropTypes.func.isRequired,
+  showInputMail: PropTypes.bool.isRequired,
 };
 
 Profil.defaultProps = {
