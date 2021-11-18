@@ -31,4 +31,8 @@
     justify-items: center;
     grid-gap: 6px;
   }
+
+  .gridMedium {
+    height: 80%;
+  }
 }
