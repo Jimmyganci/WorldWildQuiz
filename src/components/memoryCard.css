@@ -53,6 +53,7 @@
   transform: rotateY(0) perspective(100px);
   transition: 0.4s;
   backface-visibility: hidden;
+  border-radius: 10px;
 }
 
 .activeFlagCard .flagCard {
@@ -83,5 +84,13 @@
 
   .containerImagesMemory:hover {
     transform: scale(1);
+  }
+
+  .containerImagesMemory {
+    border-radius: 10px;
+  }
+
+  .containerImagesMemory::after {
+    border-radius: 10px;
   }
 }

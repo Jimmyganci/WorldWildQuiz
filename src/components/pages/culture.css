@@ -16,10 +16,6 @@
   align-items: center;
 }
 
-h1 {
-  margin-bottom: 3rem;
-}
-
 .cultureForm {
   display: flex;
   flex-direction: column;
