@@ -20,15 +20,20 @@
 }
 
 /* Media queries */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .flagsCardsContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* création grille 4 col */
     grid-auto-flow: dense;
     width: 97%;
-    height: 100%;
+    height: 96%;
     align-items: center;
     justify-items: center;
-    grid-gap: 7px;
+    grid-gap: 6px;
+    margin-bottom: 100px;
+  }
+
+  .gridMedium {
+    margin-bottom: 120px;
   }
 }
