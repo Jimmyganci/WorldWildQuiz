@@ -29,6 +29,10 @@
     height: 96%;
     align-items: center;
     justify-items: center;
-    grid-gap: 7px;
+    grid-gap: 6px;
+  }
+
+  .gridMedium {
+    height: 80%;
   }
 }
