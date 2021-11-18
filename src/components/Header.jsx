@@ -38,6 +38,7 @@ const Header = ({ showLogin, setShowLogin }) => {
       .get(url, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
+        console.log(data);
         setUserConnected(data);
         setTest(true);
       })
