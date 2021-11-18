@@ -54,6 +54,7 @@
   transition: 0.4s;
   backface-visibility: hidden;
   border-radius: 10px;
+  z-index: -1;
 }
 
 .activeFlagCard .flagCard {

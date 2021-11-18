@@ -19,7 +19,7 @@ const MemoryGrid = ({
       >
         {flagArray2.map((country, index) => (
           <MemoryCard
-            key={country.name}
+            // key={country.name}
             country={country}
             className={`containerImagesMemory ${
               visibleItems.includes(index) ? 'activeFlagCard' : ''
