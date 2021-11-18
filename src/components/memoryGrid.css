@@ -30,9 +30,10 @@
     align-items: center;
     justify-items: center;
     grid-gap: 6px;
+    margin-bottom: 100px;
   }
 
   .gridMedium {
-    height: 80%;
+    margin-bottom: 120px;
   }
 }

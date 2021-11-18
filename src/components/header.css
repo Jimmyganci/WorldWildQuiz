@@ -135,6 +135,7 @@
   .sectionHeader {
     display: block;
     height: 15vh;
+    z-index: 1000;
   }
 
   .divBurger {
