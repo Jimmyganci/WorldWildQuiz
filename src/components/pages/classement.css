@@ -1,5 +1,8 @@
-.classement {
-  margin-top: 10vw;
+@media screen and (max-width: 700px) {
+  div.classement {
+    margin-top: 10vw;
+    margin-bottom: 50px;
+  }
 }
 
 .classement h1 {

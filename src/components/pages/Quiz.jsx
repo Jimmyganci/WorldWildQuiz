@@ -30,7 +30,13 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
   const arrayLength = sortedData.length;
 
   useEffect(() => {
-    setShowPresentation(false);
+    let isMounted = true;
+    if (isMounted) {
+      setShowPresentation(false);
+    }
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -84,8 +90,6 @@ const Quiz = ({ setShowPresentation, setShowLogin }) => {
     }
 
     sortedCountry();
-
-    return () => {};
   }, [data, playOnce, regionSwitch, difficult]);
 
   const answerRandom = sortedData.slice(sliceVal1, sliceVal2 + 3);

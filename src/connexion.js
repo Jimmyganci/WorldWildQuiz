@@ -54,21 +54,17 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/api/score', (req, res) => {
-  let sql = `select * from ${table}`;
-  const sqlValues = [];
-  console.log(req.query.game_type);
-  if (req.query.game_type) {
-    sql += ' WHERE game_type = ?';
-    sqlValues.push(req.query.game_type);
-  }
+  let sql = `select * from ${table} WHERE game_type = ?`;
+  const sqlValues = [req.query.gameType];
+
   if (req.query.game && !req.query.region && !req.query.score) {
-    // filtre juste les challenge
-    sql += ' WHERE game = ?';
+    // filtre juste les challenge et les type de jeu
+    sql += ' AND game = ? ';
     sqlValues.push(req.query.game);
   }
   if (req.query.region && !req.query.game && !req.query.score) {
     // filtre juste les continents
-    sql += ' WHERE region = ?';
+    sql += ' AND region = ?';
     sqlValues.push(req.query.region);
   }
   if (req.query.score && !req.query.region && !req.query.game) {
@@ -77,27 +73,27 @@ app.get('/api/score', (req, res) => {
   }
   if (req.query.game && req.query.region && !req.query.score) {
     // filtre sur les challenges et les continents
-    sql += ` WHERE game = ? AND region = ?`;
+    sql += ` AND game = ? AND region = ?`;
     sqlValues.push(req.query.game, req.query.region);
   }
   if (!req.query.game && req.query.region && req.query.score) {
     // filtre sur les continents et sur le score
-    sql += ` WHERE region = ? ORDER BY score ${req.query.score}`;
+    sql += ` AND region = ? ORDER BY score ${req.query.score}`;
     sqlValues.push(req.query.region);
   }
   if (req.query.game && !req.query.region && req.query.score) {
     // filtre sur les challenges et le score
-    sql += ` WHERE game = ? ORDER BY score ${req.query.score}`;
+    sql += ` AND game = ? ORDER BY score ${req.query.score}`;
     sqlValues.push(req.query.game);
   }
   if (req.query.game && req.query.region && req.query.score) {
     // filtre sur les continents, challenge et score
-    sql += ` WHERE game = ? AND region = ? ORDER BY score ${req.query.score}`;
+    sql += ` AND game = ? AND region = ? ORDER BY score ${req.query.score}`;
     sqlValues.push(req.query.game, req.query.region);
   }
 
   if (req.query.pseudo) {
-    sql += ` WHERE pseudo LIKE '%${req.query.pseudo}%'`;
+    sql += ` AND pseudo LIKE '%${req.query.pseudo}%'`;
   }
 
   pool.query(sql, sqlValues, (err, result) => {
