@@ -1,9 +1,8 @@
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './classement.css';
 
-const Classements = ({ setShowPresentation }) => {
+const Classements = () => {
   const [playOnce, setPlayOnce] = useState(true);
   const [dataBase, setDataBase] = useState([]); // variable d'état du resultat de l'appel a la BDD
   const [challengeFilter, setChallengeFilter] = useState('');
@@ -13,29 +12,21 @@ const Classements = ({ setShowPresentation }) => {
   const [selectGame, setSelectGame] = useState('Memory');
 
   useEffect(() => {
-    setShowPresentation(false);
-  }, []);
+    let url = `http://localhost:8000/api/score/?gameType=${selectGame}`;
 
-  useEffect(() => {
-    let url = `http://localhost:8000/api/score/`;
-    if (selectGame) {
-      url += `?gameType=${selectGame}`;
-    }
     if (challengeFilter) {
-      url += `?game=${challengeFilter}`;
+      url += `&game=${challengeFilter}`;
     }
 
     if (regionFilter) {
-      url += `${challengeFilter ? '&' : '?'}region=${regionFilter}`;
+      url += `&region=${regionFilter}`;
     }
 
     if (scoreFilter) {
-      url += `${
-        challengeFilter || regionFilter ? '&' : '?'
-      }score=${scoreFilter}`;
+      url += `&score=${scoreFilter}`;
     }
     if (pseudoFilter) {
-      url += `?pseudo=${pseudoFilter}`;
+      url += `&pseudo=${pseudoFilter}`;
     }
     if (playOnce) {
       axios.get(url).then((res) => {
@@ -80,6 +71,9 @@ const Classements = ({ setShowPresentation }) => {
           <li>
             <button
               onClick={() => {
+                setChallengeFilter('');
+                setRegionFilter('');
+                setScoreFilter('');
                 setPlayOnce(true);
                 setSelectGame('Quiz');
               }}
@@ -94,6 +88,9 @@ const Classements = ({ setShowPresentation }) => {
           <li>
             <button
               onClick={() => {
+                setChallengeFilter('');
+                setRegionFilter('');
+                setScoreFilter('');
                 setPlayOnce(true);
                 setSelectGame('Memory');
               }}
@@ -108,6 +105,9 @@ const Classements = ({ setShowPresentation }) => {
           <li>
             <button
               onClick={() => {
+                setChallengeFilter('');
+                setRegionFilter('');
+                setScoreFilter('');
                 setPlayOnce(true);
                 setSelectGame('Rapid Quiz');
               }}
@@ -208,10 +208,6 @@ const Classements = ({ setShowPresentation }) => {
       </div>
     </div>
   );
-};
-
-Classements.propTypes = {
-  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Classements;
