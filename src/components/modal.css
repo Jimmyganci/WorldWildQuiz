@@ -167,17 +167,13 @@
 }
 
 @media screen and (max-width: 500px) {
-
   .modalFullInfo p {
     font-size: 22px;
   }
-
 }
 
 @media screen and (max-height: 700px) {
-
   .modalFullInfo p {
     font-size: 15px;
   }
-
 }
