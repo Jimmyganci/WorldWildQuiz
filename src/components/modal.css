@@ -118,6 +118,10 @@
     font-size: 20px;
     height: 80%;
   }
+
+  .modalFullInfo p {
+    font-size: 22px;
+  }
 }
 
 @media screen and (max-width: 620px) {
@@ -160,4 +164,20 @@
   .modalBtn {
     display: none;
   }
+}
+
+@media screen and (max-width: 500px) {
+
+  .modalFullInfo p {
+    font-size: 22px;
+  }
+
+}
+
+@media screen and (max-height: 700px) {
+
+  .modalFullInfo p {
+    font-size: 15px;
+  }
+
 }
