@@ -159,6 +159,8 @@ const Header = ({ showLogin, setShowLogin }) => {
             setShowInputPseudo={setShowInputPseudo}
             showInputMail={showInputMail}
             setShowInputMail={setShowInputMail}
+            setShowLogin={setShowLogin}
+            showLogin={showLogin}
           />
         )}
         {/* ***** Link Home ***** */}

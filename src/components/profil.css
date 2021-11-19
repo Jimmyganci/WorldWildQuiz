@@ -171,10 +171,11 @@
 .informationProfil {
   width: 50%;
 }
-@media screen and (max-width:450px) {
-	div.informationProfil {
-		width: 80%;
-	}
+
+@media screen and (max-width: 450px) {
+  div.informationProfil {
+    width: 80%;
+  }
 }
 
 .informationProfil input {
@@ -215,4 +216,13 @@
 .contChangePassword input {
   margin: 0 0.3em;
   padding: 0.3em;
+}
+
+.closeContainer {
+  width: 20px;
+  height: 20px;
+}
+
+.closeContainer img {
+  width: 100%;
 }
