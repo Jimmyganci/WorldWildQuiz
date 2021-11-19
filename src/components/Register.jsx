@@ -58,7 +58,7 @@ const Register = ({
               {`${
                 total
                   ? `${Math.round((total / arrayLength) * 100)}%`
-                  : `${timer.hour + timer.minute + timer.sec}s`
+                  : `${timer.hour}h ${timer.minute}mn ${timer.sec}s`
               }`}
             </p>
             {!userConnected && <p>Log in to save your result!</p>}

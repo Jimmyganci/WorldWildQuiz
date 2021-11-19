@@ -221,8 +221,14 @@
 .closeContainer {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .closeContainer img {
   width: 100%;
+  transition: 0.5s ease-out;
+}
+
+.closeContainer img:hover {
+  transform: rotateZ(360deg);
 }
