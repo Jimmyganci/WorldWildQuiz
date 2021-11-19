@@ -171,6 +171,11 @@
 .informationProfil {
   width: 50%;
 }
+@media screen and (max-width:450px) {
+	div.informationProfil {
+		width: 80%;
+	}
+}
 
 .informationProfil input {
   background: transparent;
