@@ -82,7 +82,7 @@
 }
 
 .profilUser h2,
-badgeprofil h2 {
+.badgeprofil h2 {
   color: rgb(78, 205, 196);
   text-transform: uppercase;
   font-size: 2.3em;
@@ -154,4 +154,65 @@ badgeprofil h2 {
   width: 100%;
   justify-content: space-around;
   padding: 0.2em 0;
+}
+
+.btnProfil {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+}
+
+.btnProfil:hover {
+  letter-spacing: 2px;
+  color: rgb(78, 205, 196);
+}
+
+.informationProfil {
+  width: 50%;
+}
+@media screen and (max-width:450px) {
+	div.informationProfil {
+		width: 80%;
+	}
+}
+
+.informationProfil input {
+  background: transparent;
+  border: 1px solid rgb(78, 205, 196);
+  border-radius: 10px;
+  padding: 0.5em 0;
+}
+
+.informationProfil p {
+  padding: 0.5em 0;
+}
+
+.informationProfil h5 {
+  margin-bottom: 0.3em;
+  color: rgb(78, 205, 196);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.infoEditProfil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 2em;
+  margin: 0 auto;
+  background: #ffe66d;
+  padding: 0.5em;
+  border-radius: 10px;
+  margin: 0.3em 0;
+}
+
+.contChangePassword {
+  display: flex;
+  margin: 0 auto;
+}
+
+.contChangePassword input {
+  margin: 0 0.3em;
+  padding: 0.3em;
 }

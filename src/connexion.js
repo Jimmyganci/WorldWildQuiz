@@ -175,6 +175,40 @@ app.post('/api/users', (req, res) => {
   );
 });
 
+app.put('/api/users/:id', (req, res) => {
+  const userId = req.params.id;
+  pool.query(
+    'SELECT * FROM usersdata WHERE id = ?',
+    [userId],
+    (err, selectUser) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send('Error');
+      } else {
+        const userFromDb = selectUser[0];
+        if (userFromDb) {
+          const userToUpdate = req.body;
+          pool.query(
+            'UPDATE usersdata SET ? WHERE id = ?',
+            [userToUpdate, userId],
+            (error) => {
+              if (error) {
+                console.log(error);
+                res.status(500).send('Error updating a user');
+              } else {
+                const updated = { ...userFromDb, ...userToUpdate };
+                res.status(200).json(updated);
+              }
+            }
+          );
+        } else {
+          res.status(404).send(`Heroes with id ${userId} not found.`);
+        }
+      }
+    }
+  );
+});
+
 app.listen(port, () => {
   console.log(`App server now listening to port ${port}`);
 });

@@ -8,9 +8,8 @@ const Classements = () => {
   const [challengeFilter, setChallengeFilter] = useState('');
   const [regionFilter, setRegionFilter] = useState('');
   const [pseudoFilter, setPseudoFilter] = useState('');
-  const [scoreFilter, setScoreFilter] = useState();
-  const [selectGame, setSelectGame] = useState('Memory');
-
+  const [scoreFilter, setScoreFilter] = useState('');
+  const [selectGame, setSelectGame] = useState('Quiz');
   useEffect(() => {
     let url = `http://localhost:8000/api/score/?gameType=${selectGame}`;
 
@@ -120,7 +119,11 @@ const Classements = () => {
             </button>
           </li>
         </ul>
-        <ul className="headClassement">
+        <ul
+          className={`headClassement ${
+            selectGame === 'Memory' && 'gridColOne'
+          }`}
+        >
           <label htmlFor="pseudo">
             <input
               type="text"
@@ -132,25 +135,46 @@ const Classements = () => {
             />
           </label>
           {selectGame !== 'Memory' && (
-            <label htmlFor="challenge">
-              <select
-                name="challenge"
-                id="challenge"
-                onChange={handleFilterChallenge}
-                value={challengeFilter}
-                className="inpt"
-              >
-                <option className="optionSelect" value="">
-                  All
-                </option>
-                <option className="optionSelect" value="drapeaux">
-                  Drapeaux
-                </option>
-                <option className="optionSelect" value="capital">
-                  Capital
-                </option>
-              </select>
-            </label>
+            <div
+              id="challenge"
+              onChange={handleFilterChallenge}
+              value={challengeFilter}
+              className="switch"
+            >
+              <label htmlFor="drapeaux" className="switch__label">
+                Flags
+                <input
+                  type="radio"
+                  name="switch"
+                  id="drapeaux"
+                  value="drapeaux"
+                />
+              </label>
+              <label htmlFor="all" className="switch__label">
+                All
+                <input
+                  type="radio"
+                  name="switch"
+                  id="all"
+                  value=""
+                  defaultChecked
+                />
+              </label>
+              <label htmlFor="capital" className="switch__label">
+                Capital
+                <input
+                  type="radio"
+                  name="switch"
+                  id="capital"
+                  value="capital"
+                />
+              </label>
+              <div
+                className={`switch__indicator ${
+                  challengeFilter === 'drapeaux' && 'indicator__flags'
+                } ${challengeFilter === 'capital' && 'indicator__capital'}`}
+              />
+            </div>
           )}
           {selectGame !== 'Memory' && (
             <label htmlFor="region">
@@ -161,7 +185,7 @@ const Classements = () => {
                 value={regionFilter}
                 className="inpt"
               >
-                <option value="">All</option>
+                <option value="">All Regions</option>
                 <option value="world">World</option>
                 <option value="africa">Africa</option>
                 <option value="america">America</option>
@@ -171,19 +195,35 @@ const Classements = () => {
               </select>
             </label>
           )}
-          <label htmlFor="score">
-            <select
-              name="score"
-              id="score"
-              onChange={handleFilterScore}
-              value={scoreFilter}
-              className="inpt"
-            >
-              <option value="">Sort by</option>
-              <option value="asc">Asc</option>
-              <option value="desc">Desc</option>
-            </select>
-          </label>
+          <div
+            onChange={handleFilterScore}
+            value={scoreFilter}
+            className="switch"
+          >
+            <label htmlFor="asc" className="switch__label">
+              ASC
+              <input type="radio" name="switch" id="asc" value="asc" />
+            </label>
+            <label htmlFor="allScore" className="switch__label">
+              All
+              <input
+                type="radio"
+                name="switch"
+                id="allScore"
+                value=""
+                defaultChecked
+              />
+            </label>
+            <label htmlFor="desc" className="switch__label">
+              DESC
+              <input type="radio" name="switch" id="desc" value="desc" />
+            </label>
+            <div
+              className={`switch__indicator ${
+                scoreFilter === 'asc' && 'indicator__flags'
+              } ${scoreFilter === 'desc' && 'indicator__capital'}`}
+            />
+          </div>
         </ul>
       </div>
       <div className="container__bodyClassement">

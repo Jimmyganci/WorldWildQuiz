@@ -34,7 +34,6 @@ const Login = ({ setShowLogin, showLogin }) => {
       .get(url)
       .then((res) => res.data)
       .then((data) => {
-        console.log(data);
         if (data.find((el) => el.pseudo === pseudo)) {
           setError({ ...error, errorPseudo: true });
         } else if (data.find((el) => el.mail === mail)) {

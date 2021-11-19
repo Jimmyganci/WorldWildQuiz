@@ -12,24 +12,70 @@
 .headClassement {
   display: grid;
   grid-auto-flow: column;
-  list-style-type: none;
+  list-style: none;
   background: rgb(255, 107, 107);
   border-radius: 0 0 10px 10px;
   padding: 0.5em;
   align-items: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 700px) {
   ul.headClassement {
     grid-template-rows: repeat(2, 1fr);
   }
 
-  input#pseudo {
+  ul.headClassement label:nth-child(1) {
+    grid-area: 1/1/2/4;
+  }
+
+  ul.headClassement label:nth-child(3) {
+    grid-area: 2/2/2/3;
+  }
+
+  ul.headClassement div:nth-child(4) {
+    grid-area: 2/3/3/4;
+  }
+
+  ul.headClassement.gridColOne {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  ul.headClassement {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  ul.headClassement label:nth-child(1) {
     grid-area: 1/1/2/2;
   }
 
-  ul.headClassement:nth-child(1) {
-    grid-area: 1/1/2/4;
+  ul.headClassement label:nth-child(3) {
+    grid-area: 1/2/2/3;
+  }
+
+  ul.headClassement div:nth-child(4) {
+    grid-area: 2/2/3/3;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  ul.headClassement {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  ul.headClassement label:nth-child(1) {
+    grid-area: 1/1;
+  }
+
+  ul.headClassement label:nth-child(3) {
+    grid-area: 3/1;
+  }
+
+  ul.headClassement div:nth-child(4) {
+    grid-area: 4/1;
   }
 }
 
@@ -92,4 +138,53 @@
 .selectGameType {
   background: rgb(255, 107, 107) !important;
   cursor: default !important;
+}
+
+.switch {
+  position: relative;
+  width: 70%;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  height: 1.5rem;
+  background: rgb(78, 205, 196);
+  border-radius: 30px;
+}
+
+.switch__label {
+  cursor: pointer;
+  transition: color 200ms ease-out;
+  position: relative;
+}
+
+.switch__label:hover {
+  color: blue;
+}
+
+.switch__indicator {
+  width: 3rem;
+  height: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(255, 230, 109);
+  border-radius: 15px;
+  transition: 0.5s ease-in-out;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.26);
+}
+
+.indicator__flags {
+  left: 13%;
+}
+
+.indicator__capital {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+input[type="radio"]:not(:checked),
+input[type="radio"]:checked {
+  display: none;
 }
