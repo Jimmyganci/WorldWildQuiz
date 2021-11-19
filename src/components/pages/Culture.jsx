@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import './culture.css';
 import Modal from '../modal';
 import Logo from '../Logo';
 
-const Culture = ({ setShowPresentation }) => {
+const Culture = () => {
   const [playOnce, setPlayOnce] = useState(true);
   const [allCountries, setAllCountries] = useState([]);
   const [searchCountry, setSearchCountry] = useState('');
@@ -13,9 +12,6 @@ const Culture = ({ setShowPresentation }) => {
   const [loading, setLoading] = useState(true);
   const [showButton, setShowButton] = useState(false);
 
-  useEffect(() => {
-    setShowPresentation(false);
-  }, []);
   /* Appel API */
   useEffect(() => {
     if (playOnce) {
@@ -163,10 +159,6 @@ const Culture = ({ setShowPresentation }) => {
       )}
     </div>
   );
-};
-
-Culture.propTypes = {
-  setShowPresentation: PropTypes.func.isRequired,
 };
 
 export default Culture;
