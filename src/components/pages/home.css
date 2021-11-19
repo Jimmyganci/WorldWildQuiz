@@ -170,3 +170,9 @@
 .btnStart:hover {
   opacity: 1;
 }
+
+.titlePseudo {
+  font-size: 2.5em;
+  color: rgb(78, 205, 196);
+  letter-spacing: 2px;
+}

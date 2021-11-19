@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import HomeCard from '../HomeCard';
 import gameType from '../../gameType';
 import CardQuizRapid from '../CardQuizRapid';
@@ -9,6 +10,17 @@ import Logo from '../Logo';
 
 const Home = () => {
   const [showPresentation, setShowPresentation] = useState(true);
+  const [userConnected, setUserConnected] = useState([]);
+
+  useEffect(() => {
+    const url = `http://localhost:8000/login`;
+    axios
+      .get(url, { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) => {
+        setUserConnected(data);
+      });
+  }, []);
   return (
     <div className="home">
       {showPresentation && (
@@ -23,7 +35,11 @@ const Home = () => {
           </button>
         </div>
       )}
-      <h1 className="homeH1">Welcome to the World Wild Game</h1>
+      <h2 className="titlePseudo">
+        {userConnected && 'Hello '}
+        {userConnected && userConnected.pseudo}
+      </h2>
+      <h1 className="homeH1">Welcome to the World Wild Quiz</h1>
       {!showPresentation && (
         <div className="choiceGame">
           <div className="homeQuizCard">

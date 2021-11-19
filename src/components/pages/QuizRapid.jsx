@@ -20,7 +20,7 @@ const QuizRapid = () => {
   const [resultQuestion, setResultQuestion] = useState([]); // affiche l'objet de la question affiché
   const [capitalQuestion, setCapitalQuestion] = useState(''); // affiche l'objet selectionné de la question
   const [showResponse, setShowResponse] = useState([]); // récupère un tableau de réponses érronées
-  const [difficult, setDifficult] = useState('medium'); // récupère la difficultée
+  const [difficult, setDifficult] = useState('2'); // récupère la difficultée
   const arrayLength = sortedData.length;
   const [challengeSwitch, setChallengeSwitch] = useState('Capital');
   const randomNumber = Math.floor(Math.random() * 10);
@@ -44,11 +44,11 @@ const QuizRapid = () => {
       return b.population - a.population;
     });
 
-    if (difficult === 'easy') {
+    if (difficult === '1') {
       setSortedData(sortedArray.slice(0, 33));
-    } else if (difficult === 'medium') {
+    } else if (difficult === '2') {
       setSortedData(sortedArray.slice(100, 133));
-    } else if (difficult === 'hard') {
+    } else if (difficult === '3') {
       setSortedData(sortedArray.slice(210, 243));
     } else {
       setSortedData(sortedArray);
