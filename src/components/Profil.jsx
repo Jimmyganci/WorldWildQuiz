@@ -10,6 +10,7 @@ import badge3 from '../imageHome/badge3.png';
 import badge4 from '../imageHome/badge4.png';
 import badge5 from '../imageHome/badge5.png';
 import badge6 from '../imageHome/badge6.png';
+import close from '../imageHome/fermer.png';
 
 const Profil = ({
   user,
@@ -21,6 +22,8 @@ const Profil = ({
   handleUpdateMail,
   showInputMail,
   setShowInputMail,
+  setShowLogin,
+  showLogin,
 }) => {
   const [showCategoryProfil, setShowCategoryProfil] = useState('profil');
   const [scoreUser, setScoreUser] = useState([]);
@@ -51,7 +54,14 @@ const Profil = ({
     <div className="containerFormSubscription profilContainer">
       <div className="headerLogin">
         <h2>Profil</h2>
-        <span>X</span>
+        <span
+          className="closeContainer"
+          aria-hidden="true"
+          onClick={() => setShowLogin({ ...showLogin, profil: false })}
+          onKeyDown={() => setShowLogin({ ...showLogin, profil: false })}
+        >
+          <img src={close} alt="croix" />
+        </span>
       </div>
       <ul className="navUser">
         <li>
@@ -210,7 +220,10 @@ const Profil = ({
                   <p>{el.game_type}</p>
                   <p>{el.game}</p>
                   <p>{el.region}</p>
-                  <p>{el.score}%</p>
+                  <p>
+                    {el.score}
+                    {`${el.game_type === 'Memory' ? 's' : '%'}`}
+                  </p>
                 </div>
               ))}
             </div>
@@ -257,7 +270,9 @@ Profil.propTypes = {
   setShowInputPseudo: PropTypes.func.isRequired,
   showInputPseudo: PropTypes.bool.isRequired,
   setShowInputMail: PropTypes.func.isRequired,
+  setShowLogin: PropTypes.func.isRequired,
   showInputMail: PropTypes.bool.isRequired,
+  showLogin: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 Profil.defaultProps = {
