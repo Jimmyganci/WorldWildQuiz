@@ -35,7 +35,7 @@ const Header = ({ showLogin, setShowLogin }) => {
   };
   /* Fin Modal */
   useEffect(() => {
-    const url = `http://localhost:8000/login`;
+    const url = `https://worldwildquiz.herokuapp.com/login`;
     axios
       .get(url, { withCredentials: true })
       .then((res) => res.data)
@@ -76,7 +76,7 @@ const Header = ({ showLogin, setShowLogin }) => {
 
   const handleUpdatePseudo = (param, pseudo) => {
     axios
-      .put(`http://localhost:8000/api/users/${param}`, {
+      .put(`https://worldwildquiz.herokuapp.com/api/users/${param}`, {
         pseudo,
       })
       .then((res) => {
@@ -89,7 +89,7 @@ const Header = ({ showLogin, setShowLogin }) => {
   };
   const handleUpdateMail = (param, mail) => {
     axios
-      .put(`http://localhost:8000/api/users/${param}`, {
+      .put(`https://worldwildquiz.herokuapp.com/api/users/${param}`, {
         mail,
       })
       .then((res) => {
@@ -102,7 +102,7 @@ const Header = ({ showLogin, setShowLogin }) => {
   };
   const handleUpdatePassword = (param, password) => {
     axios
-      .put(`http://localhost:8000/api/users/${param}`, {
+      .put(`https://worldwildquiz.herokuapp.com/api/users/${param}`, {
         password,
       })
       .then((res) => {

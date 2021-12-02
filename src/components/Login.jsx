@@ -22,7 +22,7 @@ const Login = ({
   useEffect(() => {
     if (searchUser) {
       axios
-        .get(`http://localhost:8000/api/users`)
+        .get(`https://worldwildquiz.herokuapp.com/api/users`)
         .then((res) => res.data)
         .then((data) => {
           const foundUser = data.find((el) => el.pseudo === dataLogin);
@@ -39,7 +39,9 @@ const Login = ({
         ) {
           setError('');
           axios
-            .post(`/login`, dataUsers, { withCredentials: true })
+            .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
+              withCredentials: true,
+            })
             .then((res) => res.status === 200 && setTest(true));
           setShowLogin({ ...showLogin, login: false });
         } else {

@@ -34,7 +34,7 @@ const Profil = ({
   const [showInputPassword, setShowInputPassword] = useState(false);
   useEffect(() => {
     axios
-      .get(`/api/score/${user.id}`)
+      .get(`https://worldwildquiz.herokuapp.com/api/score/${user.id}`)
       .then((res) => res.data)
       .then((data) => setScoreUser(data))
       .catch((err) => console.log(err));

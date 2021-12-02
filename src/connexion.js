@@ -18,10 +18,11 @@ app.use(cors(corsOptions));
 app.use(express.json()).use(express.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: '12345',
+    secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 24 * 60 * 60 * 365 * 1000 },
+    saveUninitialized: true,
+    cookie: { path: '/', httpOnly: true, maxAge: 30 * 30000 },
+    rolling: true,
   })
 );
 

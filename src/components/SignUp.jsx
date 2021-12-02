@@ -20,7 +20,7 @@ const Login = ({ setShowLogin, showLogin }) => {
     inpt4: false,
   });
   useEffect(() => {
-    let url = `http://localhost:8000/api/users/`;
+    let url = `https://worldwildquiz.herokuapp.com/api/users/`;
     if (pseudo) {
       url += `?pseudo=${pseudo}`;
     }
@@ -48,7 +48,7 @@ const Login = ({ setShowLogin, showLogin }) => {
     e.preventDefault();
     // Je submit le formulaire et envoi les data à l'api
     if (password === confirmPassword) {
-      axios.post('http://localhost:8000/api/users', {
+      axios.post('https://worldwildquiz.herokuapp.com/api/users', {
         pseudo,
         mail,
         password,
