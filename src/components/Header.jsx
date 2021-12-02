@@ -63,7 +63,9 @@ const Header = ({ showLogin, setShowLogin }) => {
 
   const handleLogin = (dataLogin) => {
     axios
-      .post('/login', dataLogin, { withCredentials: true })
+      .post('https://worldwildquiz.herokuapp.com/login', dataLogin, {
+        withCredentials: true,
+      })
       .then((res) => res.data)
       .then((data) =>
         setUserConnected({
