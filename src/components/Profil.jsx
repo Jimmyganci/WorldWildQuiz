@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './profil.css';
-import { useEffect } from 'react/cjs/react.development';
 import axios from 'axios';
 import logout from '../imageHome/logout.png';
 import badge1 from '../imageHome/badge1.png';
