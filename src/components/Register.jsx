@@ -1,7 +1,6 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import { useState, useEffect } from 'react';
 import './register.css';
 
 const Register = ({
