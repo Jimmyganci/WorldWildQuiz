@@ -19,7 +19,7 @@ const Register = ({
   const [userConnected, setUserConnected] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:8000/login`;
+    const url = `https://worldwildquiz.herokuapp.com/login`;
     axios
       .get(url, { withCredentials: true })
       .then((res) => res.data)
@@ -30,7 +30,7 @@ const Register = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     // Je submit le formulaire et envoi les data à l'api
-    axios.post('/api/score', {
+    axios.post('https://worldwildquiz.herokuapp.com/api/score', {
       pseudo: userConnected.pseudo,
       idUser: userConnected.id,
       score: total || timer.hour + timer.minute + timer.sec,

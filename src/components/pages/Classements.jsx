@@ -11,7 +11,7 @@ const Classements = () => {
   const [scoreFilter, setScoreFilter] = useState('');
   const [selectGame, setSelectGame] = useState('Quiz');
   useEffect(() => {
-    let url = `http://localhost:8000/api/score/?gameType=${selectGame}`;
+    let url = `https://worldwildquiz.herokuapp.com/api/score/?game_type=${selectGame}`;
 
     if (challengeFilter) {
       url += `&game=${challengeFilter}`;

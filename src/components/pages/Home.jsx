@@ -13,7 +13,7 @@ const Home = () => {
   const [userConnected, setUserConnected] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:8000/login`;
+    const url = `https://worldwildquiz.herokuapp.com/login`;
     axios
       .get(url, { withCredentials: true })
       .then((res) => res.data)
