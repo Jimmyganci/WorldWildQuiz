@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/WorldWildQuiz/static/css/main.bd8568db.chunk.css",
-    "main.js": "/WorldWildQuiz/static/js/main.3794e6c3.chunk.js",
-    "main.js.map": "/WorldWildQuiz/static/js/main.3794e6c3.chunk.js.map",
+    "main.css": "/WorldWildQuiz/static/css/main.d055d25f.chunk.css",
+    "main.js": "/WorldWildQuiz/static/js/main.d11e3909.chunk.js",
+    "main.js.map": "/WorldWildQuiz/static/js/main.d11e3909.chunk.js.map",
     "runtime-main.js": "/WorldWildQuiz/static/js/runtime-main.ad272f75.js",
     "runtime-main.js.map": "/WorldWildQuiz/static/js/runtime-main.ad272f75.js.map",
     "static/js/2.11e6616b.chunk.js": "/WorldWildQuiz/static/js/2.11e6616b.chunk.js",
     "static/js/2.11e6616b.chunk.js.map": "/WorldWildQuiz/static/js/2.11e6616b.chunk.js.map",
     "index.html": "/WorldWildQuiz/index.html",
-    "static/css/main.bd8568db.chunk.css.map": "/WorldWildQuiz/static/css/main.bd8568db.chunk.css.map",
+    "static/css/main.d055d25f.chunk.css.map": "/WorldWildQuiz/static/css/main.d055d25f.chunk.css.map",
     "static/js/2.11e6616b.chunk.js.LICENSE.txt": "/WorldWildQuiz/static/js/2.11e6616b.chunk.js.LICENSE.txt",
     "static/media/africa.9254fdb7.png": "/WorldWildQuiz/static/media/africa.9254fdb7.png",
     "static/media/america.700d9edf.png": "/WorldWildQuiz/static/media/america.700d9edf.png",
@@ -35,7 +35,7 @@
   "entrypoints": [
     "static/js/runtime-main.ad272f75.js",
     "static/js/2.11e6616b.chunk.js",
-    "static/css/main.bd8568db.chunk.css",
-    "static/js/main.3794e6c3.chunk.js"
+    "static/css/main.d055d25f.chunk.css",
+    "static/js/main.d11e3909.chunk.js"
   ]
 }
