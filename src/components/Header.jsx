@@ -48,7 +48,9 @@ const Header = ({ showLogin, setShowLogin }) => {
 
   const handleLogOut = () => {
     axios
-      .post('/logout', { withCredentials: true })
+      .post('https://worldwildquiz.herokuapp.com/logout', {
+        withCredentials: true,
+      })
       .then(() => {
         setShowLogin({ ...showLogin, profil: false });
       })
