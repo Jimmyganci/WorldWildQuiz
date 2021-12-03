@@ -47,12 +47,11 @@ const Login = ({
               if (data) {
                 setTest(true);
                 setShowLogin({ ...showLogin, login: false });
-                console.log(data);
               }
             });
           setShowLogin({ ...showLogin, login: false });
         } else {
-          dataUsers && setError('Password Invalid');
+          setError('Password Invalid');
         }
       }
     }
