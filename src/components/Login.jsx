@@ -28,6 +28,7 @@ const Login = ({
         .then((data) => {
           const foundUser = data.find((el) => el.pseudo === dataLogin);
           setDataUsers(foundUser);
+          setSearchUser(false);
         });
       if (dataUsers === undefined) {
         setError('User not found');
@@ -43,19 +44,10 @@ const Login = ({
               withCredentials: true,
             })
             .then((res) => res.status === 200 && setTest(true));
+          setShowLogin({ ...showLogin, login: false });
         } else {
           setError('Password Invalid');
         }
-        axios
-          .get('https://worldwildquiz.herokuapp.com/login', {
-            withCredentials: true,
-          })
-          .then((res) => res.data)
-          .then((data) => {
-            setShowLogin({ ...showLogin, login: false });
-            console.log(data);
-            setSearchUser(false);
-          });
       }
     }
   }, [dataUsers, searchUser, error, dataLogin, dataPassword]);
