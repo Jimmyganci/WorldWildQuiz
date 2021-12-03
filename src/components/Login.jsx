@@ -49,7 +49,9 @@ const Login = ({
           setError('Password Invalid');
         }
         axios
-          .get('https://worldwildquiz.herokuapp.com/login')
+          .get('https://worldwildquiz.herokuapp.com/login', {
+            withCredentials: true,
+          })
           .then((res) => res.data)
           .then((data) => console.log(data));
       }
