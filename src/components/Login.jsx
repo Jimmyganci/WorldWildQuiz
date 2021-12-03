@@ -40,7 +40,7 @@ const Login = ({
           ) {
             setError('');
             axios
-              .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
+              .post(`http://localhost:9000/login`, dataUsers, {
                 withCredentials: true,
               })
               .then((res) => res.data)
@@ -49,7 +49,8 @@ const Login = ({
                   setTest(true);
                   setShowLogin({ ...showLogin, login: false });
                 }
-              });
+              })
+              .catch((err) => console.log(err));
             setShowLogin({ ...showLogin, login: false });
           } else {
             setError('Password Invalid');
