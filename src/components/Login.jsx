@@ -19,7 +19,7 @@ const Login = ({
     inpt1: false,
     inpt2: false,
   });
-
+  console.log(setTest);
   useEffect(() => {
     if (searchUser) {
       axios
@@ -43,7 +43,7 @@ const Login = ({
             .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
               withCredentials: true,
             })
-            .then((res) => res.status === 200 && setTest(true));
+            .then((res) => res.data);
         } else {
           setError('Password Invalid');
         }
