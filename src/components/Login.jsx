@@ -43,7 +43,12 @@ const Login = ({
             .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
               withCredentials: true,
             })
-            .then((res) => res.status === 200 && setTest(true));
+            .then((res) => res.data)
+            .then((data) => {
+              setTest(true);
+              setShowLogin({ ...showLogin, login: false });
+              console.log(data);
+            });
           setShowLogin({ ...showLogin, login: false });
         } else {
           setError('Password Invalid');
