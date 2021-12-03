@@ -19,7 +19,6 @@ const Login = ({
     inpt1: false,
     inpt2: false,
   });
-  console.log(dataUsers);
   useEffect(() => {
     if (searchUser) {
       axios
@@ -53,7 +52,7 @@ const Login = ({
             });
           setShowLogin({ ...showLogin, login: false });
         } else {
-          setError('Password Invalid');
+          dataUsers && setError('Password Invalid');
         }
       }
     }
