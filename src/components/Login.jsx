@@ -40,7 +40,7 @@ const Login = ({
           ) {
             setError('');
             axios
-              .post(`http://localhost:9000/login`, dataUsers, {
+              .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
                 withCredentials: true,
               })
               .then((res) => res.data)
