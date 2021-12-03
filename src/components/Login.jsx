@@ -44,7 +44,6 @@ const Login = ({
               withCredentials: true,
             })
             .then((res) => res.status === 200 && setTest(true));
-          setShowLogin({ ...showLogin, login: false });
         } else {
           setError('Password Invalid');
         }
@@ -53,7 +52,10 @@ const Login = ({
             withCredentials: true,
           })
           .then((res) => res.data)
-          .then((data) => console.log(data));
+          .then((data) => {
+            setShowLogin({ ...showLogin, login: false });
+            console.log(data);
+          });
       }
     }
   }, [dataUsers, searchUser, error, dataLogin, dataPassword]);
