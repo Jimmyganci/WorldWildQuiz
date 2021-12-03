@@ -1,6 +1,7 @@
-import axios from 'axios';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+
 import './login.css';
 
 const Login = ({
@@ -47,6 +48,10 @@ const Login = ({
         } else {
           setError('Password Invalid');
         }
+        axios
+          .get('https://worldwildquiz.herokuapp.com/login')
+          .then((res) => res.data)
+          .then((data) => console.log(data));
       }
     }
   }, [dataUsers, searchUser, error, dataLogin, dataPassword]);

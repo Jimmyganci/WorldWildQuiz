@@ -3,7 +3,8 @@
 import React from 'react';
 import './help.css';
 import PropTypes from 'prop-types';
-import logoUser from "../imageHome/user.png"
+import UserContext from '../contexts/UserContext';
+import logoUser from '../imageHome/user.png';
 
 class ConnectUser extends React.Component {
   constructor(props) {
@@ -12,9 +13,12 @@ class ConnectUser extends React.Component {
       isLoggin: false,
     };
   }
+  static contextType = UserContext;
 
   render() {
     const { searchUser, onClick, userConnected, test } = this.props;
+    const { userLogin } = this.context;
+    console.log(userLogin);
     return (
       <div className="helpcontainer">
         <div
@@ -27,8 +31,8 @@ class ConnectUser extends React.Component {
           aria-hidden="true"
         >
           <div className="contImageUser">
-            {test && userConnected !== '' ? (
-              <p className="letterConnected">{userConnected.pseudo[0]}</p>
+            {test && userLogin !== '' ? (
+              <p className="letterConnected">{userLogin.pseudo[0]}</p>
             ) : (
               <img src={logoUser} id="userImage" alt="logo_user" />
             )}
