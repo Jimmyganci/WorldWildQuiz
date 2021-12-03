@@ -36,7 +36,8 @@ const Login = ({
         setError('');
         if (
           dataPassword === dataUsers.password &&
-          dataLogin === dataUsers.pseudo
+          dataLogin === dataUsers.pseudo &&
+          dataUsers.length
         ) {
           setError('');
           axios
