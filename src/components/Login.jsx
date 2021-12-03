@@ -1,6 +1,7 @@
-import axios from 'axios';
-import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+
 import './login.css';
 
 const Login = ({
@@ -18,7 +19,6 @@ const Login = ({
     inpt1: false,
     inpt2: false,
   });
-
   useEffect(() => {
     if (searchUser) {
       axios
@@ -42,7 +42,13 @@ const Login = ({
             .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
               withCredentials: true,
             })
-            .then((res) => res.status === 200 && setTest(true));
+            .then((res) => res.data)
+            .then((data) => {
+              if (data) {
+                setTest(true);
+                setShowLogin({ ...showLogin, login: false });
+              }
+            });
           setShowLogin({ ...showLogin, login: false });
         } else {
           setError('Password Invalid');
