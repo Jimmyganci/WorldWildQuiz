@@ -33,25 +33,28 @@ const Login = ({
         setError('User not found');
       } else {
         setError('');
-        if (
-          dataPassword === dataUsers.password &&
-          dataLogin === dataUsers.pseudo
-        ) {
-          setError('');
-          axios
-            .post(`https://worldwildquiz.herokuapp.com/login`, dataUsers, {
-              withCredentials: true,
-            })
-            .then((res) => res.data)
-            .then((data) => {
-              if (data) {
-                setTest(true);
-                setShowLogin({ ...showLogin, login: false });
-              }
-            });
-          setShowLogin({ ...showLogin, login: false });
-        } else {
-          setError('Password Invalid');
+        if (dataUsers) {
+          if (
+            dataPassword === dataUsers.password &&
+            dataLogin === dataUsers.pseudo
+          ) {
+            setError('');
+            axios
+              .post(`http://localhost:9000/login`, dataUsers, {
+                withCredentials: true,
+              })
+              .then((res) => res.data)
+              .then((data) => {
+                if (data) {
+                  setTest(true);
+                  setShowLogin({ ...showLogin, login: false });
+                }
+              })
+              .catch((err) => console.log(err));
+            setShowLogin({ ...showLogin, login: false });
+          } else {
+            setError('Password Invalid');
+          }
         }
       }
     }

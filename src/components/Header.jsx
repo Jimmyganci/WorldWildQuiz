@@ -52,7 +52,7 @@ const Header = ({ showLogin, setShowLogin }) => {
 
   const handleLogOut = () => {
     axios
-      .post('https://worldwildquiz.herokuapp.com/logout', {
+      .delete('https://worldwildquiz.herokuapp.com/logout', {
         withCredentials: true,
       })
       .then(() => {
