@@ -45,9 +45,11 @@ const Login = ({
             })
             .then((res) => res.data)
             .then((data) => {
-              setTest(true);
-              setShowLogin({ ...showLogin, login: false });
-              console.log(data);
+              if (data) {
+                setTest(true);
+                setShowLogin({ ...showLogin, login: false });
+                console.log(data);
+              }
             });
           setShowLogin({ ...showLogin, login: false });
         } else {
