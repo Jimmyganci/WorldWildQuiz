@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import UserContext from '../contexts/UserContext';
 import Logo from './Logo';
 import Help from './Help';
 import './header.css';
@@ -33,6 +34,8 @@ const Header = ({ showLogin, setShowLogin }) => {
   const hideModal = () => {
     setOpenModal('');
   };
+  const { setUserLogin } = useContext(UserContext);
+
   /* Fin Modal */
   useEffect(() => {
     const url = `https://worldwildquiz.herokuapp.com/login`;
@@ -41,9 +44,10 @@ const Header = ({ showLogin, setShowLogin }) => {
       .then((res) => res.data)
       .then((data) => {
         setUserConnected(data);
+        setUserLogin(data);
         setTest(true);
       })
-      .catch((err) => setErrorGetData(err.response.status));
+      .catch((err) => setErrorGetData(err));
   }, [searchUser, showLogin, showInputPseudo]);
 
   const handleLogOut = () => {

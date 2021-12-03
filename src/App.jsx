@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Switch, Route, HashRouter } from 'react-router-dom';
+import { UserContextProvider } from './contexts/UserContext';
 import Culture from './components/pages/Culture';
 import Quiz from './components/pages/Quiz';
 import Home from './components/pages/Home';
@@ -19,18 +20,20 @@ const App = () => {
   return (
     <div>
       <HashRouter basename="/">
-        <Header showLogin={showLogin} setShowLogin={setShowLogin} />
-        <Switch>
-          <Route exact path="/" component={() => <Home />} />
-          <Route
-            path="/Quiz"
-            component={() => <Quiz setShowLogin={setShowLogin} />}
-          />
-          <Route path="/Memory" component={() => <Memory />} />
-          <Route path="/Classements" component={() => <Classements />} />
-          <Route path="/Culture" component={() => <Culture />} />
-          <Route path="/QuizRapid" component={() => <QuizRapid />} />
-        </Switch>
+        <UserContextProvider>
+          <Header showLogin={showLogin} setShowLogin={setShowLogin} />
+          <Switch>
+            <Route exact path="/" component={() => <Home />} />
+            <Route
+              path="/Quiz"
+              component={() => <Quiz setShowLogin={setShowLogin} />}
+            />
+            <Route path="/Memory" component={() => <Memory />} />
+            <Route path="/Classements" component={() => <Classements />} />
+            <Route path="/Culture" component={() => <Culture />} />
+            <Route path="/QuizRapid" component={() => <QuizRapid />} />
+          </Switch>
+        </UserContextProvider>
       </HashRouter>
     </div>
   );
