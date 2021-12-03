@@ -19,7 +19,7 @@ const Login = ({
     inpt1: false,
     inpt2: false,
   });
-
+  console.log(dataUsers);
   useEffect(() => {
     if (searchUser) {
       axios
@@ -36,8 +36,7 @@ const Login = ({
         setError('');
         if (
           dataPassword === dataUsers.password &&
-          dataLogin === dataUsers.pseudo &&
-          dataUsers.length
+          dataLogin === dataUsers.pseudo
         ) {
           setError('');
           axios
