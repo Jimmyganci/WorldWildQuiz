@@ -18,7 +18,6 @@ class ConnectUser extends React.Component {
   render() {
     const { searchUser, onClick, userConnected, test } = this.props;
     const { userLogin } = this.context;
-    console.log(userLogin);
     return (
       <div className="helpcontainer">
         <div
