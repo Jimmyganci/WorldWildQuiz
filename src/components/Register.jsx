@@ -32,7 +32,8 @@ const Register = ({
     axios.post('https://worldwildquiz.herokuapp.com/api/score', {
       pseudo: userConnected.pseudo,
       idUser: userConnected.id,
-      score: total || timer.hour + timer.minute + timer.sec,
+      score:
+        (total / arrayLength) * 100 || timer.hour + timer.minute + timer.sec,
       game: challengeSwitch || 'NC',
       region: regionSwitch || 'NC',
       gameType: regionSwitch ? 'Quiz' : 'Memory',
