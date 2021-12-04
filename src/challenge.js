@@ -7,7 +7,7 @@ const challenge = [
     image: capital,
   },
   {
-    nameRegion: 'Drapeaux',
+    nameRegion: 'Flags',
     image: flag,
   },
 ];
