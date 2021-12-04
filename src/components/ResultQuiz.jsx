@@ -74,13 +74,13 @@ const ResultQuiz = ({
           >
             <p>Question was:</p>
             <p>
-              What is the {challengeSwitch === 'Drapeaux' ? 'flag' : 'capital'}{' '}
-              of : <strong>{el.name}</strong>
+              What is the {challengeSwitch === 'Flags' ? 'flag' : 'capital'} of
+              : <strong>{el.name}</strong>
             </p>
             <p>Your answer:</p>
             <p>
               {' '}
-              {challengeSwitch === 'Drapeaux' ? (
+              {challengeSwitch === 'Flags' ? (
                 <img id="flagAnswer" src={el.answer} alt={el.name} />
               ) : (
                 el.answer
@@ -88,7 +88,7 @@ const ResultQuiz = ({
             </p>
             <p>Good answer:</p>
             <p>
-              {challengeSwitch === 'Drapeaux' ? (
+              {challengeSwitch === 'Flags' ? (
                 <img id="flagAnswer" src={el.flag} alt={el.name} />
               ) : (
                 el.capital

@@ -71,7 +71,7 @@ const QuizRapid = () => {
   }, [data, playOnce, difficult]);
 
   useEffect(() => {
-    setChallengeSwitch(randomNumber % 2 === 0 ? 'Capital' : 'Drapeaux');
+    setChallengeSwitch(randomNumber % 2 === 0 ? 'Capital' : 'Flags');
   }, [randomNumber, challengeSwitch]);
 
   const answerRandom = sortedData.slice(sliceVal1, sliceVal2 + 3);
@@ -173,9 +173,9 @@ const QuizRapid = () => {
             <button
               type="button"
               className={`btn ${
-                challengeSwitch === 'Drapeaux' ? 'help scale' : ''
+                challengeSwitch === 'Flags' ? 'help scale' : ''
               }`}
-              onClick={() => setChallengeSwitch('Drapeaux')}
+              onClick={() => setChallengeSwitch('Flags')}
             >
               Flags
             </button>

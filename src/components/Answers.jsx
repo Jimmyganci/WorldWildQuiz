@@ -12,7 +12,7 @@ const Answers = ({
     switch (challengeSwitch) {
       case 'Capital':
         return country.capital;
-      case 'Drapeaux':
+      case 'Flags':
         return <img src={country.flag} alt={country.name} id="flagAnswer" />;
 
       default:
@@ -25,7 +25,7 @@ const Answers = ({
       <button
         onClick={(e) => {
           nextQuestion();
-          return challengeSwitch === 'Drapeaux'
+          return challengeSwitch === 'Flags'
             ? setResultAnswer(e.target.src)
             : setResultAnswer(e.target.value);
         }}

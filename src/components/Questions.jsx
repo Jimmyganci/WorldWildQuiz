@@ -20,14 +20,14 @@ const Questions = ({
           Questions {nbQuestion + 1}/{arrayLength - 3}
         </h3>
         <p>
-          What is the {challengeSwitch === 'Drapeaux' ? 'flag' : 'capital'} of{' '}
+          What is the {challengeSwitch === 'Flags' ? 'flag' : 'capital'} of{' '}
           {country.name} ?
         </p>
       </div>
 
       <div className="img">
         {
-          challengeSwitch !== 'Drapeaux' && (
+          challengeSwitch !== 'Flags' && (
             <img src={country.flag} alt={country.name} />
           ) // j'ajoute une balise img si le challenge est porté sur les drapeaux
         }
