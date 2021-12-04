@@ -24,6 +24,7 @@ const QuizRapid = () => {
   const arrayLength = sortedData.length;
   const [challengeSwitch, setChallengeSwitch] = useState('Capital');
   const randomNumber = Math.floor(Math.random() * 10);
+  console.log(total, arrayLength);
 
   // Applique un random sur les tableaux en parametre
   const shuffleArray = (array) => {
@@ -156,6 +157,7 @@ const QuizRapid = () => {
             total={total}
             key={capitalQuestion.name}
             showResponse={showResponse}
+            arrayLength={arrayLength}
             challengeSwitch={challengeSwitch}
           />
           <div className="divBtnQuizRapid">
