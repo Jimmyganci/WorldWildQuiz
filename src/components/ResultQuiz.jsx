@@ -30,9 +30,9 @@ const ResultQuiz = ({
 
   return (
     <div className="resultQuiz">
-      <h5>Votre score est de : {Math.round((total / arrayLength) * 100)}% </h5>
+      <h5>Your score is : {Math.round((total / arrayLength) * 100)}% </h5>
       <button className="noThanks" type="button" onClick={handleCloseRegister}>
-        {isHiddenRegister ? 'Register my Score' : 'Not register my score'}
+        {isHiddenRegister ? 'Save my Score' : 'DO not save my score'}
       </button>
       <button
         id="btnCorrection"
